@@ -1,0 +1,21 @@
+# ninja log v5
+4	68	7353730198049476	CMakeFiles/Empotrados.dir/main.c.obj	8c10beb4c88e2c7c
+85	172	7354187177038619	Empotrados.exe	62cda2a4bc569212
+8	137	7353737119419549	CMakeFiles/Empotrados.dir/libbmp.c.obj	6434420087aadd5e
+2	97	7354185588587036	CMakeFiles/Empotrados.dir/test.c.obj	3adf3d4ab0ce90e3
+2	85	7354187176195070	CMakeFiles/Empotrados.dir/test2.c.obj	5c753eb9e38fd259
+1	303	7354195964197518	build.ninja	e0cfb3706ae0a18f
+2	129	7354195966152572	CMakeFiles/Empotrados.dir/main.c.obj	8c10beb4c88e2c7c
+129	324	7354195968078783	Empotrados.exe	92320f79345938b2
+2	81	7354196793489925	CMakeFiles/Empotrados.dir/main.c.obj	8c10beb4c88e2c7c
+82	168	7354196794314488	Empotrados.exe	92320f79345938b2
+3	66	7354197288505522	CMakeFiles/Empotrados.dir/main.c.obj	8c10beb4c88e2c7c
+7	102	7354197288855764	CMakeFiles/Empotrados.dir/test.c.obj	3adf3d4ab0ce90e3
+102	204	7354197289764992	Empotrados.exe	92320f79345938b2
+48	116	7354198518265296	CMakeFiles/Empotrados.dir/test.c.obj	3adf3d4ab0ce90e3
+2	153	7354198518624337	CMakeFiles/Empotrados.dir/main.c.obj	8c10beb4c88e2c7c
+153	242	7354198519467971	Empotrados.exe	92320f79345938b2
+2	81	7354199069385302	CMakeFiles/Empotrados.dir/main.c.obj	8c10beb4c88e2c7c
+82	167	7354199070203746	Empotrados.exe	92320f79345938b2
+2	95	7354210279115674	CMakeFiles/Empotrados.dir/main.c.obj	8c10beb4c88e2c7c
+95	195	7354210280065707	Empotrados.exe	92320f79345938b2
