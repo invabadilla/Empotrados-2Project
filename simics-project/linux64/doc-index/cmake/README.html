@@ -1,0 +1,804 @@
+<!doctype html>
+<head>
+<meta charset="utf-8">
+<title>Using CMake in Simics</title>
+<link rel="stylesheet" href="simics.css">
+<script>function postUrl() {
+    window.parent.postMessage({ content_url: window.location.href }, "*");
+}
+if (window.parent != null && window.parent != window) {
+    postUrl();
+    window.addEventListener("hashchange", function () {
+        postUrl();
+    });
+} else {
+    // Check if we are part of a Simics doc site and redirect if we are
+    fetch("../simics-doc-site-marker", { method: "HEAD" }).then(response => {
+        if (response.ok) {
+            window.location = "..#" + window.location.href;
+        } else {
+            console.info("Not part of a Simics documentation site");
+        }
+    }).catch(error => {
+        console.warn("Failed to check if this is a Simics documentation site:",
+            error);
+    });
+}</script>
+</head>
+<div class="chain">
+<span></span>
+</div>
+<div class="path"></div>
+<h1 id="using-cmake-in-simics"><a href="#using-cmake-in-simics">Using CMake in Simics</a></h1>
+<p>See <a href="../refmanual-cmake/README.html">Simics CMake Reference Manual</a> for details
+on the Simics CMake package.</p>
+<h2 id="introduction-to-cmake">1 <a href="#introduction-to-cmake">Introduction to CMake</a></h2>
+<h3 id="why-cmake">1.1 <a href="#why-cmake">Why CMake?</a></h3>
+<p>There are many reasons for using CMake instead of GNU Make. Some are
+opinionated while others are not. The major upsides comparing these two are:</p>
+<ul>
+<li>
+<p>CMake is a generator of build systems while GNU Make is just a build
+system. This allows CMake to split the build in two phases: configuration and
+build. And that allows CMake to apply more structure to the flow. It's also a
+lot faster as configuration only need to happen once.</p>
+</li>
+<li>
+<p>CMake is not self-modifying, unlike GNU Make, making the flow easier to
+understand and debug.  The flow is also more script-like with support for
+functions and macros making it easier to understand and develop.</p>
+</li>
+<li>
+<p>Variables in functions are scoped so there is no leaking and contaminating of
+global variables. CMake also uses a property system where properties can be
+set for each individual target, leading to even less cross-target
+contamination and thus fewer bugs.</p>
+</li>
+<li>
+<p>CMake has a better and more structured way of tracking target dependencies;
+making it easy to control and understand the build flow.</p>
+</li>
+<li>
+<p>CMake consists of just a few basic build rules, making it easy to use. There
+are only <code>add_library</code>, <code>add_executable</code> and <code>add_custom_target</code> for adding
+things to build. The basic and common functionality of how to locate and
+invoke the compiler is driven through properties and features, with sensible
+defaults if not set. So for simple targets you don't have to write much code
+while for complicated targets you can still write complicated logic to
+satisfy the build requirements/dependencies.</p>
+</li>
+<li>
+<p>CMake's language is supported by many of the most popular IDEs, providing
+both CLI and UI support. The script-like syntax and standardized split
+between code and data (e.g. the ConfigCache.txt that keeps all cached
+variables) makes it parseable by tools and IDEs. The built-in support to
+generate compile_commands.json allows IDEs to provide contextual C/C++
+support.</p>
+</li>
+<li>
+<p>CMake is cross-platform. Though you still have to handle OS-specific things,
+most of the basics is handled automatically or provided through standard
+mechanisms.</p>
+</li>
+<li>
+<p>CMake supports and highly encurages out-of-source-tree builds. And because of
+this it also handles multiple coexisting build trees out-of-the-box, which is
+useful to separate debug and release builds for example.</p>
+</li>
+</ul>
+<h3 id="what-is-cmake">1.2 <a href="#what-is-cmake">What is CMake</a></h3>
+<p>CMake is a build system generator. It defines targets (modules, libraries,
+executables, custom) and their dependencies. The dependency scope can be private,
+transitive (interface) or both (public). This is all defined in CMakeLists.txt
+files starting from the root and adding more files as they are consumed by CMake.</p>
+<p>The build system is generated into a build tree by invoking CMake. The path to
+the source tree root, the path to the build tree and the type of build system
+to generate (Ninja, GNU Make, etc) are the only required inputs. Additional
+configuration parameters such as the build type (Debug or Release) and where to
+locate the compiler etc can be provided from CLI or through some UI.</p>
+<p>Once the build system has been generated, it can be run through the build
+system runner (Ninja, GNU Make, etc) directly from the build tree "just like
+normal" <em>or</em> through the CMake do-it-all binary (i.e. <code>cmake --build &lt;path to build tree&gt; --target &lt;target&gt;</code>).</p>
+<h3 id="the-key-to-understand-cmake-targets">1.3 <a href="#the-key-to-understand-cmake-targets">The key to understand CMake - Targets</a></h3>
+<p>The best way to understand how CMake works is to think of everything as
+targets. A target is what you build, for example an executable or a library. It
+probably depends on a few libraries and those are also targets. It might depend
+on a header-only library and that is also a target. All targets are linked (not
+necessarily by a linker, but conceptually) using <code>target_link_libraries</code>. The
+scope, properties and features of each target defines how it will interact with
+other targets.</p>
+<h2 id="minimum-requirements">2 <a href="#minimum-requirements">Minimum requirements</a></h2>
+<p>Currently the minimum required version of CMake is 3.22.</p>
+<p>The requirement comes from our use of <a href="https://cmake.org/cmake/help/latest/prop_test/ENVIRONMENT_MODIFICATION.html" rel="noopener noreferrer" target="_top">ENVIRONMENT_MODIFICATION</a> in <code>simics_add_test()</code> function.</p>
+<h3 id="recommended-version">2.1 <a href="#recommended-version">Recommended version</a></h3>
+<p>The latest is the greatest, as later versions not only contains new features
+but also bugfixes and improved performance. Thus the recommended version is the
+latest version.</p>
+<p>Installing CMake locally should be easy but if access to the host's package
+management system is not granted or it does not provide a recent enough
+version; installing CMake (and Ninja) in your local folder or home directory
+can be done swiftly using pip.</p>
+<p>Running with at least 3.24 is preferred as it adds the <code>--fresh</code> command line
+option that allows you to re-run the configuration <em>without</em> any of the cached
+variables.</p>
+<h2 id="current-limitations">3 <a href="#current-limitations">Current limitations</a></h2>
+<p>These are the known limitations:</p>
+<ul>
+<li>Does not work for SystemC (yet)</li>
+<li>When using GNU Make as target build system generator on Windows, spaces in
+paths does not work. But when using Ninja as target generator it works.</li>
+</ul>
+<h2 id="recommendations">4 <a href="#recommendations">Recommendations</a></h2>
+<ul>
+<li>Use Ninja as target generator, because
+<ul>
+<li>Ninja can be used on both Linux and Windows</li>
+<li>Ninja can easily be installed using pip (along with CMake)</li>
+<li>Ninja does not have any problems with spaces on Windows</li>
+<li>Ninja can build all types of modules on Windows, while Visual Studio can only be used to build a subset. Thus using Visual Studio is not officially supported.</li>
+<li>Ninja is faster than GNU Make</li>
+</ul>
+</li>
+<li>Use CTest as test runner. Do not use the old Simics test-runner
+<ul>
+<li>CTest can run all tests in parallel and thus is much faster</li>
+<li>CTest can easily run only a subset of tests</li>
+<li>CTest can easily re-run only the failed tests</li>
+</ul>
+</li>
+<li>Read up on CMake before you start using it
+<ul>
+<li>See <a href="README.html#working-with-cmake-sources-of-reference">Working with CMake: sources of reference</a> for more details</li>
+</ul>
+</li>
+</ul>
+<h2 id="working-with-cmake-sources-of-reference">5 <a href="#working-with-cmake-sources-of-reference">Working with CMake: sources of reference</a></h2>
+<p>These sources of reference will give you everything you need:</p>
+<ul>
+<li>
+<p>See <a href="../refmanual-cmake/README.html">Simics CMake Reference Manual</a> for details
+on the Simics CMake package.</p>
+</li>
+<li>
+<p>The Simics Base repo contains converted modules, e.g. the
+<code>sample-device-*</code> modules are easy and straight forward and covers the most
+common usage.</p>
+</li>
+<li>
+<p>Links to the official documentation:</p>
+<ul>
+<li><a href="https://cmake.org/cmake/help/latest/index.html" rel="noopener noreferrer" target="_top">https://cmake.org/cmake/help/latest/index.html</a></li>
+</ul>
+</li>
+<li>
+<p>An Introduction to Modern CMake (tutorial):</p>
+<ul>
+<li><a href="https://cliutils.gitlab.io/modern-cmake/" rel="noopener noreferrer" target="_top">https://cliutils.gitlab.io/modern-cmake/</a></li>
+</ul>
+</li>
+<li>
+<p>Dos and don'ts:</p>
+<ul>
+<li><a href="https://gist.github.com/mbinna/c61dbb39bca0e4fb7d1f73b0d66a4fd1" rel="noopener noreferrer" target="_top">https://gist.github.com/mbinna/c61dbb39bca0e4fb7d1f73b0d66a4fd1</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="creating-a-simics-project-with-cmake-support">6 <a href="#creating-a-simics-project-with-cmake-support">Creating a Simics project with CMake support</a></h2>
+<pre><code class="language-shell">$ &lt;path to Simics Base&gt;/bin/project-setup . --with-cmake
+</code></pre>
+<p>If a CMakeLists.txt file already exists, run with the <code>--force</code> flag.</p>
+<h2 id="building-modules">7 <a href="#building-modules">Building modules</a></h2>
+<h3 id="general-usage">7.1 <a href="#general-usage">General usage</a></h3>
+<p>CMake is not a build system in itself, it is a generator of build systems.</p>
+<p>Thus the traditional GNU Make driven build process is, by design, split in two parts when working with CMake:</p>
+<ul>
+<li>Configuration phase ; in this phase you select the generator (i.e. target build system), the compiler to use, configure paths and options etc. At the end of the configuration a build system is generated.</li>
+<li>Build phase ; the generated build system can be built directly from the build directory using the targeted builder (e.g. Ninja or GNU Make). Or it can be built indirectly from the project root using <code>cmake --build &lt;path to build tree&gt;</code>. Changes to configuration generally require the user to re-run the configuration phase, though some changes will automatically trigger a re-configuration.</li>
+</ul>
+<p>It's important to make this distinction. It allows CMake to split the collection of static properties from dynamic properties collected during each build. This allows the build to run much faster.</p>
+<p>This is also the reason why CMake frowns upon globbing, and so this should be avoided if possible.</p>
+<p>Simics expects to locate Simics modules in the "host lib" folder, e.g. <code>&lt;project&gt;/linux64/lib</code>, so this is where Simics CMake targets emits them. The intermediate files remains in the build directory configured by the user. Unlike the old GNU Make driven flow a CMake driven flow can have multiple build directories which could be useful to separate debug and release builds for example.</p>
+<h3 id="build-modules-using-the-standard-cmake-program">7.2 <a href="#build-modules-using-the-standard-cmake-program">Build modules using the standard CMake program</a></h3>
+<p><strong>NOTE:</strong> <em>This is the recommended approach</em></p>
+<p>The simplest option (after getting used to it) is probably to use the <code>cmake</code>
+program from CLI. On Linux with bash-completions enabled you can tab-complete
+the options (but not the targets) and it contains a lot more than just the
+<code>--build</code> option making it a very useful tool to master.</p>
+<p>This is how to bootstrap (i.e. generate a build system) and build everything:</p>
+<pre><code class="language-shell">$ cmake -S . -B bt -G Ninja -DCMAKE_BUILD_TYPE=Release
+$ cmake --build bt
+</code></pre>
+<p>Where:</p>
+<ul>
+<li><code>-S .</code> ; points to where the top-level CMakeLists.txt is located (i.e. the project)</li>
+<li><code>-B bt</code> ; points to where the build tree should be created. Can be anywhere.</li>
+<li><code>-G Ninja</code> ; select which generator to use (Ninja is the fastest)</li>
+<li><code>-D&lt;flag&gt;=&lt;value&gt;</code> ; sets build flag. The <code>CMAKE_BUILD_TYPE</code> is mandatory.</li>
+</ul>
+<p>See <code>cmake --build bt --help</code> for more details. Here is a list of useful options:</p>
+<ul>
+<li><code>--target X Y Z</code> ; builds only X Y and Z targets</li>
+<li><code>--verbose</code> ; adds verbosity, shows what you build</li>
+<li><code>--clean-first</code> ; removes artifacts before building, useful to force a rebuild</li>
+</ul>
+<p>There is also the <code>ccmake</code> program, which is an ncurses frontend to configuring
+the build directory:</p>
+<pre><code class="language-shell">$ ccmake bt
+</code></pre>
+<h3 id="build-modules-using-tiny-gnu-make-wrapper">7.3 <a href="#build-modules-using-tiny-gnu-make-wrapper">Build modules using tiny GNU Make wrapper</a></h3>
+<p><strong>NOTE:</strong> <em>This is not the recommended approach, only listed for reference</em></p>
+<p>During the initial transition from GNU Make to CMake, before getting acustomed
+to the <code>cmake</code> tool, it might feel more convenient to continue with a
+make-driven flow:</p>
+<pre><code class="language-shell">$ make
+$ make &lt;target&gt;
+</code></pre>
+<p><em>NOTE:</em> this depends on the following files and local changes:</p>
+<ul>
+<li>The <code>cmake-wrapper.mk</code> file has been copied to the project
+(as is currently done by project-setup)</li>
+<li>The config-user.mk file contains the following line (must be added manually):</li>
+</ul>
+<blockquote>
+<p><code>-include cmake-wrapper.mk</code></p>
+</blockquote>
+<p>The GNU Make wrapping, provided by cmake-wrapper.mk, handles the following:</p>
+<ul>
+<li>fetches common flags from Simics .mk files</li>
+<li>sets up different build directories based on type:
+<ul>
+<li><code>D=1</code> enables a debug build and this is done in the <code>build-debug</code> folder</li>
+<li><code>D=0</code> enabled a release build and this is done in the <code>build-release</code> folder</li>
+</ul>
+</li>
+<li>makes it easy to setup paths to <code>CC</code>, <code>CXX</code>, <code>CMAKE</code> and <code>NINJA</code> and
+reconfigure the build on forced rebuilds.</li>
+</ul>
+<p><em>LIMITATIONS:</em></p>
+<ul>
+<li>standard Simics targets like <code>clean-</code>, <code>clobber-</code>, <code>test-</code>, etc does not
+work.</li>
+<li>support for this mode may be removed without deprecation phase, so it's
+better to learn how to use <code>cmake</code> directly as shown in the previous section.</li>
+</ul>
+<h3 id="build-modules-using-explicit-invocation-of-generated-build-system">7.4 <a href="#build-modules-using-explicit-invocation-of-generated-build-system">Build modules using explicit invocation of generated build system</a></h3>
+<p>Not covered by this documentation. It's recommended to run through the <code>cmake --build</code> indirection.</p>
+<h3 id="build-modules-using-your-favourite-ide-that-supports-cmake">7.5 <a href="#build-modules-using-your-favourite-ide-that-supports-cmake">Build modules using your favourite IDE that supports CMake</a></h3>
+<p>Not covered by this documentation.</p>
+<h2 id="testing-modules">8 <a href="#testing-modules">Testing modules</a></h2>
+<p>The Simics CMake package adds support for running tests via CTest and
+enables this support by default.</p>
+<p>To run all available tests:</p>
+<pre><code class="language-shell">$ ctest --test-dir bt
+</code></pre>
+<p>Useful parameters to control how the tests are run:</p>
+<ul>
+<li><code>-j N</code> ; run N tests in parallel, will speed up the testing significantly</li>
+<li><code>-R &lt;regexp&gt;</code> ; only run tests matching regexp</li>
+<li><code>-E &lt;regexp&gt;</code> ; exclude tests matching regexp</li>
+<li><code>-L &lt;regexp&gt;</code> ; only run tests with labels matching regexp</li>
+</ul>
+<p>Simics tests are added to CTest via the <code>simics_add_test()</code> function. See <a href="../refmanual-cmake/README.html#simics_add_test">Simics CMake Reference Manual</a> for details.</p>
+<h2 id="more-details-on-how-it-works">9 <a href="#more-details-on-how-it-works">More details on how it works</a></h2>
+<p>CMake expects the root of the source directory (passed to <code>cmake</code>) to contain a
+top-level <code>CMakeLists.txt</code> file that defines the CMake project. This file sets
+up compiler settings (but not the compiler!) and defines what libraries and
+executables to build. Typically the configuration for these libraries and
+executables are located in separate CMakeLists.txt files added to the project
+by calls to <code>add_subdirectory()</code>.</p>
+<p>The Simics CMake package provides the <code>simics_add_module()</code> function, and some
+other helpful functions described below, to help the user define what to build
+in the project. See <a href="../refmanual-cmake/README.html#simics_add_test">Simics CMake Reference Manual</a> for details and basic usage of all functions.</p>
+<p>In order to use the Simics CMake package it must be added to the project configuration:</p>
+<pre><code>    find_package(Simics REQUIRED)
+</code></pre>
+<p>This requires that <code>CMAKE_PREFIX_PATH</code> has been set to <code>${SIMICS_BASE}/cmake</code> where <code>SIMICS_BASE</code> is the absolute path to the Simics Base installation. The Simics project, when created with the <code>--with-cmake</code> flag, comes with a default <code>CMakeLists.txt</code> file that provides this path explicitly:</p>
+<pre><code>    find_package(Simics REQUIRED CONFIG NO_DEFAULT_PATH PATHS ${SIMICS_BASE}/cmake)
+</code></pre>
+<p>The default top-level <code>CMakeLists.txt</code> file generated by project-setup invokes the
+<code>simics_find_and_add_modules()</code> function which:</p>
+<ul>
+<li>searches for and adds all found modules within the <code>modules</code> subdir
+to the CMake project</li>
+<li>searches all modules in Simics Base, and any add-on packages found, and adds
+them to the CMake project given that they have not already been added from
+<code>modules</code> subdir.</li>
+</ul>
+<p><em>LIMITATIONS:</em></p>
+<ul>
+<li>This assumes that the CMake setup only defines one module per directory,
+which is the traditional/legacy GNU Make invariant. In a CMake project it's
+possible to provide multiple modules from the same directory. The
+<code>simics_find_and_add_modules</code> really only compares directory names, so if a
+local copy exists the corresponding directory in the add-on package will not
+be loaded regardless of its content.</li>
+<li>Modules added automatically from packages this way are marked as
+<code>EXCLUDE_FROM_ALL</code> so they don't pollute the 'all' target. They can still be
+built by specifying the target(s) explicitly.</li>
+</ul>
+<p><em>NOTE:</em> CMake will take care of providing the paths of the added modules to the compiler so it is no longer a Simics project requirement that modules must be copied into the project in order to build them. </p>
+<p>As a user you are not required to use the top-level CMakeLists.txt provided by
+project-setup. Nor are you required to call <code>simics_find_and_add_modules</code>, as
+the basic functionality is provided by the Simics CMake package. In fact, you
+are not even required to create a Simics project. See <code>simics_project_setup()</code>
+in the <a href="../refmanual-cmake/README.html#simics_project_setup">Reference Manual</a>
+for a detailed description of the supported modes. Using CMake provides a lot
+more flexibility over the old GNU Make driven Simics module build system.</p>
+<p>To build all Simics modules registered with CMake, build the <code>simics-modules</code>
+target. To list all modules, build the <code>list-simics-modules</code> target.</p>
+<h2 id="converting-an-existing-gnu-makefile-to-cmakelists-txt">10 <a href="#converting-an-existing-gnu-makefile-to-cmakelists-txt">Converting an existing GNU Makefile to CMakeLists.txt</a></h2>
+<p>Conversion follows these three steps.</p>
+<ol>
+<li>
+<p>Run the <code>gmake-to-cmake</code> converter to get a good starting point. For
+example:</p>
+<pre><code class="language-shell">$ ./bin/gmake-to-cmake modules/AT24Cxxx
+</code></pre>
+</li>
+<li>
+<p>Make note of any warnings or errors shown during conversion, for example</p>
+<pre><code class="language-shell">WARNING: MODULE_CFLAGS used, please review:
+</code></pre>
+</li>
+<li>
+<p>Make adjustments as necessary by comparing Makefile and CMakeLists.txt
+side-by-side</p>
+</li>
+</ol>
+<p>Please note that the converter is not meant to handle all types of input, and
+it only detects and reports a small set of problems. It should be used as a
+starting point only, as writing a tool that understands GNU Make is
+out-of-scope for the Simics CMake project.</p>
+<p>For trivial modules, such as the sample-device-* modules, the converter works
+and can be trusted.  But for more complicated modules that use GNU Make logic,
+conditional code, generates files, expands and filters variables to construct
+new lists, etc etc; the user must conduct a manual review.</p>
+<p>For shared common code and other folders that does not define a Simics module
+it's probably easier to start from scratch with an empty CMakeLists.txt or use
+some existing common code as template.</p>
+<p>The following sub-sections labeled A..F provides details and examples of how to
+solve some of the common problems with constructing a CMakeLists.txt file for
+Simics.</p>
+<section class="not-numbered">
+<h3 id="a-makefile-is-using-variable-references"><a href="#a-makefile-is-using-variable-references">A) Makefile is using variable references</a></h3>
+<p>Most of the time it's better to expand these indirections and use explicit
+names for classes and source files. Where indirections are warranted CMake does
+support variables via <code>set(...)</code> function. CMake has an extensive library of
+utility functions that operates on variables and lists to handle the most
+common problems.</p>
+<h3 id="b-makefile-is-using-wildcard-to-locate-files"><a href="#b-makefile-is-using-wildcard-to-locate-files">B) Makefile is using <code>wildcard</code> to locate files</a></h3>
+<p>Most of the time it's better to explicitly list all the files so CMake can
+track their dependencies properly. CMake does have support for path pattern matching via
+<code>file(GLOB ...)</code> function but these pattern matches are only run during configuration
+phase and not between consecutive builds; which means you have to explicitly
+reconfigure the project if new modules are added to the CMake project. To
+mitigate this, CMake's <code>file(GLOB ...)</code> has a <code>CONFIGURE_DEPENDS</code> option that
+causes the pattern match to be re-evaluated on every build. There is a cost involved of
+course, so use with caution and avoid if possible.</p>
+<h3 id="c-makefile-is-referencing-files-from-common-code-via-extra_module_vpath"><a href="#c-makefile-is-referencing-files-from-common-code-via-extra_module_vpath">C) Makefile is referencing files from <em>common</em> code via <code>EXTRA_MODULE_VPATH</code></a></h3>
+<p>Please note that this section is about <em>common</em> code. See (D) below for
+referencing files from other modules.</p>
+<p>There are two distinct ways common code is used by modules, and they need
+different solutions.</p>
+<h4 id="c1-makefile-is-not-passing-custom-defines-to-the-common-code"><a href="#c1-makefile-is-not-passing-custom-defines-to-the-common-code">C1) Makefile is <em>not</em> passing custom defines to the common code</a></h4>
+<p>In this case, it's always better to let the other module build a static library
+and add a dependency on that library target. This is done using
+<code>add_library(...)</code> and <code>target_link_libraries(...)</code>:</p>
+<p>In module A (the user):</p>
+<pre><code>target_link_libraries(A PRIVATE B)
+</code></pre>
+<p>In module B (the provider):</p>
+<pre><code>add_library(B STATIC 1.c 2.c 3.c ...)
+</code></pre>
+<p>The conversion of module A is handled by the converter, but the conversion of
+module B has to be done manually. In order to build module B it's likely that
+include paths must be added explicitly, and this is done by
+<code>target_include_directories(...)</code>. Paths to Simics standard includes are
+otherwise added to module A via the <code>simics_add_module(...)</code> function, but B
+cannot depend on Simics::Simics as it's a STATIC. Instead we add a dependency
+on Simics::includes.</p>
+<p>In module B:</p>
+<pre><code>target_include_directories(B
+  INCLUDE .)
+target_link_libraries(B
+  PRIVATE Simics::includes)
+</code></pre>
+<p>In the snippet above keywords <code>PRIVATE</code> and <code>INCLUDE</code> are used to control the scope
+and transitivity of these configurations. <code>PRIVATE</code> means it only applies to the
+current target. <code>INCLUDE</code> means is only applies to targets that depend on the current
+target. Configuration that should apply to both the current target and targets that
+depend on the current target, must use the <code>PUBLIC</code> keyword. 
+The use of <code>.</code> in <code>target_include_directories</code> is expanded within B to the current
+source path of B, but added to the include paths of A.</p>
+<h4 id="c2-makefile-is-passing-custom-defines-to-the-common-code-or-is-just-referencing-the-headers"><a href="#c2-makefile-is-passing-custom-defines-to-the-common-code-or-is-just-referencing-the-headers">C2) Makefile <em>is</em> passing custom defines to the common code, or is just referencing the headers</a></h4>
+<p>In this case, unlike (C1), the referenced source files (if any) <em>must</em> be built
+by module A to honor the module specific defines. To achieve this in CMake we
+define an <code>INTERFACE</code> library instead of a <code>STATIC</code> library. <code>INTERFACE</code>
+libraries do not produce any output; they are used to pass values and can be
+used as target dependencies:</p>
+<p>In module A:</p>
+<pre><code>target_link_libraries(A PRIVATE B)
+add_compile_definitions(DEVICE_NAME=A)
+</code></pre>
+<p>In module B:</p>
+<pre><code>add_library(B INTERFACE)
+target_sources(B INTERFACE 1.c 2.c 3.c ...)
+target_include_directories(B INTERFACE .)
+</code></pre>
+<p>Here <code>INTERFACE</code> means module A (the user) and the sources listed by module B
+(the provider) are added to module A. The obj files produced are put into
+module A's build directory and will not be re-used by any other module that
+also depends on module B. Please note that since the files are built by A and A
+gets Simics include paths added by <code>simics_add_module</code> there is no need to
+explicitly depend on Simics::includes here; unlike in (C1).</p>
+<p>An <code>INTERFACE</code> type library does not have to provide any sources, it can just
+provide include directories. This is useful in (D2) below. Specifically for DML
+modules common code is typically shared this way:</p>
+<pre><code>add_library(cmn-common INTERFACE)
+target_include_directories(cmn-common INTERFACE .)
+add_library(cmn-common::imports ALIAS cmn-common)
+</code></pre>
+<h3 id="d-makefile-is-referencing-files-from-other-modules-via-extra_module_vpath"><a href="#d-makefile-is-referencing-files-from-other-modules-via-extra_module_vpath">D) Makefile is referencing files from other <em>modules</em> via <code>EXTRA_MODULE_VPATH</code></a></h3>
+<p>There are two type of files: source files and header files.</p>
+<h4 id="d1-source-files"><a href="#d1-source-files">D1) Source files</a></h4>
+<p>To share source files between modules a <code>STATIC</code> type library as described in
+(C1), or an <code>INTERFACE</code> type library as described in (C2), must be created and
+given a unique name. By convention the NAME given to <code>simics_add_module</code> is the
+module name and cannot be re-used:</p>
+<p>In module A</p>
+<pre><code>target_link_libraries(A PRIVATE B::shared)
+</code></pre>
+<p>In module B</p>
+<pre><code>add_library(B-shared STATIC event-queue.c)
+target_link_libraries(B-shared PRIVATE Simics::includes)
+add_library(B::shared ALIAS B-shared)
+</code></pre>
+<p>or</p>
+<pre><code>add_library(B-shared INTERFACE)
+target_include_directories(B-shared INTERFACE .)
+target_sources(B-shared INTERFACE foo.c)
+add_library(B::shared ALIAS B-shared)
+</code></pre>
+<p>'B-shared' can be any name not already present in the CMake configuration. It
+is recommended to provide an alias to clearly indicate that 'shared' is a
+target in the B module.</p>
+<h4 id="d2-header-files"><a href="#d2-header-files">D2) Header files</a></h4>
+<p>The <code>simics_add_module</code> function automatically provides an <code>INTERFACE</code> type
+library, as described in C2, in addition to the <code>MODULE</code> type library; adding the
+current module directory as target include directory. The following three
+aliases can be used for this <code>INTERFACE</code> type library:
+<code>&lt;MODULE_NAME&gt;::includes</code>, <code>&lt;MODULE_NAME&gt;::headers</code> and
+<code>&lt;MODULE_NAME&gt;::imports</code>. They all work the same and differ only by name, to
+provide some syntactic sugar matching the language used by the Simics module.</p>
+<p>In module A:</p>
+<pre><code>target_link_libraries(A PRIVATE B::includes)
+</code></pre>
+<p>In module B: no changes needed as the <code>INTERFACE</code> type library is auto-generated.</p>
+<p>It might be tempting to use the 'MODULE_NAME' directly in
+<code>target_include_directories</code>, but this does not work. Simics modules must be
+fully isolated entities without runtime dependencies and thus are created with
+<code>MODULE</code> library type. This prevents CMake from linking a Simics module to
+anything else.</p>
+<h3 id="e-makefile-is-generating-files-based-on-other-files"><a href="#e-makefile-is-generating-files-based-on-other-files">E) Makefile is generating files based on other files</a></h3>
+<p>This is a common pattern in Simics, for example <code>module_load.py</code> which is
+generated from common code fetched from some other module. To solve this
+problem, use the CMake standard <code>add_custom_command</code> with built-in <code>cat</code>
+functionality:</p>
+<pre><code>add_custom_command(
+  OUTPUT module_load.py
+  COMMAND ${CMAKE_COMMAND} -E cat a.py b.py &gt; ${CMAKE_CURRENT_BINARY_DIR}/module_load.py
+  DEPENDS a.py b.py
+)
+</code></pre>
+<p>Also make sure that generated files are part of <code>SOURCES</code>.  Generated
+files should be output in the current binary directory,
+<code>simics_add_module</code> searches first the current source directory and
+then the current binary directory for Python and DML files.</p>
+<p>See <code>sample-risc/CMakeLists.txt</code> for an example of this.</p>
+<h3 id="f-copy-python-files-from-other-modules"><a href="#f-copy-python-files-from-other-modules">F) Copy python files from other modules</a></h3>
+<p>Sometimes a module needs to re-use python files from other modules as part of
+its own simmod structure. This can be done using standard CMake functions, but
+since it's fairly common a convenience method has been provided:</p>
+<pre><code>   simics_copy_python_files(ICH10 FROM ICH FILES ich_commands.py ich_updaters.py)
+</code></pre>
+<p>See <code>simics_copy_python_files()</code> documentation in the <a href="../refmanual-cmake/README.html#simics_copy_python_files">Reference
+Manual</a> for more
+details on usage.</p>
+</section>
+<h2 id="general-notes-tips-and-tricks">11 <a href="#general-notes-tips-and-tricks">General notes / Tips and tricks</a></h2>
+<p>The CMake+Ninja combo is the best/fastest for CLI based development. More
+powerful IDEs might leverage CMake differently. See CMake documentation for
+details. Here are a couple of tips to get started.</p>
+<h3 id="built-in-help-on-cli">11.1 <a href="#built-in-help-on-cli">Built-in help on CLI</a></h3>
+<p><code>cmake --help</code> contains <em>everything</em> you need. Especially <code>--help-command</code> to
+learn more about each command. The bash shell supports tab-completion
+out-of-the-box so it's easy to navigate. Of course, there is also the
+<a href="https://cmake.org/cmake/help/latest/index.html" rel="noopener noreferrer" target="_top">cmake.org</a> website.</p>
+<h3 id="use-build-in-cmake-commands-to-stay-portable">11.2 <a href="#use-build-in-cmake-commands-to-stay-portable">Use build-in CMake commands to stay portable</a></h3>
+<p>The <code>cmake -E</code> utility provides portable ways to do many file operations such as <code>cat</code> and should be used over if-conditional code:</p>
+<pre><code>   COMMAND ${CMAKE_COMMAND} -E cat a.py b.py &gt; ${CMAKE_CURRENT_BINARY_DIR}/module_load.py
+</code></pre>
+<p>See <code>cmake -E --help</code> or the online documentation for more details.</p>
+<h3 id="keep-things-as-local-and-targeted-as-possible">11.3 <a href="#keep-things-as-local-and-targeted-as-possible">Keep things as local and "targeted" as possible</a></h3>
+<p>For example, and as the documentation also states, use the
+<code>target_include_directories</code> instead of <code>include_directories</code> etc. The
+<code>target_</code>-prefixed versions of their counterpart require one of the
+<code>INTERFACE</code>, <code>PUBLIC</code> or <code>PRIVATE</code> keywords to define the scope of the command:</p>
+<ul>
+<li><code>PRIVATE</code> - only applies to the scope of the target</li>
+<li><code>INTERFACE</code> - applies to the scope of whoever uses/depends on the target</li>
+<li><code>PUBLIC</code> - applies to both </li>
+</ul>
+<p>Use target properties and avoid globals.</p>
+<h3 id="use-the-cmake-api-as-intended">11.4 <a href="#use-the-cmake-api-as-intended">Use the CMake API as intended</a></h3>
+<p>In the GNU Make driven Simics build system all flags added to <code>MODULE_CFLAGS</code>
+was passed to the compilation step and all flags added to <code>MODULE_LDFLAGS</code> was
+passed to the linking step. The CMake API provides functions at a finer
+granularity for expressing these things:</p>
+<ul>
+<li><code>target_include_directories()</code></li>
+<li><code>target_compile_definitions()</code></li>
+<li><code>target_compile_options()</code></li>
+<li><code>target_link_directories()</code></li>
+<li><code>target_link_libraries()</code></li>
+<li><code>target_link_options()</code></li>
+</ul>
+<p>The converter does not try to be clever and solve this problem; it just warns
+about it. For clarity it is important that flags are passed using a combination
+of these function calls. Please note that the user must also classify the scope
+of the flags, i.e. <code>PRIVATE</code>, <code>INTERFACE</code> or <code>PUBLIC</code>.</p>
+<h3 id="use-log-level-to-differentiate-messages">11.5 <a href="#use-log-level-to-differentiate-messages">Use log-level to differentiate messages</a></h3>
+<p>CMake has defined a set of log-levels that should be used to differentiate
+messages. The most important ones are:</p>
+<ul>
+<li><code>FATAL_ERROR</code> ; CMake Error, stop processing and generation.</li>
+<li><code>WARNING</code> ; CMake Warning, continue processing.</li>
+<li>(none) or <code>NOTICE</code> ; Important message printed to stderr to attract user's attention.</li>
+<li><code>STATUS</code> ; The main interesting messages that project users might be interested in.</li>
+<li><code>VERBOSE</code> ; Detailed informational messages intended for project users.</li>
+<li><code>DEBUG</code> ; Detailed informational messages intended for developers working on the project itself as opposed to users who just want to build it.</li>
+<li><code>TRACE</code> ; Fine-grained messages with very low-level implementation details. Messages using this log level would normally only be temporary and would expect to be removed before releasing the project.</li>
+</ul>
+<p>The log-level to use can quickly be changed by passing <code>--log-level</code> to <code>cmake</code>.</p>
+<p>See
+<a href="https://cmake.org/cmake/help/latest/command/message.html" rel="noopener noreferrer" target="_top">cmake.org:message()</a> for
+more details and more log levels.</p>
+<h3 id="tracing-support">11.6 <a href="#tracing-support">Tracing support</a></h3>
+<p>Correct use of message log-levels can improve debuggability, but should that
+not be enough there is always the sledge hammer!</p>
+<pre><code class="language-shell">$ cmake --trace ...
+</code></pre>
+<p>This emits <em>a lot</em> of details to stdout about what cmake is doing when
+processing the CMakeLists.txt files. To limit the output to only a few files of
+interest, add the <code>--trace-source</code> option.</p>
+<p>See <a href="https://cmake.org/cmake/help/latest/manual/cmake.1.html#cmdoption-cmake-trace" rel="noopener noreferrer" target="_top">cmake.org:--trace</a> for more details.</p>
+<h3 id="printf-debugging">11.7 <a href="#printf-debugging">Printf-debugging</a></h3>
+<p>CMake has built-in utility functions for printf-debugging:</p>
+<ul>
+<li><code>cmake_print_properties()</code></li>
+<li><code>cmake_print_variables()</code></li>
+</ul>
+<p>See <a href="https://cmake.org/cmake/help/latest/module/CMakePrintHelpers.html" rel="noopener noreferrer" target="_top">cmake.org:CMakePrintHelpers</a> for details.</p>
+<h3 id="don-t-forget-to-build-static-libraries">11.8 <a href="#don-t-forget-to-build-static-libraries">Don't forget to build static libraries</a></h3>
+<p>In general, and hence by default, you want to build shared libraries as they
+are easier to share among your build targets. But in Simics, this breaks module
+isolation and must be avoided. So remember to pass <code>STATIC</code> when building helper
+libraries, i.e.: <code>add_library(&lt;target&gt; STATIC ... )</code></p>
+<h3 id="must-build-with-fpic">11.9 <a href="#must-build-with-fpic">Must build with -fPIC</a></h3>
+<p>By default the Simics CMake configuration will set
+<code>CMAKE_POSITION_INDEPENDENT_CODE</code> to <code>ON</code> which enables all <code>STATIC</code> library
+builds to pass the <code>-fPIC</code> flag to the compiler. If this is not the case, it
+can be selected with <code>target_compile_options(&lt;target&gt; PRIVATE -fPIC)</code></p>
+<h3 id="to-share-headers-between-modules-create-an-interface-library">11.10 <a href="#to-share-headers-between-modules-create-an-interface-library">To share headers between modules, create an INTERFACE library</a></h3>
+<p>See D2 (for modules) or C2 (for common code) for more details.</p>
+<p>Note that shared/imported .dml files counts as headers in this case.</p>
+<h3 id="to-share-files-create-a-static-library">11.11 <a href="#to-share-files-create-a-static-library">To share files, create a STATIC library</a></h3>
+<p>See D1 (for modules) or C1 (for common code) for more details.</p>
+<p>In the GNU Make driven build system, code sharing was done by adding the
+<code>other.c</code> file to the <code>SRC_FILES</code> variable in the Makefile of the module where
+it was going to be used. Causing the same files to be built over and over
+multiple times. Though this is still possible to do by explicitly providing the
+absolute path to the file, it is not the recommended approach in CMake.</p>
+<p>E.g. instead of doing this:</p>
+<pre><code>   target_sources(versatile-devices
+      PRIVATE ${SIMICS_PROJECT_DIR}/src/extensions/keycodes-common/keycodes.c)
+</code></pre>
+<p>you should be doing this:</p>
+<pre><code>   target_link_libraries(versatile-devices
+      PRIVATE keycodes-common ...)
+</code></pre>
+<p>where <code>keycodes-common</code> defines a <code>STATIC</code> library like this:</p>
+<pre><code>   add_library(keycodes-common STATIC keycodes.c)
+   target_include_directories(keycodes-common PUBLIC . ...)
+</code></pre>
+<p>Please note that special flags and defines set by the target where this static
+library is used, do not propagate into the build of the static library. Such
+flags must also be set on the static library <em>or</em> the source files should be
+compiled as part of the "user" target as described by (C2).  For example, to
+build for <code>SIMICS_API=6</code> one must pass <code>target_compile_definitions(&lt;target&gt; SIMICS_6_API)</code>.</p>
+<h3 id="set-rpath">11.12 <a href="#set-rpath">Set RPATH</a></h3>
+<p>The Simics CMake package provides functions and targets to build Simics
+modules. The Simics modules are meant to be dynamically loaded by Simics and as
+such can rely on Simics to have loaded all the libraries a module depends on,
+e.g. vtutils and python. External dependencies should be avoided, to allow
+the module to be relocatable to other hosts.</p>
+<p>Other binaries built by the same project, such as utilities and unit tests, might
+require RPATH being set though and this can be done on-demand by each target
+by setting the <code>BUILD_RPATH</code> property:</p>
+<pre><code>   set_target_properties(generate-dml-from-xml
+        PROPERTIES BUILD_RPATH $ORIGIN/libs:${SIMICS_LIB}:${SIMICS_SYS_LIB})
+</code></pre>
+<p>Passing explicit linker options also works, but should be avoided:</p>
+<pre><code>   target_link_options(${MODULE_NAME} PRIVATE -Wl,-rpath,${SIMICS_SYS_LIB})
+</code></pre>
+<p>Projects that build mostly other things can setup RPATH globally in the
+top-level CMakeLists.txt using the <code>CMAKE_BUILD_RPATH</code> cache variable. See
+official CMake documentation for more details.</p>
+<h3 id="setting-properties-per-source-file">11.13 <a href="#setting-properties-per-source-file">Setting properties per source file</a></h3>
+<p>Sometimes a set of flags only apply to a subset, or just one, of the files that
+make up a target. Setting the flags on the target might then be suboptimal as
+it would affect everything built within that target. Here one could use
+<code>set_source_files_properties</code> to alter properties per source file.</p>
+<p>For example, if a compilation unit does not compile with <code>-O3</code> the optimization
+can be reduced per unit.</p>
+<p>Another example is, if <code>_FORTIFY_SOURCE=2</code> has been enabled then that requires
+<code>__OPTIMIZE__ &gt; 0</code> ; so if the current optimization level is to be reduced to
+zero one must also undefine <code>_FORTIFY_SOURCE</code>:</p>
+<pre><code>    set_source_files_properties(zuc.c
+        PROPERTIES COMPILE_OPTIONS "-O0;-U_FORTIFY_SOURCE")
+</code></pre>
+<h2 id="coverage-with-gcov-lcov">12 <a href="#coverage-with-gcov-lcov">Coverage with GCOV/LCOV</a></h2>
+<p>To configure a build tree for generating GCOV coverage the following two
+conditions must be met:</p>
+<ol>
+<li>Add the following line to top-level CMakeLists.txt file:
+<code>include(${SIMICS_BASE_DIR}/cmake/coverage.cmake)</code></li>
+<li>Configure a build tree with <code>USE_COVERAGE=1</code> and provide <code>LCOV</code>, <code>GCOV</code> and
+<code>GENHTML</code> if binaries are not already in <code>PATH</code>. See below for details.</li>
+</ol>
+<p>The <code>coverage.cmake</code> adds the following targets:</p>
+<ul>
+<li><code>init-coverage</code> ; to initialize the coverage collection</li>
+<li><code>reset-coverage</code> ; to reset the coverage counters and start over</li>
+<li><code>capture-coverage</code> ; to capture new/more coverage after running tests</li>
+<li><code>generate-coverage-report</code> ; generate an HTML report</li>
+<li><code>filter-coverage</code> ; internal target</li>
+<li><code>generate-coverage-report-internal</code> ; internal target</li>
+</ul>
+<h3 id="how-it-works">12.1 <a href="#how-it-works">How it works</a></h3>
+<p>Enabling <code>USE_COVERAGE=1</code> will enable the following flags for coverage:</p>
+<pre><code>    add_compile_options(--coverage -g -Og)
+    add_link_options(--coverage -Wl,--dynamic-list-data)
+</code></pre>
+<p>Then a normal build will produce the GCOV instrumented binaries and a normal
+run (or sequence of runs) of some tests/work-loads will generate the aggregated
+coverage data.</p>
+<p>Once coverage data has been generated, a coverage report can be generated via
+the <code>generate-coverage-report</code> utility target. The HTML report is generated in <code>&lt;build-tree&gt;/coverage/index.html</code></p>
+<p>See example below for details and step-by-step on all of this.</p>
+<h3 id="configuration">12.2 <a href="#configuration">Configuration</a></h3>
+<p>The targets are enabled only if LCOV binary is found in <code>PATH</code> or if the path
+to LCOV is provided in the <code>LCOV</code> cache variable.</p>
+<p>Assumptions and cache variables used by <code>coverage.cmake</code>:</p>
+<ul>
+<li>If LCOV is not in your <code>PATH</code>, then set <code>LCOV</code> cache variable:</li>
+<li>If GCOV is not in your <code>PATH</code>, then set <code>GCOV</code> cache variable. GCOV is typically found next to your GCC compiler and thus automatically found.</li>
+<li>If GENHTML is not in your <code>PATH</code>, then set <code>GENHTML</code> cache variable. GENHTML is typically found next to the <code>lcov</code> binary in LCOV package and thus automatically found.</li>
+</ul>
+<h3 id="example">12.3 <a href="#example">Example</a></h3>
+<ol>
+<li>Configuration:</li>
+</ol>
+<pre><code>    $ cmake -S . -B btc -G Ninja -DCMAKE_BUILD_TYPE=Debug -DUSE_COVERAGE=1 -DLCOV=/usr/itm/lcov/1.16/bin/lcov
+</code></pre>
+<ol start="2">
+<li>Build the modules</li>
+</ol>
+<pre><code>    $ cmake --build btc
+</code></pre>
+<ol start="3">
+<li>Initialize a baseline. This is important, and documented in the LCOV manual,
+so that "to ensure that the percentage of total lines covered is correct even
+when not all source code files were loaded during the test.":</li>
+</ol>
+<pre><code>    $ cmake --build btc --target init-coverage
+</code></pre>
+<ol start="4">
+<li>Run some tests to generate coverage data.</li>
+</ol>
+<pre><code>    $ ctest --test-dir btc -j40
+</code></pre>
+<ol start="5">
+<li>Generate the report</li>
+</ol>
+<pre><code>    $ cmake --build btc --target generate-coverage-report
+</code></pre>
+<ol start="6">
+<li>Optionally (for internal use): generate coverage including Simics libraries:</li>
+</ol>
+<pre><code>    $ cmake --build btc --target generate-coverage-report-internal
+</code></pre>
+<ol start="7">
+<li>
+<p>Inspect the report in <code>btc/coverage/index.html</code></p>
+</li>
+<li>
+<p>To clear/reset the coverage counters between reports:</p>
+</li>
+</ol>
+<pre><code>    $ cmake --build btc --target reset-coverage
+</code></pre>
+<h2 id="sanitization-with-asan-and-ubsan">13 <a href="#sanitization-with-asan-and-ubsan">Sanitization with ASAN and UBSAN</a></h2>
+<p>Sanitizers are a great way to find additional bugs during run-time. A typical
+flow would be to compile targets used in tests with ASAN and UBSAN, to get
+tests with a higher bug coverage. More information about what type of bugs ASAN
+and UBSAN can reveal can be found at <a href="https://github.com/google/sanitizers" rel="noopener noreferrer" target="_top">https://github.com/google/sanitizers</a>. Keep
+in mind that sanitizers are not supported on Windows.</p>
+<p>To add ASAN/UBSAN conditional compilation for a Simics module, you need to call
+the <code>simics_add_sanitizers</code> function with your module name as the parameter.
+Example:</p>
+<pre><code class="language-cmake">simics_add_module(my-device
+  CLASSES  my_device
+  SOURCES my-device.dml
+  SIMICS_API 6
+)
+simics_add_sanitizers(my-device)
+</code></pre>
+<p>This will mark the <code>my-device</code> module as a module that should be compiled with
+sanitizers when sanitizers are enabled. To enable compilation with sanitizers,
+you should set the following CMake variables accordingly. Note that you can
+enable each option individually or all at once.</p>
+<table><thead><tr><th>Variable</th><th>Enables</th></tr></thead><tbody>
+<tr><td>USE_UBSAN</td><td>UndefinedBehaviorSanitizer</td></tr>
+<tr><td>USE_ASAN</td><td>AddressSanitizer</td></tr>
+<tr><td>ASAN_STACK_USE_AFTER_RETURN</td><td>Stack-use-after-return (enables USE_ASAN)</td></tr>
+<tr><td>LSAN_SUPPRESSION_FILE</td><td>A suppression file for LSAN for false positive memory leaks</td></tr>
+<tr><td>LSAN_MALLOC_CONTEXT_SIZE</td><td>LSAN Malloc context size</td></tr>
+</tbody></table>
+<p>These cache variables can be set during CMake configuration like so:</p>
+<pre><code class="language-bash">    $ cmake --build btc -DUSE_ASAN=1 -DUSE_UBSAN=1 -DASAN_STACK_USE_AFTER_RETURN=1
+</code></pre>
+<p>or enabled after configuration by using ccmake or similar CMake configuration
+tool. The tests added with <code>simics_add_test()</code> would then have to be executed with
+<code>ctest</code> for the sanitization to apply.</p>
+<p>Keep in mind that these variables will have an affect for all CMake build types
+(Debug, Release etc).</p>
+<h3 id="asan-considerations">13.1 <a href="#asan-considerations">ASAN Considerations</a></h3>
+<p>ASAN, on average, adds a 2x slowdown. It also adds a RAM overhead, along with
+longer compilation times. It therefore makes sense to use ASAN when verifying
+the model's correctness, such as running tests. It might not make as much sense
+to use ASAN compiled models for the purpose of verifying software that
+interfaces with the model.</p>
+<p>It also makes sense to use high level of compilation optimization when compiling
+sanitized modules, since that minimizes the slowdown. Compiling with debug
+information is not mandatory for ASAN to trigger, but is needed to get useful
+information in the stack trace.</p>
+<p><code>ASAN_STACK_USE_AFTER_RETURN</code> adds even more performance and memory overhead,
+but as the name suggests can find use of pointers pointing to stack allocated
+object after a function return. See <a href="https://github.com/google/sanitizers/wiki/AddressSanitizerUseAfterReturn" rel="noopener noreferrer" target="_top">https://github.com/google/sanitizers/wiki/AddressSanitizerUseAfterReturn</a> for more information.</p>
+<h3 id="sanitized-modules-in-cli">13.2 <a href="#sanitized-modules-in-cli">Sanitized modules in CLI</a></h3>
+<p>If you want to interface with your Simics modules compiled with sanitizers using
+the Simics CLI, you can run the CMake target <code>simics-asan</code> from within your
+CMake build directory. Example:</p>
+<pre><code class="language-bash">    $ cmake --build bt --target simics-asan
+</code></pre>
+<p>This makes sure <code>LD_PRELOAD</code> and the ASAN options are properly setup before
+launching Simics, which is a requirement for the modules to trigger on errors
+correctly.</p>
+<h2 id="checking-for-dead-dml-methods">14 <a href="#checking-for-dead-dml-methods">Checking for dead DML methods</a></h2>
+<p>Using <code>simics_add_dead_methods_check()</code> on a target will add a post build step
+that will check if the module contains any dead DML methods. This will only
+happen if the <code>USE_DML_DEAD_METHODS_CHECK</code> option is enabled during
+configuration.</p>
+<p>By default, the check will only apply to source code that belongs to the current
+module. However, the <code>simics_add_dead_methods_check()</code> has an argument
+<code>EXTRA_SOURCES</code> that expands the scope of the dead methods analysis. This
+argument can be used to scan common code.</p>
+<p>Dead DML methods are methods that have been implemented but are never called.
+One example would be an implemented post_init() method in an attribute, but the
+attribute never instantiates the post_init template. This would result in a
+<code>post_init</code> method that is never invoked.</p>
+
+<div class="chain">
+<span></span>
+</div>

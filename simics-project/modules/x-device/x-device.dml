@@ -1,0 +1,148 @@
+/*
+  © 2016 Intel Corporation
+*/
+
+// This is an incomplete X device module to learn how to translate 
+//specifications to dml code. 
+
+dml 1.4;
+
+device x_device;
+
+import "utility.dml";
+import "simics/devs/memory-space.dml";
+param desc = "Data capture device";
+param documentation = "This simulated device recieves a file path in the attribute and displays the first 20 bytes of the attribute file";
+
+//this header statement imports header libraries from C directly
+header %{
+#include <stdio.h>
+#include <stdlib.h>
+%}
+
+param byte_order = "little-endian";
+
+// Memory-space connection
+connect target_mem_space {
+    param documentation =
+        "The memory space on which the Data capture device operates. Data will be "
+        + "read from and copied to the memory associated with this memory "
+        + "space.";
+    param configuration = "required";
+    interface memory_space;
+}
+
+//extern statements for the usage of this library function calls of the imports defined above
+extern FILE * fopen(const char *, const char *);
+extern int fgetc(FILE *);
+extern int fseek(FILE *, int, int);
+extern int ftell(FILE *);
+extern int fclose(FILE *);
+extern typedef struct { } FILE;
+
+
+// DML Workshop
+// Add your code HERE!
+
+// constant size of buffer
+param BUFFER_SIZE = 5_000_000;
+
+//variable with the file handle
+session FILE * file;
+
+/*
+    simulates input data received by the device
+    recieves a path to the file that will be populate in this device registers
+*/
+
+attribute input {
+    param type = "s";
+    session char* val;
+    session int len;
+    //get handler, gets called with called from CLI or the get interface
+    method get() -> (attr_value_t) default {
+        return SIM_make_attr_string(val != NULL ? val : "");
+      
+    }
+
+    //set handler, gets called with called from CLI or the set interface
+    method set(attr_value_t attr) throws default {
+        local const char* attr_str = SIM_attr_string(attr);
+        set_string(attr_str);
+
+    }
+
+    /* 
+        set_string: copies the parmater char * to the internal char structure
+        the old stored value is deleted 
+    */
+    method set_string(const char *ptr) {
+        if (len > 0) {delete val;}
+        len = strlen(ptr);
+        val = new char[len + 1];
+        strcpy(val, ptr);
+    }
+} 
+
+bank regs is function_mapped_bank {
+    /* Each register bank need to have a unique function number,
+       which should match with the map_func param in one BAR */
+    param function = 1;
+
+    register file_size size 4 @ 0x0 {
+        is read_only;
+        param init_val = 0x0;
+    }
+
+    register buf_size size 4 @ 0x4 {
+        is read_only;
+        param init_val = BUFFER_SIZE;
+    }
+    
+    //when command register is written with a 1 then the device outputs current data 
+    //stored in the input attribute
+    register cmd size 4 @ 0x14 {
+        is write;
+        param init_val = 0x0;
+        
+        //called on write by the processor
+        method write(uint64 value) {
+            local uint32 index = 0;
+            if (value == 0x1) {
+                if(input.val != NULL) {
+                    file = fopen(input.val, "rb");
+                    if (file == NULL) {
+                        log info, 4: "Error opening file";
+                    }
+                    else{
+                        fseek(file, 0 , 2);
+                        regs.file_size.val = ftell(file);
+                        fseek(file, 0, 0);
+
+                        for (index = 0; index < regs.file_size.val; index++) {
+                            local uint8 char_read = fgetc(file);
+                            buffer[index].set_val(char_read);
+                             if (index < 20) {
+                                log info, 4: "loaded val = 0x%x @ buffer[%d]", char_read, index;
+                            }  
+                        }
+                        fclose(file);
+                    }
+		        }
+            }
+
+        }
+    }
+    
+    //for communicating initial 8 bytes of the file after command=1 and input attr value is populated
+    register buffer[i < BUFFER_SIZE] size 1 @ 0x18 + i {
+        is read_only;
+        param init_val = 0x0;
+    }
+}
+
+
+
+
+
+

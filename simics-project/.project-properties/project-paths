@@ -1,0 +1,4 @@
+project: /home/usuario/Downloads/academia-collaboration/simics-project
+simics-root: /home/usuario/Simics/simics-6.0.185
+simics-model-builder: /home/usuario/Simics/simics-6.0.185
+mingw: None

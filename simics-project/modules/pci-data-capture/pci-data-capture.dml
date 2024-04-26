@@ -1,0 +1,106 @@
+/*
+  Device PCI data capture
+  This simulated PCI device recieves a file path in the attribute and displays the
+  first 8 bytes of the attribute file as a parameter.
+
+  This Software is part of Simics. The rights to copy, distribute,
+  modify, or otherwise make use of this Software may be licensed only
+  pursuant to the terms of an applicable license agreement.
+  
+  Copyright 2010-2021 Intel Corporation
+
+*/
+
+dml 1.4;
+
+device pci_data_capture;
+import "utility.dml";
+import "simics/devs/memory-space.dml";
+param desc = "PCI data capture";
+param documentation = "This simulated PCI device recieves a file path in the attribute and displays the first 8 bytes of the attribute file";
+
+
+/*
+    imports the basic pci functionality
+    template is applied for the pci_device 
+*/
+import "pci/common.dml";
+is pci_device;
+
+connect target_mem_space {
+    param documentation =
+        "The memory space on which the DMA engine operates. Data will be "
+        + "read from and copied to the memory associated with this memory "
+        + "space.";
+    //param configuration = "required";
+    interface memory_space;
+}
+
+param pci_hotplug = true;
+
+method read_mem(void *dst,
+                physical_address_t src,
+                physical_address_t len) throws {
+    local exception_type_t exc;
+    exc = target_mem_space.memory_space.access_simple(dev.obj,
+                                                src,
+                                                dst,
+                                                len,
+                                                Sim_RW_Read,
+                                                Sim_Endian_Target);
+
+    if (exc != Sim_PE_No_Exception) {
+        log error: "an error occurred when reading target memory";
+        throw;
+    }
+}
+
+
+bank pci_config {
+    /* This attribute should contain a list of all BAR registers */
+    param base_address_registers = ["base_address_0"];
+ 
+    register vendor_id { param init_val = 0x104C; } // Texas Instruments
+    register device_id { param init_val = 0xAC10; } // PC Card Controller
+
+    register base_address_0 @ 0x10 is (memory_base_address_32) {
+        param size_bits = 18;
+        param map_func = 1;
+    }
+    register base_address_1 @ 0x14 is (no_base_address_32);
+    register base_address_2 @ 0x18 is (no_base_address_32);
+    register base_address_3 @ 0x1C is (no_base_address_32);
+    register base_address_4 @ 0x20 is (no_base_address_32);
+    register base_address_5 @ 0x24 is (no_base_address_32);
+}
+
+
+bank regs is function_mapped_bank{
+    param function = 1;
+    register test_register size 4 @ 0x0 {
+        param init_val = 0x0;
+        method write_register(uint64 value, uint64 enabled_bytes, void *aux) {
+            //default(1, enabled_bytes, aux);
+            if (value < 0x18){
+                try {
+                local uint8 buf[4];
+                read_mem(buf, 0x250000000 + value, 4);
+                default(buf[0], enabled_bytes, aux);
+                } catch {
+                    log error: "Memory access failed";
+                }
+            }
+            else{
+            try {
+                local uint8 buf[1];
+                read_mem(buf, 0x250000000 + value, 1);
+                default(buf[0], enabled_bytes, aux);
+            } catch {
+                log error: "Memory access failed";
+            }
+            }
+            
+        }
+    }
+}
+
