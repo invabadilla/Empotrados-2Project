@@ -446,8 +446,8 @@
 #line 447 "x-device-dml.h"
 #undef DMLDIR_MEMORY_SPACE_H
 
-#define DMLDIR_X_DEVICE_H "/home/usuario/Downloads/academia-collaboration/simics-project/modules/x-device/x-device.h"
-#line 18 "/home/usuario/Downloads/academia-collaboration/simics-project/modules/x-device/x-device.dml"
+#define DMLDIR_X_DEVICE_H "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/x-device/x-device.h"
+#line 18 "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/x-device/x-device.dml"
 
 #include <stdio.h>
 #include <stdlib.h>

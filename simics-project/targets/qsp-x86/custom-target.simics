@@ -8,7 +8,7 @@ instantiate-components
 
 #For further debug
 #turning all verbose for the device
-pci_capture.log-level 4
+#pci_capture.log-level 4
 #write to the command reg for testing
 #pci_capture.dev->input = ""
 #board.mb.nb.pci_bus.mem_space.map

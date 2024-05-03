@@ -1,0 +1,98 @@
+Ignoring --ignore-existing-files, it is used when creating a project.
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/start-viewer
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/start-viewer-gpu
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/mini-python3
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/vmp-kernel-unload
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/list-targets
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/documentation
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/documentation
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/create-modcache
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/vmp-kernel-load
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/project-packager
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/vmp-kernel-uninstall
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/lookup-file
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/vmp-kernel-install
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/mini-python
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/craff
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/simics-old
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/simics-old
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/project-paths
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/port-dml
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/gmake-to-cmake
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/test-runner
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/workspace-setup
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/simics-eclipse
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/simics-eclipse
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/gen-modcache
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/valgrind-simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/craff-fs
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/port-dml-module
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/checkpoint-merge
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/create-packages
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/gen-cc-interface
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/build-systemc-libraries
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/addon-manager
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/simics-gui
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/simics-gui
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/project-setup
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/gui-backend
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/dmlc
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/aescrypt
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/py-2to3
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/prepare-lab-files
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/debug-simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/bin/gdb
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/vacuum/vacuum.simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/cosim/queues-in-cosimulator.simics
+Updated directory /home/usuario/Documents/Empotrados-2Project/simics-project/targets
+Updated directory /home/usuario/Documents/Empotrados-2Project/simics-project/targets
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/qsp-x86/qsp-sample-core-timing.simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/qsp-x86/qsp-clear-linux.simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/qsp-x86/qsp-dvd-boot.simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/qsp-x86/qsp-usb-boot.simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/qsp-x86/firststeps.simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/qsp-x86/firststeps-multi.simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/qsp-x86/firststeps-no-network.simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/qsp-x86/qsp-hdd-boot.simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/qsp-x86/qsp-clear-linux-pcie-demo.simics
+Updated directory /home/usuario/Documents/Empotrados-2Project/simics-project/targets
+Updated directory /home/usuario/Documents/Empotrados-2Project/simics-project/targets
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/simics-user-training/900-copy-debug-files-to-project.simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/simics-user-training/003-qsp-training-old-style.simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/simics-builder-training/020-explore-lifecycle.simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/simics-builder-training/011-events-and-time.simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/simics-builder-training/001-qsp-training-setup.simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/simics-builder-training/010-explore-mem-map.simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/workshop-01/010-network-setup.simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/workshop-01/001-prep-workload-disk-image.simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/workshop-01/003-auto-save-checkpoint.simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/workshop-01/004-auto-imix-analysis.simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/workshop-01/002-boot-with-workload.simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/workshop-01/005-auto-cache-analysis.simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/workshop-02/008-system-benchmarking.simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/workshop-02/002-try-m-compute-with-display.simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/workshop-02/004-use-component.simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/workshop-02/001-try-m-compute.simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/workshop-02/006-accelerator-in-qsp.simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/workshop-02/003-control-unit.simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/workshop-02/005-try-parallel-compute.simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/workshop-02/010-try-m-display.simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/workshop-02/007-prep-system-benchmarking.simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/workshop-02/000-find-simics-installation.simics
+Updated directory /home/usuario/Documents/Empotrados-2Project/simics-project/targets
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/docea/docea-initial-time.simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/docea/docea-physical.simics
+Updated directory /home/usuario/Documents/Empotrados-2Project/simics-project/targets
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/qsp-x86/qsp-server-core.simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/qsp-x86/qsp-client-core.simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/qsp-x86/qsp-modern-core.simics
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/qsp-x86/qsp-atom-core.simics
+Updated directory /home/usuario/Documents/Empotrados-2Project/simics-project/targets
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/targets/qsp-isim/qsp-isim-clear-linux.simics
+Updated directory /home/usuario/Documents/Empotrados-2Project/simics-project/targets
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/compiler.mk
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/config.mk
+Wrote or updated /home/usuario/Documents/Empotrados-2Project/simics-project/GNUmakefile
+Project updated successfully

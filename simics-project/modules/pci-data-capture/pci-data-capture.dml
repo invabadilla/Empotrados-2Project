@@ -85,7 +85,13 @@ bank regs is function_mapped_bank{
                 try {
                 local uint8 buf[4];
                 read_mem(buf, 0x250000000 + value, 4);
-                default(buf[0], enabled_bytes, aux);
+                local uint32 result;
+                // Concatenate the bytes using bitwise OR and shifting
+                result |= buf[0];
+                result |= (cast(buf[1], uint32) << 8);
+                result |= (cast(buf[2], uint32) << 16);
+                result |= (cast(buf[3], uint32) << 24);
+                default(result, enabled_bytes, aux);
                 } catch {
                     log error: "Memory access failed";
                 }

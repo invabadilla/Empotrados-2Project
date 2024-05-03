@@ -1,12 +1,12 @@
-$disk0_image = "/home/usuario/Downloads/qsp-driver-support.craff"
+$disk0_image = "../image_save0.craff"
 
 # Find the script file in the project using %simics%/
 run-command-file "%simics%/targets/qsp-x86/custom-target.simics"
 
 run-command-file "%simics%/targets/qsp-x86/x.simics"
 
-pci_capture.log-level 4
-x.log-level 4
+pci_capture.log-level 1
+x.log-level 1
 
 pci_capture.dev->target_mem_space = board.mb.phys_mem
 board.mb.phys_mem.add-map x.bank.regs 0x250000000 0x4C4B58
@@ -14,3 +14,8 @@ x->input = "/home/usuario/scared_cat.bmp"
 
 
 board.mb.phys_mem.map
+enable-real-time-mode
+connect-real-network
+#run
+#start-agent-manager
+#agent_manager.connect-to-agent

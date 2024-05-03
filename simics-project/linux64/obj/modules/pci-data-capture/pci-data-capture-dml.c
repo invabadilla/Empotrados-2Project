@@ -5611,49 +5611,63 @@ static void  _DML_M_regs__test_register__write_register(pci_data_capture_t *_dev
             if (_DML_M_read_mem(_dev, v802_buf, 0x250000000ULL + value, 4ULL))
             #line 87 "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/pci-data-capture/pci-data-capture.dml"
             goto throw8;
-            _DML_TM_register__write_register(_dev, ((write_register) {(&_tr_regs_test_register____implicit__init_val_hard_reset___init_val_soft_reset__register._register.write_register), ((_identity_t) {.id = 91, .encoded_index = 0})}), (uint64 )v802_buf[0LL], enabled_bytes, aux);
+            uint32 v802_result UNUSED  = 0LL;
+            #line 90 "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/pci-data-capture/pci-data-capture.dml"
+            uint32 *v804_tmp UNUSED  = &v802_result;
+            #line 90 "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/pci-data-capture/pci-data-capture.dml"
+            *v804_tmp = (uint32 )(((int64 )*v804_tmp) | ((int64 )v802_buf[0LL]));
+            uint32 *v805_tmp UNUSED  = &v802_result;
+            #line 91 "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/pci-data-capture/pci-data-capture.dml"
+            *v805_tmp = (uint32 )(((int64 )*v805_tmp) | (DML_shl((int64 )((uint32 )v802_buf[1LL]), 8LL, "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/pci-data-capture/pci-data-capture.dml", 91)));
+            uint32 *v806_tmp UNUSED  = &v802_result;
+            #line 92 "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/pci-data-capture/pci-data-capture.dml"
+            *v806_tmp = (uint32 )(((int64 )*v806_tmp) | (DML_shl((int64 )((uint32 )v802_buf[2LL]), 16LL, "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/pci-data-capture/pci-data-capture.dml", 92)));
+            uint32 *v807_tmp UNUSED  = &v802_result;
+            #line 93 "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/pci-data-capture/pci-data-capture.dml"
+            *v807_tmp = (uint32 )(((int64 )*v807_tmp) | (DML_shl((int64 )((uint32 )v802_buf[3LL]), 24LL, "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/pci-data-capture/pci-data-capture.dml", 93)));
+            _DML_TM_register__write_register(_dev, ((write_register) {(&_tr_regs_test_register____implicit__init_val_hard_reset___init_val_soft_reset__register._register.write_register), ((_identity_t) {.id = 91, .encoded_index = 0})}), (uint64 )v802_result, enabled_bytes, aux);
         }
         if (false) throw8:
-        #line 90 "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/pci-data-capture/pci-data-capture.dml"
+        #line 96 "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/pci-data-capture/pci-data-capture.dml"
         SIM_LOG_ERROR(_dev->regs._obj, 0LL, "Memory access failed");
         #line 85 "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/pci-data-capture/pci-data-capture.dml"
     }
-    #line 93 "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/pci-data-capture/pci-data-capture.dml"
+    #line 99 "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/pci-data-capture/pci-data-capture.dml"
     else
     {
-        #line 94 "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/pci-data-capture/pci-data-capture.dml"
+        #line 100 "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/pci-data-capture/pci-data-capture.dml"
         {
-            uint8 v806_buf[1LL] UNUSED ;
-            #line 95 "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/pci-data-capture/pci-data-capture.dml"
-            memset((void *)&v806_buf, 0, sizeof(uint8 [1LL]));
-            if (_DML_M_read_mem(_dev, v806_buf, 0x250000000ULL + value, 1ULL))
-            #line 96 "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/pci-data-capture/pci-data-capture.dml"
+            uint8 v810_buf[1LL] UNUSED ;
+            #line 101 "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/pci-data-capture/pci-data-capture.dml"
+            memset((void *)&v810_buf, 0, sizeof(uint8 [1LL]));
+            if (_DML_M_read_mem(_dev, v810_buf, 0x250000000ULL + value, 1ULL))
+            #line 102 "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/pci-data-capture/pci-data-capture.dml"
             goto throw9;
-            _DML_TM_register__write_register(_dev, ((write_register) {(&_tr_regs_test_register____implicit__init_val_hard_reset___init_val_soft_reset__register._register.write_register), ((_identity_t) {.id = 91, .encoded_index = 0})}), (uint64 )v806_buf[0LL], enabled_bytes, aux);
+            _DML_TM_register__write_register(_dev, ((write_register) {(&_tr_regs_test_register____implicit__init_val_hard_reset___init_val_soft_reset__register._register.write_register), ((_identity_t) {.id = 91, .encoded_index = 0})}), (uint64 )v810_buf[0LL], enabled_bytes, aux);
         }
         if (false) throw9:
-        #line 99 "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/pci-data-capture/pci-data-capture.dml"
+        #line 105 "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/pci-data-capture/pci-data-capture.dml"
         SIM_LOG_ERROR(_dev->regs._obj, 0LL, "Memory access failed");
-        #line 94 "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/pci-data-capture/pci-data-capture.dml"
+        #line 100 "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/pci-data-capture/pci-data-capture.dml"
     }
-    #line 103 "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/pci-data-capture/pci-data-capture.dml"
+    #line 109 "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/pci-data-capture/pci-data-capture.dml"
     return;
-    #line 103 "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/pci-data-capture/pci-data-capture.dml"
+    #line 109 "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/pci-data-capture/pci-data-capture.dml"
 }
-#line 5644 "pci-data-capture-dml.c"
+#line 5658 "pci-data-capture-dml.c"
 
 /* read_mem */
 static bool _DML_M_read_mem(pci_data_capture_t *_dev, void  *dst, physical_address_t src, physical_address_t len)
 #line 43 "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/pci-data-capture/pci-data-capture.dml"
 {
-    exception_type_t v809_exc UNUSED  = 0LL;
+    exception_type_t v813_exc UNUSED  = 0LL;
     {
         #line 45 "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/pci-data-capture/pci-data-capture.dml"
-        v809_exc = ((memory_space_interface_t const *)_dev->target_mem_space.memory_space.val)->access_simple(_dev->target_mem_space.obj, &_dev->obj, src, dst, len, (int32 )0LL, (int32 )0LL);
+        v813_exc = ((memory_space_interface_t const *)_dev->target_mem_space.memory_space.val)->access_simple(_dev->target_mem_space.obj, &_dev->obj, src, dst, len, (int32 )0LL, (int32 )0LL);
         #line 45 "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/pci-data-capture/pci-data-capture.dml"
     }
     #line 52 "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/pci-data-capture/pci-data-capture.dml"
-    if (!((int64 )v809_exc == 0x401LL))
+    if (!((int64 )v813_exc == 0x401LL))
     #line 52 "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/pci-data-capture/pci-data-capture.dml"
     {
         SIM_LOG_ERROR(&_dev->obj, 0LL, "an error occurred when reading target memory");
@@ -5662,7 +5676,7 @@ static bool _DML_M_read_mem(pci_data_capture_t *_dev, void  *dst, physical_addre
     return 0;
     #line 56 "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/pci-data-capture/pci-data-capture.dml"
 }
-#line 5666 "pci-data-capture-dml.c"
+#line 5680 "pci-data-capture-dml.c"
 
 /* pci_config.transaction_access */
 static exception_type_t _DML_M_pci_config__transaction_access(pci_data_capture_t *_dev, transaction_t *t, uint64 offset, void  *aux)
@@ -5672,7 +5686,7 @@ static exception_type_t _DML_M_pci_config__transaction_access(pci_data_capture_t
     #line 2619 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     return (int32 )0x407LL;
 }
-#line 5676 "pci-data-capture-dml.c"
+#line 5690 "pci-data-capture-dml.c"
 
 /* pci_config.vendor_id.write */
 static void  _DML_M_pci_config__vendor_id__write(pci_data_capture_t *_dev, uint64 value)
@@ -5695,7 +5709,7 @@ static void  _DML_M_pci_config__vendor_id__write(pci_data_capture_t *_dev, uint6
     return;
     #line 279 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 5699 "pci-data-capture-dml.c"
+#line 5713 "pci-data-capture-dml.c"
 
 /* pci_config.vendor_id.do_write */
 static void  _DML_M_pci_config__vendor_id__do_write(pci_data_capture_t *_dev, uint64 value)
@@ -5705,7 +5719,7 @@ static void  _DML_M_pci_config__vendor_id__do_write(pci_data_capture_t *_dev, ui
     return;
     #line 268 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 5709 "pci-data-capture-dml.c"
+#line 5723 "pci-data-capture-dml.c"
 
 /* pci_config.vendor_id.can_write */
 static bool _DML_M_pci_config__vendor_id__can_write(pci_data_capture_t *_dev, uint64 value)
@@ -5713,7 +5727,7 @@ static bool _DML_M_pci_config__vendor_id__can_write(pci_data_capture_t *_dev, ui
 {
     return (CALL_TRAIT_METHOD0(_get, get, _dev, UPCAST(((__implicit__init_val_hard_reset___init_val_soft_reset___reg_write_as_field__read_only_custom_write) {(&_tr_pci_config_vendor_id____implicit__init_val_hard_reset___init_val_soft_reset___reg_write_as_field__read_only_custom_write), ((_identity_t) {.id = 83, .encoded_index = 0})}), __implicit__init_val_hard_reset___init_val_soft_reset___reg_write_as_field__read_only_custom_write, _reg_write_as_field._register.get._get))) == value;
 }
-#line 5717 "pci-data-capture-dml.c"
+#line 5731 "pci-data-capture-dml.c"
 
 /* pci_config.subsystem_vendor_id.write */
 static void  _DML_M_pci_config__subsystem_vendor_id__write(pci_data_capture_t *_dev, uint64 value)
@@ -5736,7 +5750,7 @@ static void  _DML_M_pci_config__subsystem_vendor_id__write(pci_data_capture_t *_
     return;
     #line 279 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 5740 "pci-data-capture-dml.c"
+#line 5754 "pci-data-capture-dml.c"
 
 /* pci_config.subsystem_vendor_id.do_write */
 static void  _DML_M_pci_config__subsystem_vendor_id__do_write(pci_data_capture_t *_dev, uint64 value)
@@ -5746,7 +5760,7 @@ static void  _DML_M_pci_config__subsystem_vendor_id__do_write(pci_data_capture_t
     return;
     #line 268 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 5750 "pci-data-capture-dml.c"
+#line 5764 "pci-data-capture-dml.c"
 
 /* pci_config.subsystem_vendor_id.can_write */
 static bool _DML_M_pci_config__subsystem_vendor_id__can_write(pci_data_capture_t *_dev, uint64 value)
@@ -5754,7 +5768,7 @@ static bool _DML_M_pci_config__subsystem_vendor_id__can_write(pci_data_capture_t
 {
     return (CALL_TRAIT_METHOD0(_get, get, _dev, UPCAST(((__implicit__init_val_hard_reset___init_val_soft_reset___reg_write_as_field__read_only_custom_write) {(&_tr_pci_config_subsystem_vendor_id____implicit__init_val_hard_reset___init_val_soft_reset___reg_write_as_field__read_only_custom_write), ((_identity_t) {.id = 82, .encoded_index = 0})}), __implicit__init_val_hard_reset___init_val_soft_reset___reg_write_as_field__read_only_custom_write, _reg_write_as_field._register.get._get))) == value;
 }
-#line 5758 "pci-data-capture-dml.c"
+#line 5772 "pci-data-capture-dml.c"
 
 /* pci_config.subsystem_id.write */
 static void  _DML_M_pci_config__subsystem_id__write(pci_data_capture_t *_dev, uint64 value)
@@ -5777,7 +5791,7 @@ static void  _DML_M_pci_config__subsystem_id__write(pci_data_capture_t *_dev, ui
     return;
     #line 279 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 5781 "pci-data-capture-dml.c"
+#line 5795 "pci-data-capture-dml.c"
 
 /* pci_config.subsystem_id.do_write */
 static void  _DML_M_pci_config__subsystem_id__do_write(pci_data_capture_t *_dev, uint64 value)
@@ -5787,7 +5801,7 @@ static void  _DML_M_pci_config__subsystem_id__do_write(pci_data_capture_t *_dev,
     return;
     #line 268 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 5791 "pci-data-capture-dml.c"
+#line 5805 "pci-data-capture-dml.c"
 
 /* pci_config.subsystem_id.can_write */
 static bool _DML_M_pci_config__subsystem_id__can_write(pci_data_capture_t *_dev, uint64 value)
@@ -5795,7 +5809,7 @@ static bool _DML_M_pci_config__subsystem_id__can_write(pci_data_capture_t *_dev,
 {
     return (CALL_TRAIT_METHOD0(_get, get, _dev, UPCAST(((__implicit__init_val_hard_reset___init_val_soft_reset___reg_write_as_field__read_only_custom_write) {(&_tr_pci_config_subsystem_id____implicit__init_val_hard_reset___init_val_soft_reset___reg_write_as_field__read_only_custom_write), ((_identity_t) {.id = 81, .encoded_index = 0})}), __implicit__init_val_hard_reset___init_val_soft_reset___reg_write_as_field__read_only_custom_write, _reg_write_as_field._register.get._get))) == value;
 }
-#line 5799 "pci-data-capture-dml.c"
+#line 5813 "pci-data-capture-dml.c"
 
 /* pci_config.status.mhz.write_field */
 static void  _DML_M_pci_config__status__mhz__write_field(pci_data_capture_t *_dev, uint64 value, uint64 enabled_bits, void  *aux)
@@ -5804,7 +5818,7 @@ static void  _DML_M_pci_config__status__mhz__write_field(pci_data_capture_t *_de
     return;
     #line 386 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
 }
-#line 5808 "pci-data-capture-dml.c"
+#line 5822 "pci-data-capture-dml.c"
 
 /* pci_config.status.ir.write_field */
 static void  _DML_M_pci_config__status__ir__write_field(pci_data_capture_t *_dev, uint64 value, uint64 enabled_bits, void  *aux)
@@ -5813,7 +5827,7 @@ static void  _DML_M_pci_config__status__ir__write_field(pci_data_capture_t *_dev
     return;
     #line 386 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
 }
-#line 5817 "pci-data-capture-dml.c"
+#line 5831 "pci-data-capture-dml.c"
 
 /* pci_config.status.ins.write_field */
 static void  _DML_M_pci_config__status__ins__write_field(pci_data_capture_t *_dev, uint64 value, uint64 enabled_bits, void  *aux)
@@ -5822,7 +5836,7 @@ static void  _DML_M_pci_config__status__ins__write_field(pci_data_capture_t *_de
     return;
     #line 386 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
 }
-#line 5826 "pci-data-capture-dml.c"
+#line 5840 "pci-data-capture-dml.c"
 
 /* pci_config.status.fbb.write_field */
 static void  _DML_M_pci_config__status__fbb__write_field(pci_data_capture_t *_dev, uint64 value, uint64 enabled_bits, void  *aux)
@@ -5831,7 +5845,7 @@ static void  _DML_M_pci_config__status__fbb__write_field(pci_data_capture_t *_de
     return;
     #line 386 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
 }
-#line 5835 "pci-data-capture-dml.c"
+#line 5849 "pci-data-capture-dml.c"
 
 /* pci_config.status.ds.write_field */
 static void  _DML_M_pci_config__status__ds__write_field(pci_data_capture_t *_dev, uint64 value, uint64 enabled_bits, void  *aux)
@@ -5840,7 +5854,7 @@ static void  _DML_M_pci_config__status__ds__write_field(pci_data_capture_t *_dev
     return;
     #line 386 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
 }
-#line 5844 "pci-data-capture-dml.c"
+#line 5858 "pci-data-capture-dml.c"
 
 /* pci_config.status.c.write_field */
 static void  _DML_M_pci_config__status__c__write_field(pci_data_capture_t *_dev, uint64 value, uint64 enabled_bits, void  *aux)
@@ -5849,7 +5863,7 @@ static void  _DML_M_pci_config__status__c__write_field(pci_data_capture_t *_dev,
     return;
     #line 386 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
 }
-#line 5853 "pci-data-capture-dml.c"
+#line 5867 "pci-data-capture-dml.c"
 
 /* pci_config.revision_id.write */
 static void  _DML_M_pci_config__revision_id__write(pci_data_capture_t *_dev, uint64 value)
@@ -5872,7 +5886,7 @@ static void  _DML_M_pci_config__revision_id__write(pci_data_capture_t *_dev, uin
     return;
     #line 279 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 5876 "pci-data-capture-dml.c"
+#line 5890 "pci-data-capture-dml.c"
 
 /* pci_config.revision_id.do_write */
 static void  _DML_M_pci_config__revision_id__do_write(pci_data_capture_t *_dev, uint64 value)
@@ -5882,7 +5896,7 @@ static void  _DML_M_pci_config__revision_id__do_write(pci_data_capture_t *_dev, 
     return;
     #line 268 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 5886 "pci-data-capture-dml.c"
+#line 5900 "pci-data-capture-dml.c"
 
 /* pci_config.revision_id.can_write */
 static bool _DML_M_pci_config__revision_id__can_write(pci_data_capture_t *_dev, uint64 value)
@@ -5890,7 +5904,7 @@ static bool _DML_M_pci_config__revision_id__can_write(pci_data_capture_t *_dev, 
 {
     return (CALL_TRAIT_METHOD0(_get, get, _dev, UPCAST(((__implicit__init_val_hard_reset___init_val_soft_reset___reg_write_as_field__read_only_custom_write) {(&_tr_pci_config_revision_id____implicit__init_val_hard_reset___init_val_soft_reset___reg_write_as_field__read_only_custom_write), ((_identity_t) {.id = 67, .encoded_index = 0})}), __implicit__init_val_hard_reset___init_val_soft_reset___reg_write_as_field__read_only_custom_write, _reg_write_as_field._register.get._get))) == value;
 }
-#line 5894 "pci-data-capture-dml.c"
+#line 5908 "pci-data-capture-dml.c"
 
 /* pci_config.min_gnt.write */
 static void  _DML_M_pci_config__min_gnt__write(pci_data_capture_t *_dev, uint64 value)
@@ -5913,7 +5927,7 @@ static void  _DML_M_pci_config__min_gnt__write(pci_data_capture_t *_dev, uint64 
     return;
     #line 279 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 5917 "pci-data-capture-dml.c"
+#line 5931 "pci-data-capture-dml.c"
 
 /* pci_config.min_gnt.do_write */
 static void  _DML_M_pci_config__min_gnt__do_write(pci_data_capture_t *_dev, uint64 value)
@@ -5923,7 +5937,7 @@ static void  _DML_M_pci_config__min_gnt__do_write(pci_data_capture_t *_dev, uint
     return;
     #line 268 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 5927 "pci-data-capture-dml.c"
+#line 5941 "pci-data-capture-dml.c"
 
 /* pci_config.min_gnt.can_write */
 static bool _DML_M_pci_config__min_gnt__can_write(pci_data_capture_t *_dev, uint64 value)
@@ -5931,7 +5945,7 @@ static bool _DML_M_pci_config__min_gnt__can_write(pci_data_capture_t *_dev, uint
 {
     return (CALL_TRAIT_METHOD0(_get, get, _dev, UPCAST(((__implicit__init_val_hard_reset___init_val_soft_reset___reg_write_as_field__read_only_custom_write) {(&_tr_pci_config_min_gnt____implicit__init_val_hard_reset___init_val_soft_reset___reg_write_as_field__read_only_custom_write), ((_identity_t) {.id = 64, .encoded_index = 0})}), __implicit__init_val_hard_reset___init_val_soft_reset___reg_write_as_field__read_only_custom_write, _reg_write_as_field._register.get._get))) == value;
 }
-#line 5935 "pci-data-capture-dml.c"
+#line 5949 "pci-data-capture-dml.c"
 
 /* pci_config.max_lat.write */
 static void  _DML_M_pci_config__max_lat__write(pci_data_capture_t *_dev, uint64 value)
@@ -5954,7 +5968,7 @@ static void  _DML_M_pci_config__max_lat__write(pci_data_capture_t *_dev, uint64 
     return;
     #line 279 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 5958 "pci-data-capture-dml.c"
+#line 5972 "pci-data-capture-dml.c"
 
 /* pci_config.max_lat.do_write */
 static void  _DML_M_pci_config__max_lat__do_write(pci_data_capture_t *_dev, uint64 value)
@@ -5964,7 +5978,7 @@ static void  _DML_M_pci_config__max_lat__do_write(pci_data_capture_t *_dev, uint
     return;
     #line 268 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 5968 "pci-data-capture-dml.c"
+#line 5982 "pci-data-capture-dml.c"
 
 /* pci_config.max_lat.can_write */
 static bool _DML_M_pci_config__max_lat__can_write(pci_data_capture_t *_dev, uint64 value)
@@ -5972,7 +5986,7 @@ static bool _DML_M_pci_config__max_lat__can_write(pci_data_capture_t *_dev, uint
 {
     return (CALL_TRAIT_METHOD0(_get, get, _dev, UPCAST(((__implicit__init_val_hard_reset___init_val_soft_reset___reg_write_as_field__read_only_custom_write) {(&_tr_pci_config_max_lat____implicit__init_val_hard_reset___init_val_soft_reset___reg_write_as_field__read_only_custom_write), ((_identity_t) {.id = 63, .encoded_index = 0})}), __implicit__init_val_hard_reset___init_val_soft_reset___reg_write_as_field__read_only_custom_write, _reg_write_as_field._register.get._get))) == value;
 }
-#line 5976 "pci-data-capture-dml.c"
+#line 5990 "pci-data-capture-dml.c"
 
 /* pci_config.interrupts.soft_reset */
 static void  _DML_M_pci_config__interrupts__soft_reset(pci_data_capture_t *_dev)
@@ -5983,7 +5997,7 @@ static void  _DML_M_pci_config__interrupts__soft_reset(pci_data_capture_t *_dev)
     return;
     #line 442 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 5987 "pci-data-capture-dml.c"
+#line 6001 "pci-data-capture-dml.c"
 
 /* pci_config.interrupts.hard_reset */
 static void  _DML_M_pci_config__interrupts__hard_reset(pci_data_capture_t *_dev)
@@ -5994,7 +6008,7 @@ static void  _DML_M_pci_config__interrupts__hard_reset(pci_data_capture_t *_dev)
     return;
     #line 438 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 5998 "pci-data-capture-dml.c"
+#line 6012 "pci-data-capture-dml.c"
 
 /* pci_config.interrupt_pin.write */
 static void  _DML_M_pci_config__interrupt_pin__write(pci_data_capture_t *_dev, uint64 value)
@@ -6017,7 +6031,7 @@ static void  _DML_M_pci_config__interrupt_pin__write(pci_data_capture_t *_dev, u
     return;
     #line 279 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 6021 "pci-data-capture-dml.c"
+#line 6035 "pci-data-capture-dml.c"
 
 /* pci_config.interrupt_pin.do_write */
 static void  _DML_M_pci_config__interrupt_pin__do_write(pci_data_capture_t *_dev, uint64 value)
@@ -6027,7 +6041,7 @@ static void  _DML_M_pci_config__interrupt_pin__do_write(pci_data_capture_t *_dev
     return;
     #line 268 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 6031 "pci-data-capture-dml.c"
+#line 6045 "pci-data-capture-dml.c"
 
 /* pci_config.interrupt_pin.can_write */
 static bool _DML_M_pci_config__interrupt_pin__can_write(pci_data_capture_t *_dev, uint64 value)
@@ -6035,7 +6049,7 @@ static bool _DML_M_pci_config__interrupt_pin__can_write(pci_data_capture_t *_dev
 {
     return (CALL_TRAIT_METHOD0(_get, get, _dev, UPCAST(((__implicit__init_val_hard_reset___init_val_soft_reset___reg_write_as_field__read_only_custom_write) {(&_tr_pci_config_interrupt_pin____implicit__init_val_hard_reset___init_val_soft_reset___reg_write_as_field__read_only_custom_write), ((_identity_t) {.id = 59, .encoded_index = 0})}), __implicit__init_val_hard_reset___init_val_soft_reset___reg_write_as_field__read_only_custom_write, _reg_write_as_field._register.get._get))) == value;
 }
-#line 6039 "pci-data-capture-dml.c"
+#line 6053 "pci-data-capture-dml.c"
 
 /* pci_config.header_type.type.write_field */
 static void  _DML_M_pci_config__header_type__type__write_field(pci_data_capture_t *_dev, uint64 value, uint64 enabled_bits, void  *aux)
@@ -6044,7 +6058,7 @@ static void  _DML_M_pci_config__header_type__type__write_field(pci_data_capture_
     return;
     #line 386 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
 }
-#line 6048 "pci-data-capture-dml.c"
+#line 6062 "pci-data-capture-dml.c"
 
 /* pci_config.header_type.mf.write_field */
 static void  _DML_M_pci_config__header_type__mf__write_field(pci_data_capture_t *_dev, uint64 value, uint64 enabled_bits, void  *aux)
@@ -6053,7 +6067,7 @@ static void  _DML_M_pci_config__header_type__mf__write_field(pci_data_capture_t 
     return;
     #line 386 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
 }
-#line 6057 "pci-data-capture-dml.c"
+#line 6071 "pci-data-capture-dml.c"
 
 /* pci_config.expansion_rom_base.update_mapping */
 static void  _DML_M_pci_config__expansion_rom_base__update_mapping(pci_data_capture_t *_dev)
@@ -6066,7 +6080,7 @@ static void  _DML_M_pci_config__expansion_rom_base__update_mapping(pci_data_capt
     return;
     #line 599 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 6070 "pci-data-capture-dml.c"
+#line 6084 "pci-data-capture-dml.c"
 
 /* pci_config.expansion_rom_base.pci_mapping_object */
 static conf_object_t *_DML_M_pci_config__expansion_rom_base__pci_mapping_object(pci_data_capture_t *_dev)
@@ -6074,7 +6088,7 @@ static conf_object_t *_DML_M_pci_config__expansion_rom_base__pci_mapping_object(
 {
     return _dev->expansion_rom.obj;
 }
-#line 6078 "pci-data-capture-dml.c"
+#line 6092 "pci-data-capture-dml.c"
 
 /* pci_config.expansion_rom_base.pci_mapping_enabled */
 static bool _DML_M_pci_config__expansion_rom_base__pci_mapping_enabled(pci_data_capture_t *_dev)
@@ -6083,21 +6097,21 @@ static bool _DML_M_pci_config__expansion_rom_base__pci_mapping_enabled(pci_data_
     return (!((CALL_TRAIT_METHOD0(_get, get, _dev, UPCAST(((__implicit__init_val_hard_reset___init_val_soft_reset___read_field___write_field__field__read__write) {(&_tr_pci_config_expansion_rom_base_e____implicit__init_val_hard_reset___init_val_soft_reset___read_field___write_field__field__read__write), ((_identity_t) {.id = 52, .encoded_index = 0})}), __implicit__init_val_hard_reset___init_val_soft_reset___read_field___write_field__field__read__write, field._get))) == 0LL) && !(_dev->expansion_rom.obj == NULL)) && !(_dev->expansion_rom_size.val == 0LL);
     #line 659 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 6087 "pci-data-capture-dml.c"
+#line 6101 "pci-data-capture-dml.c"
 
 /* pci_config.expansion_rom_base.pci_bar_size_bits */
 static int _DML_M_pci_config__expansion_rom_base__pci_bar_size_bits(pci_data_capture_t *_dev)
 #line 649 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 {
-    int v862_bits UNUSED  = 0LL;
+    int v866_bits UNUSED  = 0LL;
     {
         #line 651 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-        v862_bits = log2_64(_dev->expansion_rom_size.val);
+        v866_bits = log2_64(_dev->expansion_rom_size.val);
         #line 651 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
     }
-    return v862_bits;
+    return v866_bits;
 }
-#line 6101 "pci-data-capture-dml.c"
+#line 6115 "pci-data-capture-dml.c"
 
 /* pci_config.expansion_rom_base.e.write */
 static void  _DML_M_pci_config__expansion_rom_base__e__write(pci_data_capture_t *_dev, uint64 value)
@@ -6118,29 +6132,29 @@ static void  _DML_M_pci_config__expansion_rom_base__e__write(pci_data_capture_t 
     return;
     #line 646 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 6122 "pci-data-capture-dml.c"
+#line 6136 "pci-data-capture-dml.c"
 
 /* pci_config.expansion_rom_base.e.read */
 static uint64 _DML_M_pci_config__expansion_rom_base__e__read(pci_data_capture_t *_dev)
 #line 629 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 {
-    uint64 v867_value UNUSED  = 0LL;
+    uint64 v871_value UNUSED  = 0LL;
     if (!(_dev->expansion_rom.obj == NULL) && !(_dev->expansion_rom_size.val == 0LL))
     {
         #line 632 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-        v867_value = CALL_TRAIT_METHOD0(_get, get, _dev, UPCAST(((__implicit__init_val_hard_reset___init_val_soft_reset___read_field___write_field__field__read__write) {(&_tr_pci_config_expansion_rom_base_e____implicit__init_val_hard_reset___init_val_soft_reset___read_field___write_field__field__read__write), ((_identity_t) {.id = 52, .encoded_index = 0})}), __implicit__init_val_hard_reset___init_val_soft_reset___read_field___write_field__field__read__write, field._get));
+        v871_value = CALL_TRAIT_METHOD0(_get, get, _dev, UPCAST(((__implicit__init_val_hard_reset___init_val_soft_reset___read_field___write_field__field__read__write) {(&_tr_pci_config_expansion_rom_base_e____implicit__init_val_hard_reset___init_val_soft_reset___read_field___write_field__field__read__write), ((_identity_t) {.id = 52, .encoded_index = 0})}), __implicit__init_val_hard_reset___init_val_soft_reset___read_field___write_field__field__read__write, field._get));
         #line 632 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
     }
     else
     {
         #line 634 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-        v867_value = 0ULL;
+        v871_value = 0ULL;
         #line 634 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
     }
     #line 636 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-    return v867_value;
+    return v871_value;
 }
-#line 6144 "pci-data-capture-dml.c"
+#line 6158 "pci-data-capture-dml.c"
 
 /* pci_config.expansion_rom_base.base.write */
 static void  _DML_M_pci_config__expansion_rom_base__base__write(pci_data_capture_t *_dev, uint64 value)
@@ -6161,29 +6175,29 @@ static void  _DML_M_pci_config__expansion_rom_base__base__write(pci_data_capture
     return;
     #line 623 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 6165 "pci-data-capture-dml.c"
+#line 6179 "pci-data-capture-dml.c"
 
 /* pci_config.expansion_rom_base.base.read */
 static uint64 _DML_M_pci_config__expansion_rom_base__base__read(pci_data_capture_t *_dev)
 #line 606 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 {
-    uint64 v875_value UNUSED  = 0LL;
+    uint64 v879_value UNUSED  = 0LL;
     if (!(_dev->expansion_rom.obj == NULL) && !(_dev->expansion_rom_size.val == 0LL))
     {
         #line 609 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-        v875_value = CALL_TRAIT_METHOD0(base_address, get_base, _dev, UPCAST(((__implicit__init_val_hard_reset___init_val_soft_reset__base_address) {(&_tr_pci_config_expansion_rom_base____implicit__init_val_hard_reset___init_val_soft_reset__base_address), ((_identity_t) {.id = 53, .encoded_index = 0})}), __implicit__init_val_hard_reset___init_val_soft_reset__base_address, base_address));
+        v879_value = CALL_TRAIT_METHOD0(base_address, get_base, _dev, UPCAST(((__implicit__init_val_hard_reset___init_val_soft_reset__base_address) {(&_tr_pci_config_expansion_rom_base____implicit__init_val_hard_reset___init_val_soft_reset__base_address), ((_identity_t) {.id = 53, .encoded_index = 0})}), __implicit__init_val_hard_reset___init_val_soft_reset__base_address, base_address));
         #line 609 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
     }
     else
     {
         #line 611 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-        v875_value = 0ULL;
+        v879_value = 0ULL;
         #line 611 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
     }
     #line 613 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-    return v875_value;
+    return v879_value;
 }
-#line 6187 "pci-data-capture-dml.c"
+#line 6201 "pci-data-capture-dml.c"
 
 /* pci_config.device_id.write */
 static void  _DML_M_pci_config__device_id__write(pci_data_capture_t *_dev, uint64 value)
@@ -6206,7 +6220,7 @@ static void  _DML_M_pci_config__device_id__write(pci_data_capture_t *_dev, uint6
     return;
     #line 279 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 6210 "pci-data-capture-dml.c"
+#line 6224 "pci-data-capture-dml.c"
 
 /* pci_config.device_id.do_write */
 static void  _DML_M_pci_config__device_id__do_write(pci_data_capture_t *_dev, uint64 value)
@@ -6216,7 +6230,7 @@ static void  _DML_M_pci_config__device_id__do_write(pci_data_capture_t *_dev, ui
     return;
     #line 268 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 6220 "pci-data-capture-dml.c"
+#line 6234 "pci-data-capture-dml.c"
 
 /* pci_config.device_id.can_write */
 static bool _DML_M_pci_config__device_id__can_write(pci_data_capture_t *_dev, uint64 value)
@@ -6224,7 +6238,7 @@ static bool _DML_M_pci_config__device_id__can_write(pci_data_capture_t *_dev, ui
 {
     return (CALL_TRAIT_METHOD0(_get, get, _dev, UPCAST(((__implicit__init_val_hard_reset___init_val_soft_reset___reg_write_as_field__read_only_custom_write) {(&_tr_pci_config_device_id____implicit__init_val_hard_reset___init_val_soft_reset___reg_write_as_field__read_only_custom_write), ((_identity_t) {.id = 50, .encoded_index = 0})}), __implicit__init_val_hard_reset___init_val_soft_reset___reg_write_as_field__read_only_custom_write, _reg_write_as_field._register.get._get))) == value;
 }
-#line 6228 "pci-data-capture-dml.c"
+#line 6242 "pci-data-capture-dml.c"
 
 /* pci_config.command.mem.write */
 static void  _DML_M_pci_config__command__mem__write(pci_data_capture_t *_dev, uint64 enable)
@@ -6255,18 +6269,18 @@ static void  _DML_M_pci_config__command__mem__write(pci_data_capture_t *_dev, ui
                     #line 486 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
                     {
                         #line 486 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-                        base_address v889_reg UNUSED  = {_list.vtable, {_list.id, _inner_idx}};
-                        if (VTABLE_PARAM(UPCAST(v889_reg, base_address, _register), struct __register, mapped) && (int64 )strcmp(VTABLE_PARAM(UPCAST(v889_reg, base_address, map_params), struct _map_params, map_type), "memory") == 0LL)
+                        base_address v893_reg UNUSED  = {_list.vtable, {_list.id, _inner_idx}};
+                        if (VTABLE_PARAM(UPCAST(v893_reg, base_address, _register), struct __register, mapped) && (int64 )strcmp(VTABLE_PARAM(UPCAST(v893_reg, base_address, map_params), struct _map_params, map_type), "memory") == 0LL)
                         #line 487 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
                         {
                             #line 489 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-                            if ((int64 )strcmp(VTABLE_PARAM(UPCAST(v889_reg, base_address, _register._conf_attribute.object.name), struct _name, name), "base_address_0") == 0LL)
-                            CALL_TRAIT_METHOD0(base_address, update_mapping, _dev, v889_reg);
+                            if ((int64 )strcmp(VTABLE_PARAM(UPCAST(v893_reg, base_address, _register._conf_attribute.object.name), struct _name, name), "base_address_0") == 0LL)
+                            CALL_TRAIT_METHOD0(base_address, update_mapping, _dev, v893_reg);
                             #line 492 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-                            if ((int64 )strcmp(VTABLE_PARAM(UPCAST(v889_reg, base_address, _register._conf_attribute.object.name), struct _name, name), "expansion_rom_base") == 0LL)
-                            CALL_TRAIT_METHOD0(base_address, update_mapping, _dev, v889_reg);
+                            if ((int64 )strcmp(VTABLE_PARAM(UPCAST(v893_reg, base_address, _register._conf_attribute.object.name), struct _name, name), "expansion_rom_base") == 0LL)
+                            CALL_TRAIT_METHOD0(base_address, update_mapping, _dev, v893_reg);
                         }
-                        #line 6270 "pci-data-capture-dml.c"
+                        #line 6284 "pci-data-capture-dml.c"
                     }
                     #line 486 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
                 }
@@ -6280,7 +6294,7 @@ static void  _DML_M_pci_config__command__mem__write(pci_data_capture_t *_dev, ui
     return;
     #line 546 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 6284 "pci-data-capture-dml.c"
+#line 6298 "pci-data-capture-dml.c"
 
 /* pci_config.command.m.write */
 static void  _DML_M_pci_config__command__m__write(pci_data_capture_t *_dev, uint64 enable)
@@ -6301,7 +6315,7 @@ static void  _DML_M_pci_config__command__m__write(pci_data_capture_t *_dev, uint
     return;
     #line 558 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 6305 "pci-data-capture-dml.c"
+#line 6319 "pci-data-capture-dml.c"
 
 /* pci_config.command.io.write */
 static void  _DML_M_pci_config__command__io__write(pci_data_capture_t *_dev, uint64 enable)
@@ -6332,18 +6346,18 @@ static void  _DML_M_pci_config__command__io__write(pci_data_capture_t *_dev, uin
                     #line 486 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
                     {
                         #line 486 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-                        base_address v901_reg UNUSED  = {_list.vtable, {_list.id, _inner_idx}};
-                        if (VTABLE_PARAM(UPCAST(v901_reg, base_address, _register), struct __register, mapped) && (int64 )strcmp(VTABLE_PARAM(UPCAST(v901_reg, base_address, map_params), struct _map_params, map_type), "I/O") == 0LL)
+                        base_address v905_reg UNUSED  = {_list.vtable, {_list.id, _inner_idx}};
+                        if (VTABLE_PARAM(UPCAST(v905_reg, base_address, _register), struct __register, mapped) && (int64 )strcmp(VTABLE_PARAM(UPCAST(v905_reg, base_address, map_params), struct _map_params, map_type), "I/O") == 0LL)
                         #line 487 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
                         {
                             #line 489 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-                            if ((int64 )strcmp(VTABLE_PARAM(UPCAST(v901_reg, base_address, _register._conf_attribute.object.name), struct _name, name), "base_address_0") == 0LL)
-                            CALL_TRAIT_METHOD0(base_address, update_mapping, _dev, v901_reg);
+                            if ((int64 )strcmp(VTABLE_PARAM(UPCAST(v905_reg, base_address, _register._conf_attribute.object.name), struct _name, name), "base_address_0") == 0LL)
+                            CALL_TRAIT_METHOD0(base_address, update_mapping, _dev, v905_reg);
                             #line 492 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-                            if ((int64 )strcmp(VTABLE_PARAM(UPCAST(v901_reg, base_address, _register._conf_attribute.object.name), struct _name, name), "expansion_rom_base") == 0LL)
-                            CALL_TRAIT_METHOD0(base_address, update_mapping, _dev, v901_reg);
+                            if ((int64 )strcmp(VTABLE_PARAM(UPCAST(v905_reg, base_address, _register._conf_attribute.object.name), struct _name, name), "expansion_rom_base") == 0LL)
+                            CALL_TRAIT_METHOD0(base_address, update_mapping, _dev, v905_reg);
                         }
-                        #line 6347 "pci-data-capture-dml.c"
+                        #line 6361 "pci-data-capture-dml.c"
                     }
                     #line 486 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
                 }
@@ -6357,7 +6371,7 @@ static void  _DML_M_pci_config__command__io__write(pci_data_capture_t *_dev, uin
     return;
     #line 536 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 6361 "pci-data-capture-dml.c"
+#line 6375 "pci-data-capture-dml.c"
 
 /* pci_config.command.id.write */
 static void  _DML_M_pci_config__command__id__write(pci_data_capture_t *_dev, uint64 value)
@@ -6381,7 +6395,7 @@ static void  _DML_M_pci_config__command__id__write(pci_data_capture_t *_dev, uin
     return;
     #line 571 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 6385 "pci-data-capture-dml.c"
+#line 6399 "pci-data-capture-dml.c"
 
 /* pci_config.class_code.write */
 static void  _DML_M_pci_config__class_code__write(pci_data_capture_t *_dev, uint64 value)
@@ -6404,7 +6418,7 @@ static void  _DML_M_pci_config__class_code__write(pci_data_capture_t *_dev, uint
     return;
     #line 279 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 6408 "pci-data-capture-dml.c"
+#line 6422 "pci-data-capture-dml.c"
 
 /* pci_config.class_code.do_write */
 static void  _DML_M_pci_config__class_code__do_write(pci_data_capture_t *_dev, uint64 value)
@@ -6414,7 +6428,7 @@ static void  _DML_M_pci_config__class_code__do_write(pci_data_capture_t *_dev, u
     return;
     #line 268 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 6418 "pci-data-capture-dml.c"
+#line 6432 "pci-data-capture-dml.c"
 
 /* pci_config.class_code.can_write */
 static bool _DML_M_pci_config__class_code__can_write(pci_data_capture_t *_dev, uint64 value)
@@ -6422,7 +6436,7 @@ static bool _DML_M_pci_config__class_code__can_write(pci_data_capture_t *_dev, u
 {
     return (CALL_TRAIT_METHOD0(_get, get, _dev, UPCAST(((__implicit__init_val_hard_reset___init_val_soft_reset___reg_write_as_field__read_only_custom_write) {(&_tr_pci_config_class_code____implicit__init_val_hard_reset___init_val_soft_reset___reg_write_as_field__read_only_custom_write), ((_identity_t) {.id = 37, .encoded_index = 0})}), __implicit__init_val_hard_reset___init_val_soft_reset___reg_write_as_field__read_only_custom_write, _reg_write_as_field._register.get._get))) == value;
 }
-#line 6426 "pci-data-capture-dml.c"
+#line 6440 "pci-data-capture-dml.c"
 
 /* pci_config.cardbus_cis_ptr.write */
 static void  _DML_M_pci_config__cardbus_cis_ptr__write(pci_data_capture_t *_dev, uint64 value)
@@ -6445,7 +6459,7 @@ static void  _DML_M_pci_config__cardbus_cis_ptr__write(pci_data_capture_t *_dev,
     return;
     #line 279 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 6449 "pci-data-capture-dml.c"
+#line 6463 "pci-data-capture-dml.c"
 
 /* pci_config.cardbus_cis_ptr.do_write */
 static void  _DML_M_pci_config__cardbus_cis_ptr__do_write(pci_data_capture_t *_dev, uint64 value)
@@ -6455,7 +6469,7 @@ static void  _DML_M_pci_config__cardbus_cis_ptr__do_write(pci_data_capture_t *_d
     return;
     #line 268 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 6459 "pci-data-capture-dml.c"
+#line 6473 "pci-data-capture-dml.c"
 
 /* pci_config.cardbus_cis_ptr.can_write */
 static bool _DML_M_pci_config__cardbus_cis_ptr__can_write(pci_data_capture_t *_dev, uint64 value)
@@ -6463,7 +6477,7 @@ static bool _DML_M_pci_config__cardbus_cis_ptr__can_write(pci_data_capture_t *_d
 {
     return (CALL_TRAIT_METHOD0(_get, get, _dev, UPCAST(((__implicit__init_val_hard_reset___init_val_soft_reset___reg_write_as_field__read_only_custom_write) {(&_tr_pci_config_cardbus_cis_ptr____implicit__init_val_hard_reset___init_val_soft_reset___reg_write_as_field__read_only_custom_write), ((_identity_t) {.id = 36, .encoded_index = 0})}), __implicit__init_val_hard_reset___init_val_soft_reset___reg_write_as_field__read_only_custom_write, _reg_write_as_field._register.get._get))) == value;
 }
-#line 6467 "pci-data-capture-dml.c"
+#line 6481 "pci-data-capture-dml.c"
 
 /* pci_config.bist.write */
 static void  _DML_M_pci_config__bist__write(pci_data_capture_t *_dev, uint64 value)
@@ -6474,7 +6488,7 @@ static void  _DML_M_pci_config__bist__write(pci_data_capture_t *_dev, uint64 val
     return;
     #line 584 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 6478 "pci-data-capture-dml.c"
+#line 6492 "pci-data-capture-dml.c"
 
 /* pci_config.bist.read_field */
 static uint64 _DML_M_pci_config__bist__read_field(pci_data_capture_t *_dev, uint64 enabled_bits, void  *aux)
@@ -6482,7 +6496,7 @@ static uint64 _DML_M_pci_config__bist__read_field(pci_data_capture_t *_dev, uint
 {
     return 0ULL;
 }
-#line 6486 "pci-data-capture-dml.c"
+#line 6500 "pci-data-capture-dml.c"
 
 /* pci_config.bist.set */
 static void  _DML_M_pci_config__bist__set(pci_data_capture_t *_dev, uint64 value)
@@ -6493,7 +6507,7 @@ static void  _DML_M_pci_config__bist__set(pci_data_capture_t *_dev, uint64 value
     return;
     #line 580 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 6497 "pci-data-capture-dml.c"
+#line 6511 "pci-data-capture-dml.c"
 
 /* pci_config.base_address_5.ignore.write_field */
 static void  _DML_M_pci_config__base_address_5__ignore__write_field(pci_data_capture_t *_dev, uint64 value, uint64 enabled_bits, void  *aux)
@@ -6502,7 +6516,7 @@ static void  _DML_M_pci_config__base_address_5__ignore__write_field(pci_data_cap
     return;
     #line 386 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
 }
-#line 6506 "pci-data-capture-dml.c"
+#line 6520 "pci-data-capture-dml.c"
 
 /* pci_config.base_address_4.ignore.write_field */
 static void  _DML_M_pci_config__base_address_4__ignore__write_field(pci_data_capture_t *_dev, uint64 value, uint64 enabled_bits, void  *aux)
@@ -6511,7 +6525,7 @@ static void  _DML_M_pci_config__base_address_4__ignore__write_field(pci_data_cap
     return;
     #line 386 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
 }
-#line 6515 "pci-data-capture-dml.c"
+#line 6529 "pci-data-capture-dml.c"
 
 /* pci_config.base_address_3.ignore.write_field */
 static void  _DML_M_pci_config__base_address_3__ignore__write_field(pci_data_capture_t *_dev, uint64 value, uint64 enabled_bits, void  *aux)
@@ -6520,7 +6534,7 @@ static void  _DML_M_pci_config__base_address_3__ignore__write_field(pci_data_cap
     return;
     #line 386 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
 }
-#line 6524 "pci-data-capture-dml.c"
+#line 6538 "pci-data-capture-dml.c"
 
 /* pci_config.base_address_2.ignore.write_field */
 static void  _DML_M_pci_config__base_address_2__ignore__write_field(pci_data_capture_t *_dev, uint64 value, uint64 enabled_bits, void  *aux)
@@ -6529,7 +6543,7 @@ static void  _DML_M_pci_config__base_address_2__ignore__write_field(pci_data_cap
     return;
     #line 386 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
 }
-#line 6533 "pci-data-capture-dml.c"
+#line 6547 "pci-data-capture-dml.c"
 
 /* pci_config.base_address_1.ignore.write_field */
 static void  _DML_M_pci_config__base_address_1__ignore__write_field(pci_data_capture_t *_dev, uint64 value, uint64 enabled_bits, void  *aux)
@@ -6538,7 +6552,7 @@ static void  _DML_M_pci_config__base_address_1__ignore__write_field(pci_data_cap
     return;
     #line 386 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
 }
-#line 6542 "pci-data-capture-dml.c"
+#line 6556 "pci-data-capture-dml.c"
 
 /* pci_config.base_address_0.type.write_field */
 static void  _DML_M_pci_config__base_address_0__type__write_field(pci_data_capture_t *_dev, uint64 value, uint64 enabled_bits, void  *aux)
@@ -6547,7 +6561,7 @@ static void  _DML_M_pci_config__base_address_0__type__write_field(pci_data_captu
     return;
     #line 386 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
 }
-#line 6551 "pci-data-capture-dml.c"
+#line 6565 "pci-data-capture-dml.c"
 
 /* pci_config.base_address_0.type.set */
 static void  _DML_M_pci_config__base_address_0__type__set(pci_data_capture_t *_dev, uint64 value)
@@ -6573,7 +6587,7 @@ static void  _DML_M_pci_config__base_address_0__type__set(pci_data_capture_t *_d
     return;
     #line 1155 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 6577 "pci-data-capture-dml.c"
+#line 6591 "pci-data-capture-dml.c"
 
 /* pci_config.base_address_0.s.write_field */
 static void  _DML_M_pci_config__base_address_0__s__write_field(pci_data_capture_t *_dev, uint64 value, uint64 enabled_bits, void  *aux)
@@ -6582,7 +6596,7 @@ static void  _DML_M_pci_config__base_address_0__s__write_field(pci_data_capture_
     return;
     #line 386 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
 }
-#line 6586 "pci-data-capture-dml.c"
+#line 6600 "pci-data-capture-dml.c"
 
 /* pci_config.base_address_0.p.write_field */
 static void  _DML_M_pci_config__base_address_0__p__write_field(pci_data_capture_t *_dev, uint64 value, uint64 enabled_bits, void  *aux)
@@ -6591,7 +6605,7 @@ static void  _DML_M_pci_config__base_address_0__p__write_field(pci_data_capture_
     return;
     #line 386 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
 }
-#line 6595 "pci-data-capture-dml.c"
+#line 6609 "pci-data-capture-dml.c"
 
 /* pci_config.base_address_0.base.write */
 static void  _DML_M_pci_config__base_address_0__base__write(pci_data_capture_t *_dev, uint64 value)
@@ -6609,33 +6623,33 @@ static void  _DML_M_pci_config__base_address_0__base__write(pci_data_capture_t *
     return;
     #line 1128 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 6613 "pci-data-capture-dml.c"
+#line 6627 "pci-data-capture-dml.c"
 
 /* pci_config.base_address_0.base.read */
 static uint64 _DML_M_pci_config__base_address_0__base__read(pci_data_capture_t *_dev)
 #line 1108 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 {
     #line 1110 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-    uint64 v937_value UNUSED  = 0LL;
+    uint64 v941_value UNUSED  = 0LL;
     {
         #line 1111 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-        v937_value = CALL_TRAIT_METHOD0(base_address, get_base, _dev, UPCAST(((__implicit__init_val_hard_reset___init_val_soft_reset__memory_base_address_32) {(&_tr_pci_config_base_address_0____implicit__init_val_hard_reset___init_val_soft_reset__memory_base_address_32), ((_identity_t) {.id = 21, .encoded_index = 0})}), __implicit__init_val_hard_reset___init_val_soft_reset__memory_base_address_32, memory_base_address_32.memory_base_address_generic.base_address));
+        v941_value = CALL_TRAIT_METHOD0(base_address, get_base, _dev, UPCAST(((__implicit__init_val_hard_reset___init_val_soft_reset__memory_base_address_32) {(&_tr_pci_config_base_address_0____implicit__init_val_hard_reset___init_val_soft_reset__memory_base_address_32), ((_identity_t) {.id = 21, .encoded_index = 0})}), __implicit__init_val_hard_reset___init_val_soft_reset__memory_base_address_32, memory_base_address_32.memory_base_address_generic.base_address));
         #line 1111 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
     }
     #line 1113 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
     if ((CALL_TRAIT_METHOD0(_get, get, _dev, UPCAST(((field) {(&_tr_pci_config_base_address_0_type____implicit__init_val_hard_reset___init_val_soft_reset___set_field___write_field__field__ignore_write.field), ((_identity_t) {.id = 20, .encoded_index = 0})}), field, _get))) == 0LL)
     {
         #line 1114 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-        uint64 *v939_tmp UNUSED  = &v937_value;
+        uint64 *v943_tmp UNUSED  = &v941_value;
         #line 1114 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-        *v939_tmp = (*v939_tmp) & (0xfffffffULL);
-        #line 6633 "pci-data-capture-dml.c"
+        *v943_tmp = (*v943_tmp) & (0xfffffffULL);
+        #line 6647 "pci-data-capture-dml.c"
     }
     #line 1116 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-    return v937_value;
+    return v941_value;
     #line 1118 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 6639 "pci-data-capture-dml.c"
+#line 6653 "pci-data-capture-dml.c"
 
 /* pci_bus.set */
 static void  _DML_M_pci_bus__set(pci_data_capture_t *_dev, conf_object_t *obj)
@@ -6656,7 +6670,7 @@ static void  _DML_M_pci_bus__set(pci_data_capture_t *_dev, conf_object_t *obj)
     return;
     #line 240 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 6660 "pci-data-capture-dml.c"
+#line 6674 "pci-data-capture-dml.c"
 
 /* pci_bus_connected */
 static void  _DML_M_pci_bus_connected(pci_data_capture_t *_dev)
@@ -6666,7 +6680,7 @@ static void  _DML_M_pci_bus_connected(pci_data_capture_t *_dev)
     return;
     #line 198 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 6670 "pci-data-capture-dml.c"
+#line 6684 "pci-data-capture-dml.c"
 
 /* pci_bus_disconnected */
 static void  _DML_M_pci_bus_disconnected(pci_data_capture_t *_dev)
@@ -6676,7 +6690,7 @@ static void  _DML_M_pci_bus_disconnected(pci_data_capture_t *_dev)
     return;
     #line 202 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 6680 "pci-data-capture-dml.c"
+#line 6694 "pci-data-capture-dml.c"
 
 /* pci_config.bus_reset */
 static void  _DML_M_pci_config__bus_reset(pci_data_capture_t *_dev)
@@ -6689,7 +6703,7 @@ static void  _DML_M_pci_config__bus_reset(pci_data_capture_t *_dev)
     return;
     #line 513 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 6693 "pci-data-capture-dml.c"
+#line 6707 "pci-data-capture-dml.c"
 
 /* pci_config.secondary_bus_reset */
 static void  _DML_M_pci_config__secondary_bus_reset(pci_data_capture_t *_dev)
@@ -6699,7 +6713,7 @@ static void  _DML_M_pci_config__secondary_bus_reset(pci_data_capture_t *_dev)
     return;
     #line 517 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 6703 "pci-data-capture-dml.c"
+#line 6717 "pci-data-capture-dml.c"
 
 /* pci_config.update_all_mappings */
 static void  _DML_M_pci_config__update_all_mappings(pci_data_capture_t *_dev)
@@ -6723,18 +6737,18 @@ static void  _DML_M_pci_config__update_all_mappings(pci_data_capture_t *_dev)
             #line 486 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
             {
                 #line 486 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-                base_address v949_reg UNUSED  = {_list.vtable, {_list.id, _inner_idx}};
-                if (VTABLE_PARAM(UPCAST(v949_reg, base_address, _register), struct __register, mapped) && (int64 )strcmp(VTABLE_PARAM(UPCAST(v949_reg, base_address, map_params), struct _map_params, map_type), "I/O") == 0LL)
+                base_address v953_reg UNUSED  = {_list.vtable, {_list.id, _inner_idx}};
+                if (VTABLE_PARAM(UPCAST(v953_reg, base_address, _register), struct __register, mapped) && (int64 )strcmp(VTABLE_PARAM(UPCAST(v953_reg, base_address, map_params), struct _map_params, map_type), "I/O") == 0LL)
                 #line 487 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
                 {
                     #line 489 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-                    if ((int64 )strcmp(VTABLE_PARAM(UPCAST(v949_reg, base_address, _register._conf_attribute.object.name), struct _name, name), "base_address_0") == 0LL)
-                    CALL_TRAIT_METHOD0(base_address, update_mapping, _dev, v949_reg);
+                    if ((int64 )strcmp(VTABLE_PARAM(UPCAST(v953_reg, base_address, _register._conf_attribute.object.name), struct _name, name), "base_address_0") == 0LL)
+                    CALL_TRAIT_METHOD0(base_address, update_mapping, _dev, v953_reg);
                     #line 492 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-                    if ((int64 )strcmp(VTABLE_PARAM(UPCAST(v949_reg, base_address, _register._conf_attribute.object.name), struct _name, name), "expansion_rom_base") == 0LL)
-                    CALL_TRAIT_METHOD0(base_address, update_mapping, _dev, v949_reg);
+                    if ((int64 )strcmp(VTABLE_PARAM(UPCAST(v953_reg, base_address, _register._conf_attribute.object.name), struct _name, name), "expansion_rom_base") == 0LL)
+                    CALL_TRAIT_METHOD0(base_address, update_mapping, _dev, v953_reg);
                 }
-                #line 6738 "pci-data-capture-dml.c"
+                #line 6752 "pci-data-capture-dml.c"
             }
             #line 486 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
         }
@@ -6758,18 +6772,18 @@ static void  _DML_M_pci_config__update_all_mappings(pci_data_capture_t *_dev)
             #line 486 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
             {
                 #line 486 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-                base_address v955_reg UNUSED  = {_list.vtable, {_list.id, _inner_idx}};
-                if (VTABLE_PARAM(UPCAST(v955_reg, base_address, _register), struct __register, mapped) && (int64 )strcmp(VTABLE_PARAM(UPCAST(v955_reg, base_address, map_params), struct _map_params, map_type), "memory") == 0LL)
+                base_address v959_reg UNUSED  = {_list.vtable, {_list.id, _inner_idx}};
+                if (VTABLE_PARAM(UPCAST(v959_reg, base_address, _register), struct __register, mapped) && (int64 )strcmp(VTABLE_PARAM(UPCAST(v959_reg, base_address, map_params), struct _map_params, map_type), "memory") == 0LL)
                 #line 487 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
                 {
                     #line 489 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-                    if ((int64 )strcmp(VTABLE_PARAM(UPCAST(v955_reg, base_address, _register._conf_attribute.object.name), struct _name, name), "base_address_0") == 0LL)
-                    CALL_TRAIT_METHOD0(base_address, update_mapping, _dev, v955_reg);
+                    if ((int64 )strcmp(VTABLE_PARAM(UPCAST(v959_reg, base_address, _register._conf_attribute.object.name), struct _name, name), "base_address_0") == 0LL)
+                    CALL_TRAIT_METHOD0(base_address, update_mapping, _dev, v959_reg);
                     #line 492 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-                    if ((int64 )strcmp(VTABLE_PARAM(UPCAST(v955_reg, base_address, _register._conf_attribute.object.name), struct _name, name), "expansion_rom_base") == 0LL)
-                    CALL_TRAIT_METHOD0(base_address, update_mapping, _dev, v955_reg);
+                    if ((int64 )strcmp(VTABLE_PARAM(UPCAST(v959_reg, base_address, _register._conf_attribute.object.name), struct _name, name), "expansion_rom_base") == 0LL)
+                    CALL_TRAIT_METHOD0(base_address, update_mapping, _dev, v959_reg);
                 }
-                #line 6773 "pci-data-capture-dml.c"
+                #line 6787 "pci-data-capture-dml.c"
             }
             #line 486 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
         }
@@ -6779,7 +6793,7 @@ static void  _DML_M_pci_config__update_all_mappings(pci_data_capture_t *_dev)
     return;
     #line 506 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 6783 "pci-data-capture-dml.c"
+#line 6797 "pci-data-capture-dml.c"
 
 /* pci_bus.legacy_before_set */
 static void  _DML_M_pci_bus__legacy_before_set(pci_data_capture_t *_dev)
@@ -6789,75 +6803,75 @@ static void  _DML_M_pci_bus__legacy_before_set(pci_data_capture_t *_dev)
     return;
     #line 218 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 6793 "pci-data-capture-dml.c"
+#line 6807 "pci-data-capture-dml.c"
 
 /* is_pcie_device.get */
 static attr_value_t _DML_M_is_pcie_device__get(pci_data_capture_t *_dev)
 #line 109 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 {
-    attr_value_t v961_value UNUSED ;
+    attr_value_t v965_value UNUSED ;
     #line 110 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-    memset((void *)&v961_value, 0, sizeof(attr_value_t ));
+    memset((void *)&v965_value, 0, sizeof(attr_value_t ));
     {
         #line 111 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-        v961_value = SIM_make_attr_boolean(0);
+        v965_value = SIM_make_attr_boolean(0);
         #line 111 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
     }
-    return v961_value;
+    return v965_value;
 }
-#line 6809 "pci-data-capture-dml.c"
+#line 6823 "pci-data-capture-dml.c"
 
 /* config_registers.get */
 static attr_value_t _DML_M_config_registers__get(pci_data_capture_t *_dev)
 #line 86 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 {
-    attr_value_t v963_value UNUSED ;
+    attr_value_t v967_value UNUSED ;
     #line 87 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-    memset((void *)&v963_value, 0, sizeof(attr_value_t ));
-    uint64 v963_val UNUSED  = 0LL;
-    uint32 v963_i UNUSED  = 0LL;
+    memset((void *)&v967_value, 0, sizeof(attr_value_t ));
+    uint64 v967_val UNUSED  = 0LL;
+    uint32 v967_i UNUSED  = 0LL;
     #line 91 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
     {
         #line 91 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-        v963_value = SIM_alloc_attr_list((uint32 )64ULL);
+        v967_value = SIM_alloc_attr_list((uint32 )64ULL);
         #line 91 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
     }
     #line 93 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
     {
         #line 93 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-        v963_i = (uint32 )0ULL;
+        v967_i = (uint32 )0ULL;
         #line 93 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
     }
     #line 93 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-    for (; (int64 )v963_i < 64LL; (int64 )++(v963_i))
+    for (; (int64 )v967_i < 64LL; (int64 )++(v967_i))
     #line 93 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
     {
         #line 95 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
         {
             #line 95 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-            uint64 v969__ret__out0 UNUSED  = 0LL;
+            uint64 v973__ret__out0 UNUSED  = 0LL;
             #line 95 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-            if (CALL_TRAIT_METHOD(bank, get, _dev, UPCAST(((pci_config_type_0) {(&_tr_pci_config__pci_config_type_0), ((_identity_t) {.id = 84, .encoded_index = 0})}), pci_config_type_0, pci_config_generic._pci_config_generic.miss_pattern_bank.bank), (uint64 )v963_i * 4ULL, 4ULL, &v969__ret__out0))
+            if (CALL_TRAIT_METHOD(bank, get, _dev, UPCAST(((pci_config_type_0) {(&_tr_pci_config__pci_config_type_0), ((_identity_t) {.id = 84, .encoded_index = 0})}), pci_config_type_0, pci_config_generic._pci_config_generic.miss_pattern_bank.bank), (uint64 )v967_i * 4ULL, 4ULL, &v973__ret__out0))
             #line 95 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
             goto throw10;
             #line 95 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-            v963_val = v969__ret__out0;
-            #line 6846 "pci-data-capture-dml.c"
+            v967_val = v973__ret__out0;
+            #line 6860 "pci-data-capture-dml.c"
         }
         #line 97 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
         if (false) throw10:
         #line 97 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
         {
             #line 97 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-            v963_val = 0ULL;
+            v967_val = 0ULL;
             #line 97 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
         }
         #line 99 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
-        SIM_attr_list_set_item(&v963_value, v963_i, SIM_make_attr_uint64(v963_val));
+        SIM_attr_list_set_item(&v967_value, v967_i, SIM_make_attr_uint64(v967_val));
     }
-    return v963_value;
+    return v967_value;
 }
-#line 6861 "pci-data-capture-dml.c"
+#line 6875 "pci-data-capture-dml.c"
 
 /* post_init */
 static void  _DML_M_post_init(pci_data_capture_t *_dev)
@@ -6867,7 +6881,7 @@ static void  _DML_M_post_init(pci_data_capture_t *_dev)
     return;
     #line 576 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 }
-#line 6871 "pci-data-capture-dml.c"
+#line 6885 "pci-data-capture-dml.c"
 
 /* init */
 static void  _DML_M_init(pci_data_capture_t *_dev)
@@ -6877,102 +6891,102 @@ static void  _DML_M_init(pci_data_capture_t *_dev)
     return;
     #line 575 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 }
-#line 6881 "pci-data-capture-dml.c"
+#line 6895 "pci-data-capture-dml.c"
 
 /* regs.register_view_read_only.is_read_only */
 static bool _DML_M_regs__register_view_read_only__is_read_only(pci_data_capture_t *_dev, uint32 reg)
 #line 2510 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 {
-    _register v974_r UNUSED ;
+    _register v978_r UNUSED ;
     #line 2511 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    memset((void *)&v974_r, 0, sizeof(_register ));
+    memset((void *)&v978_r, 0, sizeof(_register ));
     #line 2513 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     {
         #line 2513 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        _register v976__ret__out0 UNUSED ;
+        _register v980__ret__out0 UNUSED ;
         #line 2513 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        memset((void *)&v976__ret__out0, 0, sizeof(_register ));
+        memset((void *)&v980__ret__out0, 0, sizeof(_register ));
         #line 2513 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        if (CALL_TRAIT_METHOD(bank, _get_register, _dev, UPCAST(((function_mapped_bank) {(&_tr_regs__function_mapped_bank), ((_identity_t) {.id = 92, .encoded_index = 0})}), function_mapped_bank, bank), reg, &v976__ret__out0))
+        if (CALL_TRAIT_METHOD(bank, _get_register, _dev, UPCAST(((function_mapped_bank) {(&_tr_regs__function_mapped_bank), ((_identity_t) {.id = 92, .encoded_index = 0})}), function_mapped_bank, bank), reg, &v980__ret__out0))
         #line 2513 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
         goto throw11;
         #line 2513 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        v974_r = v976__ret__out0;
-        #line 6902 "pci-data-capture-dml.c"
+        v978_r = v980__ret__out0;
+        #line 6916 "pci-data-capture-dml.c"
     }
     #line 2515 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     if (false) throw11:
     #line 2515 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     return 0;
     #line 2518 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    return VTABLE_PARAM(v974_r, struct __register, _is_read_only);
+    return VTABLE_PARAM(v978_r, struct __register, _is_read_only);
 }
-#line 6911 "pci-data-capture-dml.c"
+#line 6925 "pci-data-capture-dml.c"
 
 /* regs.register_view.set_register_value */
 static void  _DML_M_regs__register_view__set_register_value(pci_data_capture_t *_dev, uint32 reg, uint64 val)
 #line 2497 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 {
-    _register v978_r UNUSED ;
+    _register v982_r UNUSED ;
     #line 2498 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    memset((void *)&v978_r, 0, sizeof(_register ));
+    memset((void *)&v982_r, 0, sizeof(_register ));
     #line 2500 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     {
         #line 2500 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        _register v980__ret__out0 UNUSED ;
+        _register v984__ret__out0 UNUSED ;
         #line 2500 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        memset((void *)&v980__ret__out0, 0, sizeof(_register ));
+        memset((void *)&v984__ret__out0, 0, sizeof(_register ));
         #line 2500 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        if (CALL_TRAIT_METHOD(bank, _get_register, _dev, UPCAST(((function_mapped_bank) {(&_tr_regs__function_mapped_bank), ((_identity_t) {.id = 92, .encoded_index = 0})}), function_mapped_bank, bank), reg, &v980__ret__out0))
+        if (CALL_TRAIT_METHOD(bank, _get_register, _dev, UPCAST(((function_mapped_bank) {(&_tr_regs__function_mapped_bank), ((_identity_t) {.id = 92, .encoded_index = 0})}), function_mapped_bank, bank), reg, &v984__ret__out0))
         #line 2500 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
         goto throw12;
         #line 2500 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        v978_r = v980__ret__out0;
-        #line 6932 "pci-data-capture-dml.c"
+        v982_r = v984__ret__out0;
+        #line 6946 "pci-data-capture-dml.c"
     }
     #line 2502 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     if (false) throw12:
     #line 2502 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     return;
     #line 2505 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    CALL_TRAIT_METHOD(_set, set, _dev, UPCAST(v978_r, _register, set._set), val);
+    CALL_TRAIT_METHOD(_set, set, _dev, UPCAST(v982_r, _register, set._set), val);
     return;
     #line 2506 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 }
-#line 6943 "pci-data-capture-dml.c"
+#line 6957 "pci-data-capture-dml.c"
 
 /* regs.register_view.register_info */
 static attr_value_t _DML_M_regs__register_view__register_info(pci_data_capture_t *_dev, uint32 reg)
 #line 2447 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 {
-    _register v982_r UNUSED ;
+    _register v986_r UNUSED ;
     #line 2448 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    memset((void *)&v982_r, 0, sizeof(_register ));
+    memset((void *)&v986_r, 0, sizeof(_register ));
     #line 2450 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     {
         #line 2450 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        _register v984__ret__out0 UNUSED ;
+        _register v988__ret__out0 UNUSED ;
         #line 2450 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        memset((void *)&v984__ret__out0, 0, sizeof(_register ));
+        memset((void *)&v988__ret__out0, 0, sizeof(_register ));
         #line 2450 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        if (CALL_TRAIT_METHOD(bank, _get_register, _dev, UPCAST(((function_mapped_bank) {(&_tr_regs__function_mapped_bank), ((_identity_t) {.id = 92, .encoded_index = 0})}), function_mapped_bank, bank), reg, &v984__ret__out0))
+        if (CALL_TRAIT_METHOD(bank, _get_register, _dev, UPCAST(((function_mapped_bank) {(&_tr_regs__function_mapped_bank), ((_identity_t) {.id = 92, .encoded_index = 0})}), function_mapped_bank, bank), reg, &v988__ret__out0))
         #line 2450 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
         goto throw13;
         #line 2450 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        v982_r = v984__ret__out0;
-        #line 6964 "pci-data-capture-dml.c"
+        v986_r = v988__ret__out0;
+        #line 6978 "pci-data-capture-dml.c"
     }
     #line 2452 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     if (false) throw13:
     #line 2452 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     return SIM_make_attr_nil();
     #line 2455 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    attr_value_t v982_fields UNUSED  = SIM_alloc_attr_list(_DML_TM_register___num_fields(_dev, v982_r));
+    attr_value_t v986_fields UNUSED  = SIM_alloc_attr_list(_DML_TM_register___num_fields(_dev, v986_r));
     #line 2458 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    uint32 v982_idx UNUSED  = (uint32 )0ULL;
+    uint32 v986_idx UNUSED  = (uint32 )0ULL;
     {
         #line 2459 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        _each_in_t __each_in_expr = _vtable_sequence_param(v982_r, offsetof(struct __register, fields));
+        _each_in_t __each_in_expr = _vtable_sequence_param(v986_r, offsetof(struct __register, fields));
         #line 2459 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
         for (uint32 _outer_idx = 0; _outer_idx < __each_in_expr.num; ++_outer_idx) {
             #line 2459 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
@@ -6986,33 +7000,33 @@ static attr_value_t _DML_M_regs__register_view__register_info(pci_data_capture_t
             #line 2459 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
             {
                 #line 2459 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-                field v986_f UNUSED  = {_list.vtable, {_list.id, _inner_idx}};
+                field v990_f UNUSED  = {_list.vtable, {_list.id, _inner_idx}};
                 #line 2459 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
                 {
-                    attr_value_t v987_elem UNUSED  = SIM_make_attr_list((uint32 )4ULL, SIM_make_attr_string(((_DML_TM__qname___qname(_dev, UPCAST(v986_f, field, object._qname))) + (uint64 )strlen(_DML_TM__qname___qname(_dev, UPCAST(v982_r, _register, _conf_attribute.object._qname)))) + 1LL), SIM_make_attr_string(VTABLE_PARAM(UPCAST(v986_f, field, shown_desc), struct _shown_desc, shown_desc) == NULL ? "" : VTABLE_PARAM(UPCAST(v986_f, field, shown_desc), struct _shown_desc, shown_desc)), SIM_make_attr_uint64((uint64 )VTABLE_PARAM(UPCAST(v986_f, field, _lsb), struct __lsb, lsb)), SIM_make_attr_uint64(((uint64 )VTABLE_PARAM(UPCAST(v986_f, field, _lsb), struct __lsb, lsb) + (uint64 )VTABLE_PARAM(UPCAST(v986_f, field, _bitsize), struct __bitsize, bitsize)) - 1ULL));
+                    attr_value_t v991_elem UNUSED  = SIM_make_attr_list((uint32 )4ULL, SIM_make_attr_string(((_DML_TM__qname___qname(_dev, UPCAST(v990_f, field, object._qname))) + (uint64 )strlen(_DML_TM__qname___qname(_dev, UPCAST(v986_r, _register, _conf_attribute.object._qname)))) + 1LL), SIM_make_attr_string(VTABLE_PARAM(UPCAST(v990_f, field, shown_desc), struct _shown_desc, shown_desc) == NULL ? "" : VTABLE_PARAM(UPCAST(v990_f, field, shown_desc), struct _shown_desc, shown_desc)), SIM_make_attr_uint64((uint64 )VTABLE_PARAM(UPCAST(v990_f, field, _lsb), struct __lsb, lsb)), SIM_make_attr_uint64(((uint64 )VTABLE_PARAM(UPCAST(v990_f, field, _lsb), struct __lsb, lsb) + (uint64 )VTABLE_PARAM(UPCAST(v990_f, field, _bitsize), struct __bitsize, bitsize)) - 1ULL));
                     #line 2468 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-                    SIM_attr_list_set_item(&v982_fields, v982_idx, v987_elem);
-                    (int64 )(v982_idx)++;
+                    SIM_attr_list_set_item(&v986_fields, v986_idx, v991_elem);
+                    (int64 )(v986_idx)++;
                 }
-                #line 6998 "pci-data-capture-dml.c"
+                #line 7012 "pci-data-capture-dml.c"
             }
             #line 2459 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
         }
         #line 2459 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     }
     #line 2472 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    attr_value_t v982_ret UNUSED ;
+    attr_value_t v986_ret UNUSED ;
     #line 2472 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    memset((void *)&v982_ret, 0, sizeof(attr_value_t ));
+    memset((void *)&v986_ret, 0, sizeof(attr_value_t ));
     {
         #line 2473 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        v982_ret = SIM_make_attr_list((uint32 )6ULL, SIM_make_attr_string(((_DML_TM__qname___qname(_dev, UPCAST(v982_r, _register, _conf_attribute.object._qname))) + (uint64 )strlen(_DML_TM__qname___qname(_dev, UPCAST(((function_mapped_bank) {(&_tr_regs__function_mapped_bank), ((_identity_t) {.id = 92, .encoded_index = 0})}), function_mapped_bank, bank.object._qname)))) + 1LL), SIM_make_attr_string(VTABLE_PARAM(UPCAST(v982_r, _register, shown_desc), struct _shown_desc, shown_desc) == NULL ? "" : VTABLE_PARAM(UPCAST(v982_r, _register, shown_desc), struct _shown_desc, shown_desc)), SIM_make_attr_uint64((uint64 )(_DML_TM_register___size(v982_r))), SIM_make_attr_uint64(VTABLE_PARAM(v982_r, struct __register, offset)), v982_fields, SIM_make_attr_boolean(0));
+        v986_ret = SIM_make_attr_list((uint32 )6ULL, SIM_make_attr_string(((_DML_TM__qname___qname(_dev, UPCAST(v986_r, _register, _conf_attribute.object._qname))) + (uint64 )strlen(_DML_TM__qname___qname(_dev, UPCAST(((function_mapped_bank) {(&_tr_regs__function_mapped_bank), ((_identity_t) {.id = 92, .encoded_index = 0})}), function_mapped_bank, bank.object._qname)))) + 1LL), SIM_make_attr_string(VTABLE_PARAM(UPCAST(v986_r, _register, shown_desc), struct _shown_desc, shown_desc) == NULL ? "" : VTABLE_PARAM(UPCAST(v986_r, _register, shown_desc), struct _shown_desc, shown_desc)), SIM_make_attr_uint64((uint64 )(_DML_TM_register___size(v986_r))), SIM_make_attr_uint64(VTABLE_PARAM(v986_r, struct __register, offset)), v986_fields, SIM_make_attr_boolean(0));
         #line 2473 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     }
     #line 2485 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    return v982_ret;
+    return v986_ret;
 }
-#line 7016 "pci-data-capture-dml.c"
+#line 7030 "pci-data-capture-dml.c"
 
 /* regs.register_view.number_of_registers */
 static uint32 _DML_M_regs__register_view__number_of_registers(pci_data_capture_t *_dev)
@@ -7020,37 +7034,37 @@ static uint32 _DML_M_regs__register_view__number_of_registers(pci_data_capture_t
 {
     return _DML_TM_bank___num_registers(_dev, UPCAST(((function_mapped_bank) {(&_tr_regs__function_mapped_bank), ((_identity_t) {.id = 92, .encoded_index = 0})}), function_mapped_bank, bank));
 }
-#line 7024 "pci-data-capture-dml.c"
+#line 7038 "pci-data-capture-dml.c"
 
 /* regs.register_view.get_register_value */
 static uint64 _DML_M_regs__register_view__get_register_value(pci_data_capture_t *_dev, uint32 reg)
 #line 2487 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 {
-    _register v991_r UNUSED ;
+    _register v995_r UNUSED ;
     #line 2488 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    memset((void *)&v991_r, 0, sizeof(_register ));
+    memset((void *)&v995_r, 0, sizeof(_register ));
     #line 2490 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     {
         #line 2490 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        _register v993__ret__out0 UNUSED ;
+        _register v997__ret__out0 UNUSED ;
         #line 2490 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        memset((void *)&v993__ret__out0, 0, sizeof(_register ));
+        memset((void *)&v997__ret__out0, 0, sizeof(_register ));
         #line 2490 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        if (CALL_TRAIT_METHOD(bank, _get_register, _dev, UPCAST(((function_mapped_bank) {(&_tr_regs__function_mapped_bank), ((_identity_t) {.id = 92, .encoded_index = 0})}), function_mapped_bank, bank), reg, &v993__ret__out0))
+        if (CALL_TRAIT_METHOD(bank, _get_register, _dev, UPCAST(((function_mapped_bank) {(&_tr_regs__function_mapped_bank), ((_identity_t) {.id = 92, .encoded_index = 0})}), function_mapped_bank, bank), reg, &v997__ret__out0))
         #line 2490 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
         goto throw14;
         #line 2490 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        v991_r = v993__ret__out0;
-        #line 7045 "pci-data-capture-dml.c"
+        v995_r = v997__ret__out0;
+        #line 7059 "pci-data-capture-dml.c"
     }
     #line 2492 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     if (false) throw14:
     #line 2492 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     return 0ULL;
     #line 2495 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    return CALL_TRAIT_METHOD0(_get, get, _dev, UPCAST(v991_r, _register, get._get));
+    return CALL_TRAIT_METHOD0(_get, get, _dev, UPCAST(v995_r, _register, get._get));
 }
-#line 7054 "pci-data-capture-dml.c"
+#line 7068 "pci-data-capture-dml.c"
 
 /* regs.register_view.description */
 static char const *_DML_M_regs__register_view__description(pci_data_capture_t *_dev)
@@ -7059,7 +7073,7 @@ static char const *_DML_M_regs__register_view__description(pci_data_capture_t *_
     #line 2439 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     return "";
 }
-#line 7063 "pci-data-capture-dml.c"
+#line 7077 "pci-data-capture-dml.c"
 
 /* regs.register_view.big_endian_bitorder */
 static bool _DML_M_regs__register_view__big_endian_bitorder(pci_data_capture_t *_dev)
@@ -7067,7 +7081,7 @@ static bool _DML_M_regs__register_view__big_endian_bitorder(pci_data_capture_t *
 {
     return 0;
 }
-#line 7071 "pci-data-capture-dml.c"
+#line 7085 "pci-data-capture-dml.c"
 
 /* regs.io_memory.operation */
 static exception_type_t _DML_M_regs__io_memory__operation(pci_data_capture_t *_dev, generic_transaction_t *mem_op, map_info_t map_info)
@@ -7080,7 +7094,7 @@ static exception_type_t _DML_M_regs__io_memory__operation(pci_data_capture_t *_d
     return (int32 )0x407LL;
     #line 1537 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 }
-#line 7084 "pci-data-capture-dml.c"
+#line 7098 "pci-data-capture-dml.c"
 
 /* regs.instrumentation_order.move_before */
 static bool _DML_M_regs__instrumentation_order__move_before(pci_data_capture_t *_dev, conf_object_t *connection, conf_object_t *before)
@@ -7088,7 +7102,7 @@ static bool _DML_M_regs__instrumentation_order__move_before(pci_data_capture_t *
 {
     return _move_before(connection, before, &_dev->regs._connections);
 }
-#line 7092 "pci-data-capture-dml.c"
+#line 7106 "pci-data-capture-dml.c"
 
 /* regs.instrumentation_order.get_connections */
 static attr_value_t _DML_M_regs__instrumentation_order__get_connections(pci_data_capture_t *_dev)
@@ -7096,7 +7110,7 @@ static attr_value_t _DML_M_regs__instrumentation_order__get_connections(pci_data
 {
     return _get_connections(&_dev->regs._connections);
 }
-#line 7100 "pci-data-capture-dml.c"
+#line 7114 "pci-data-capture-dml.c"
 
 /* regs.bank_instrumentation_subscribe.remove_connection_callbacks */
 static void  _DML_M_regs__bank_instrumentation_subscribe__remove_connection_callbacks(pci_data_capture_t *_dev, conf_object_t *connection)
@@ -7107,7 +7121,7 @@ static void  _DML_M_regs__bank_instrumentation_subscribe__remove_connection_call
     return;
     #line 2584 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 }
-#line 7111 "pci-data-capture-dml.c"
+#line 7125 "pci-data-capture-dml.c"
 
 /* regs.bank_instrumentation_subscribe.remove_callback */
 static void  _DML_M_regs__bank_instrumentation_subscribe__remove_callback(pci_data_capture_t *_dev, bank_callback_handle_t callback)
@@ -7118,7 +7132,7 @@ static void  _DML_M_regs__bank_instrumentation_subscribe__remove_callback(pci_da
     return;
     #line 2579 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 }
-#line 7122 "pci-data-capture-dml.c"
+#line 7136 "pci-data-capture-dml.c"
 
 /* regs.bank_instrumentation_subscribe.register_before_write */
 static bank_callback_handle_t _DML_M_regs__bank_instrumentation_subscribe__register_before_write(pci_data_capture_t *_dev, conf_object_t *connection, uint64 offset, uint64 size, before_write_callback_t before_write, void  *user_data)
@@ -7127,7 +7141,7 @@ static bank_callback_handle_t _DML_M_regs__bank_instrumentation_subscribe__regis
     return _register_before_write(_DML_TM_bank___bank_obj(_dev, UPCAST(((function_mapped_bank) {(&_tr_regs__function_mapped_bank), ((_identity_t) {.id = 92, .encoded_index = 0})}), function_mapped_bank, bank)), connection, offset, size, before_write, user_data, &_dev->regs._connections, &_dev->regs._before_write_callbacks);
     #line 2560 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 }
-#line 7131 "pci-data-capture-dml.c"
+#line 7145 "pci-data-capture-dml.c"
 
 /* regs.bank_instrumentation_subscribe.register_before_read */
 static bank_callback_handle_t _DML_M_regs__bank_instrumentation_subscribe__register_before_read(pci_data_capture_t *_dev, conf_object_t *connection, uint64 offset, uint64 size, before_read_callback_t before_read, void  *user_data)
@@ -7136,7 +7150,7 @@ static bank_callback_handle_t _DML_M_regs__bank_instrumentation_subscribe__regis
     return _register_before_read(_DML_TM_bank___bank_obj(_dev, UPCAST(((function_mapped_bank) {(&_tr_regs__function_mapped_bank), ((_identity_t) {.id = 92, .encoded_index = 0})}), function_mapped_bank, bank)), connection, offset, size, before_read, user_data, &_dev->regs._connections, &_dev->regs._before_read_callbacks);
     #line 2537 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 }
-#line 7140 "pci-data-capture-dml.c"
+#line 7154 "pci-data-capture-dml.c"
 
 /* regs.bank_instrumentation_subscribe.register_after_write */
 static bank_callback_handle_t _DML_M_regs__bank_instrumentation_subscribe__register_after_write(pci_data_capture_t *_dev, conf_object_t *connection, uint64 offset, uint64 size, after_write_callback_t after_write, void  *user_data)
@@ -7145,7 +7159,7 @@ static bank_callback_handle_t _DML_M_regs__bank_instrumentation_subscribe__regis
     return _register_after_write(_DML_TM_bank___bank_obj(_dev, UPCAST(((function_mapped_bank) {(&_tr_regs__function_mapped_bank), ((_identity_t) {.id = 92, .encoded_index = 0})}), function_mapped_bank, bank)), connection, offset, size, after_write, user_data, &_dev->regs._connections, &_dev->regs._after_write_callbacks);
     #line 2571 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 }
-#line 7149 "pci-data-capture-dml.c"
+#line 7163 "pci-data-capture-dml.c"
 
 /* regs.bank_instrumentation_subscribe.register_after_read */
 static bank_callback_handle_t _DML_M_regs__bank_instrumentation_subscribe__register_after_read(pci_data_capture_t *_dev, conf_object_t *connection, uint64 offset, uint64 size, after_read_callback_t after_read, void  *user_data)
@@ -7154,7 +7168,7 @@ static bank_callback_handle_t _DML_M_regs__bank_instrumentation_subscribe__regis
     return _register_after_read(_DML_TM_bank___bank_obj(_dev, UPCAST(((function_mapped_bank) {(&_tr_regs__function_mapped_bank), ((_identity_t) {.id = 92, .encoded_index = 0})}), function_mapped_bank, bank)), connection, offset, size, after_read, user_data, &_dev->regs._connections, &_dev->regs._after_read_callbacks);
     #line 2548 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 }
-#line 7158 "pci-data-capture-dml.c"
+#line 7172 "pci-data-capture-dml.c"
 
 /* regs.bank_instrumentation_subscribe.enable_connection_callbacks */
 static void  _DML_M_regs__bank_instrumentation_subscribe__enable_connection_callbacks(pci_data_capture_t *_dev, conf_object_t *connection)
@@ -7164,7 +7178,7 @@ static void  _DML_M_regs__bank_instrumentation_subscribe__enable_connection_call
     return;
     #line 2587 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 }
-#line 7168 "pci-data-capture-dml.c"
+#line 7182 "pci-data-capture-dml.c"
 
 /* regs.bank_instrumentation_subscribe.disable_connection_callbacks */
 static void  _DML_M_regs__bank_instrumentation_subscribe__disable_connection_callbacks(pci_data_capture_t *_dev, conf_object_t *connection)
@@ -7174,7 +7188,7 @@ static void  _DML_M_regs__bank_instrumentation_subscribe__disable_connection_cal
     return;
     #line 2590 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 }
-#line 7178 "pci-data-capture-dml.c"
+#line 7192 "pci-data-capture-dml.c"
 
 /* pci_device.bus_reset */
 static void  _DML_M_pci_device__bus_reset(pci_data_capture_t *_dev)
@@ -7184,102 +7198,102 @@ static void  _DML_M_pci_device__bus_reset(pci_data_capture_t *_dev)
     return;
     #line 1539 "/home/usuario/Simics/simics-6.0.185/src/devices/dml-lib/1.4/pci/common.dml"
 }
-#line 7188 "pci-data-capture-dml.c"
+#line 7202 "pci-data-capture-dml.c"
 
 /* pci_config.register_view_read_only.is_read_only */
 static bool _DML_M_pci_config__register_view_read_only__is_read_only(pci_data_capture_t *_dev, uint32 reg)
 #line 2510 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 {
-    _register v1012_r UNUSED ;
+    _register v1016_r UNUSED ;
     #line 2511 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    memset((void *)&v1012_r, 0, sizeof(_register ));
+    memset((void *)&v1016_r, 0, sizeof(_register ));
     #line 2513 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     {
         #line 2513 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        _register v1014__ret__out0 UNUSED ;
+        _register v1018__ret__out0 UNUSED ;
         #line 2513 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        memset((void *)&v1014__ret__out0, 0, sizeof(_register ));
+        memset((void *)&v1018__ret__out0, 0, sizeof(_register ));
         #line 2513 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        if (CALL_TRAIT_METHOD(bank, _get_register, _dev, UPCAST(((pci_config_type_0) {(&_tr_pci_config__pci_config_type_0), ((_identity_t) {.id = 84, .encoded_index = 0})}), pci_config_type_0, pci_config_generic._pci_config_generic.miss_pattern_bank.bank), reg, &v1014__ret__out0))
+        if (CALL_TRAIT_METHOD(bank, _get_register, _dev, UPCAST(((pci_config_type_0) {(&_tr_pci_config__pci_config_type_0), ((_identity_t) {.id = 84, .encoded_index = 0})}), pci_config_type_0, pci_config_generic._pci_config_generic.miss_pattern_bank.bank), reg, &v1018__ret__out0))
         #line 2513 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
         goto throw15;
         #line 2513 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        v1012_r = v1014__ret__out0;
-        #line 7209 "pci-data-capture-dml.c"
+        v1016_r = v1018__ret__out0;
+        #line 7223 "pci-data-capture-dml.c"
     }
     #line 2515 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     if (false) throw15:
     #line 2515 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     return 0;
     #line 2518 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    return VTABLE_PARAM(v1012_r, struct __register, _is_read_only);
+    return VTABLE_PARAM(v1016_r, struct __register, _is_read_only);
 }
-#line 7218 "pci-data-capture-dml.c"
+#line 7232 "pci-data-capture-dml.c"
 
 /* pci_config.register_view.set_register_value */
 static void  _DML_M_pci_config__register_view__set_register_value(pci_data_capture_t *_dev, uint32 reg, uint64 val)
 #line 2497 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 {
-    _register v1016_r UNUSED ;
+    _register v1020_r UNUSED ;
     #line 2498 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    memset((void *)&v1016_r, 0, sizeof(_register ));
+    memset((void *)&v1020_r, 0, sizeof(_register ));
     #line 2500 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     {
         #line 2500 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        _register v1018__ret__out0 UNUSED ;
+        _register v1022__ret__out0 UNUSED ;
         #line 2500 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        memset((void *)&v1018__ret__out0, 0, sizeof(_register ));
+        memset((void *)&v1022__ret__out0, 0, sizeof(_register ));
         #line 2500 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        if (CALL_TRAIT_METHOD(bank, _get_register, _dev, UPCAST(((pci_config_type_0) {(&_tr_pci_config__pci_config_type_0), ((_identity_t) {.id = 84, .encoded_index = 0})}), pci_config_type_0, pci_config_generic._pci_config_generic.miss_pattern_bank.bank), reg, &v1018__ret__out0))
+        if (CALL_TRAIT_METHOD(bank, _get_register, _dev, UPCAST(((pci_config_type_0) {(&_tr_pci_config__pci_config_type_0), ((_identity_t) {.id = 84, .encoded_index = 0})}), pci_config_type_0, pci_config_generic._pci_config_generic.miss_pattern_bank.bank), reg, &v1022__ret__out0))
         #line 2500 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
         goto throw16;
         #line 2500 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        v1016_r = v1018__ret__out0;
-        #line 7239 "pci-data-capture-dml.c"
+        v1020_r = v1022__ret__out0;
+        #line 7253 "pci-data-capture-dml.c"
     }
     #line 2502 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     if (false) throw16:
     #line 2502 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     return;
     #line 2505 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    CALL_TRAIT_METHOD(_set, set, _dev, UPCAST(v1016_r, _register, set._set), val);
+    CALL_TRAIT_METHOD(_set, set, _dev, UPCAST(v1020_r, _register, set._set), val);
     return;
     #line 2506 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 }
-#line 7250 "pci-data-capture-dml.c"
+#line 7264 "pci-data-capture-dml.c"
 
 /* pci_config.register_view.register_info */
 static attr_value_t _DML_M_pci_config__register_view__register_info(pci_data_capture_t *_dev, uint32 reg)
 #line 2447 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 {
-    _register v1020_r UNUSED ;
+    _register v1024_r UNUSED ;
     #line 2448 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    memset((void *)&v1020_r, 0, sizeof(_register ));
+    memset((void *)&v1024_r, 0, sizeof(_register ));
     #line 2450 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     {
         #line 2450 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        _register v1022__ret__out0 UNUSED ;
+        _register v1026__ret__out0 UNUSED ;
         #line 2450 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        memset((void *)&v1022__ret__out0, 0, sizeof(_register ));
+        memset((void *)&v1026__ret__out0, 0, sizeof(_register ));
         #line 2450 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        if (CALL_TRAIT_METHOD(bank, _get_register, _dev, UPCAST(((pci_config_type_0) {(&_tr_pci_config__pci_config_type_0), ((_identity_t) {.id = 84, .encoded_index = 0})}), pci_config_type_0, pci_config_generic._pci_config_generic.miss_pattern_bank.bank), reg, &v1022__ret__out0))
+        if (CALL_TRAIT_METHOD(bank, _get_register, _dev, UPCAST(((pci_config_type_0) {(&_tr_pci_config__pci_config_type_0), ((_identity_t) {.id = 84, .encoded_index = 0})}), pci_config_type_0, pci_config_generic._pci_config_generic.miss_pattern_bank.bank), reg, &v1026__ret__out0))
         #line 2450 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
         goto throw17;
         #line 2450 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        v1020_r = v1022__ret__out0;
-        #line 7271 "pci-data-capture-dml.c"
+        v1024_r = v1026__ret__out0;
+        #line 7285 "pci-data-capture-dml.c"
     }
     #line 2452 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     if (false) throw17:
     #line 2452 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     return SIM_make_attr_nil();
     #line 2455 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    attr_value_t v1020_fields UNUSED  = SIM_alloc_attr_list(_DML_TM_register___num_fields(_dev, v1020_r));
+    attr_value_t v1024_fields UNUSED  = SIM_alloc_attr_list(_DML_TM_register___num_fields(_dev, v1024_r));
     #line 2458 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    uint32 v1020_idx UNUSED  = (uint32 )0ULL;
+    uint32 v1024_idx UNUSED  = (uint32 )0ULL;
     {
         #line 2459 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        _each_in_t __each_in_expr = _vtable_sequence_param(v1020_r, offsetof(struct __register, fields));
+        _each_in_t __each_in_expr = _vtable_sequence_param(v1024_r, offsetof(struct __register, fields));
         #line 2459 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
         for (uint32 _outer_idx = 0; _outer_idx < __each_in_expr.num; ++_outer_idx) {
             #line 2459 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
@@ -7293,33 +7307,33 @@ static attr_value_t _DML_M_pci_config__register_view__register_info(pci_data_cap
             #line 2459 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
             {
                 #line 2459 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-                field v1024_f UNUSED  = {_list.vtable, {_list.id, _inner_idx}};
+                field v1028_f UNUSED  = {_list.vtable, {_list.id, _inner_idx}};
                 #line 2459 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
                 {
-                    attr_value_t v1025_elem UNUSED  = SIM_make_attr_list((uint32 )4ULL, SIM_make_attr_string(((_DML_TM__qname___qname(_dev, UPCAST(v1024_f, field, object._qname))) + (uint64 )strlen(_DML_TM__qname___qname(_dev, UPCAST(v1020_r, _register, _conf_attribute.object._qname)))) + 1LL), SIM_make_attr_string(VTABLE_PARAM(UPCAST(v1024_f, field, shown_desc), struct _shown_desc, shown_desc) == NULL ? "" : VTABLE_PARAM(UPCAST(v1024_f, field, shown_desc), struct _shown_desc, shown_desc)), SIM_make_attr_uint64((uint64 )VTABLE_PARAM(UPCAST(v1024_f, field, _lsb), struct __lsb, lsb)), SIM_make_attr_uint64(((uint64 )VTABLE_PARAM(UPCAST(v1024_f, field, _lsb), struct __lsb, lsb) + (uint64 )VTABLE_PARAM(UPCAST(v1024_f, field, _bitsize), struct __bitsize, bitsize)) - 1ULL));
+                    attr_value_t v1029_elem UNUSED  = SIM_make_attr_list((uint32 )4ULL, SIM_make_attr_string(((_DML_TM__qname___qname(_dev, UPCAST(v1028_f, field, object._qname))) + (uint64 )strlen(_DML_TM__qname___qname(_dev, UPCAST(v1024_r, _register, _conf_attribute.object._qname)))) + 1LL), SIM_make_attr_string(VTABLE_PARAM(UPCAST(v1028_f, field, shown_desc), struct _shown_desc, shown_desc) == NULL ? "" : VTABLE_PARAM(UPCAST(v1028_f, field, shown_desc), struct _shown_desc, shown_desc)), SIM_make_attr_uint64((uint64 )VTABLE_PARAM(UPCAST(v1028_f, field, _lsb), struct __lsb, lsb)), SIM_make_attr_uint64(((uint64 )VTABLE_PARAM(UPCAST(v1028_f, field, _lsb), struct __lsb, lsb) + (uint64 )VTABLE_PARAM(UPCAST(v1028_f, field, _bitsize), struct __bitsize, bitsize)) - 1ULL));
                     #line 2468 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-                    SIM_attr_list_set_item(&v1020_fields, v1020_idx, v1025_elem);
-                    (int64 )(v1020_idx)++;
+                    SIM_attr_list_set_item(&v1024_fields, v1024_idx, v1029_elem);
+                    (int64 )(v1024_idx)++;
                 }
-                #line 7305 "pci-data-capture-dml.c"
+                #line 7319 "pci-data-capture-dml.c"
             }
             #line 2459 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
         }
         #line 2459 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     }
     #line 2472 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    attr_value_t v1020_ret UNUSED ;
+    attr_value_t v1024_ret UNUSED ;
     #line 2472 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    memset((void *)&v1020_ret, 0, sizeof(attr_value_t ));
+    memset((void *)&v1024_ret, 0, sizeof(attr_value_t ));
     {
         #line 2473 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        v1020_ret = SIM_make_attr_list((uint32 )6ULL, SIM_make_attr_string(((_DML_TM__qname___qname(_dev, UPCAST(v1020_r, _register, _conf_attribute.object._qname))) + (uint64 )strlen(_DML_TM__qname___qname(_dev, UPCAST(((pci_config_type_0) {(&_tr_pci_config__pci_config_type_0), ((_identity_t) {.id = 84, .encoded_index = 0})}), pci_config_type_0, pci_config_generic._pci_config_generic.miss_pattern_bank.bank.object._qname)))) + 1LL), SIM_make_attr_string(VTABLE_PARAM(UPCAST(v1020_r, _register, shown_desc), struct _shown_desc, shown_desc) == NULL ? "" : VTABLE_PARAM(UPCAST(v1020_r, _register, shown_desc), struct _shown_desc, shown_desc)), SIM_make_attr_uint64((uint64 )(_DML_TM_register___size(v1020_r))), SIM_make_attr_uint64(VTABLE_PARAM(v1020_r, struct __register, offset)), v1020_fields, SIM_make_attr_boolean(0));
+        v1024_ret = SIM_make_attr_list((uint32 )6ULL, SIM_make_attr_string(((_DML_TM__qname___qname(_dev, UPCAST(v1024_r, _register, _conf_attribute.object._qname))) + (uint64 )strlen(_DML_TM__qname___qname(_dev, UPCAST(((pci_config_type_0) {(&_tr_pci_config__pci_config_type_0), ((_identity_t) {.id = 84, .encoded_index = 0})}), pci_config_type_0, pci_config_generic._pci_config_generic.miss_pattern_bank.bank.object._qname)))) + 1LL), SIM_make_attr_string(VTABLE_PARAM(UPCAST(v1024_r, _register, shown_desc), struct _shown_desc, shown_desc) == NULL ? "" : VTABLE_PARAM(UPCAST(v1024_r, _register, shown_desc), struct _shown_desc, shown_desc)), SIM_make_attr_uint64((uint64 )(_DML_TM_register___size(v1024_r))), SIM_make_attr_uint64(VTABLE_PARAM(v1024_r, struct __register, offset)), v1024_fields, SIM_make_attr_boolean(0));
         #line 2473 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     }
     #line 2485 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    return v1020_ret;
+    return v1024_ret;
 }
-#line 7323 "pci-data-capture-dml.c"
+#line 7337 "pci-data-capture-dml.c"
 
 /* pci_config.register_view.number_of_registers */
 static uint32 _DML_M_pci_config__register_view__number_of_registers(pci_data_capture_t *_dev)
@@ -7327,37 +7341,37 @@ static uint32 _DML_M_pci_config__register_view__number_of_registers(pci_data_cap
 {
     return _DML_TM_bank___num_registers(_dev, UPCAST(((pci_config_type_0) {(&_tr_pci_config__pci_config_type_0), ((_identity_t) {.id = 84, .encoded_index = 0})}), pci_config_type_0, pci_config_generic._pci_config_generic.miss_pattern_bank.bank));
 }
-#line 7331 "pci-data-capture-dml.c"
+#line 7345 "pci-data-capture-dml.c"
 
 /* pci_config.register_view.get_register_value */
 static uint64 _DML_M_pci_config__register_view__get_register_value(pci_data_capture_t *_dev, uint32 reg)
 #line 2487 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 {
-    _register v1029_r UNUSED ;
+    _register v1033_r UNUSED ;
     #line 2488 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    memset((void *)&v1029_r, 0, sizeof(_register ));
+    memset((void *)&v1033_r, 0, sizeof(_register ));
     #line 2490 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     {
         #line 2490 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        _register v1031__ret__out0 UNUSED ;
+        _register v1035__ret__out0 UNUSED ;
         #line 2490 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        memset((void *)&v1031__ret__out0, 0, sizeof(_register ));
+        memset((void *)&v1035__ret__out0, 0, sizeof(_register ));
         #line 2490 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        if (CALL_TRAIT_METHOD(bank, _get_register, _dev, UPCAST(((pci_config_type_0) {(&_tr_pci_config__pci_config_type_0), ((_identity_t) {.id = 84, .encoded_index = 0})}), pci_config_type_0, pci_config_generic._pci_config_generic.miss_pattern_bank.bank), reg, &v1031__ret__out0))
+        if (CALL_TRAIT_METHOD(bank, _get_register, _dev, UPCAST(((pci_config_type_0) {(&_tr_pci_config__pci_config_type_0), ((_identity_t) {.id = 84, .encoded_index = 0})}), pci_config_type_0, pci_config_generic._pci_config_generic.miss_pattern_bank.bank), reg, &v1035__ret__out0))
         #line 2490 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
         goto throw18;
         #line 2490 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        v1029_r = v1031__ret__out0;
-        #line 7352 "pci-data-capture-dml.c"
+        v1033_r = v1035__ret__out0;
+        #line 7366 "pci-data-capture-dml.c"
     }
     #line 2492 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     if (false) throw18:
     #line 2492 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     return 0ULL;
     #line 2495 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    return CALL_TRAIT_METHOD0(_get, get, _dev, UPCAST(v1029_r, _register, get._get));
+    return CALL_TRAIT_METHOD0(_get, get, _dev, UPCAST(v1033_r, _register, get._get));
 }
-#line 7361 "pci-data-capture-dml.c"
+#line 7375 "pci-data-capture-dml.c"
 
 /* pci_config.register_view.description */
 static char const *_DML_M_pci_config__register_view__description(pci_data_capture_t *_dev)
@@ -7366,7 +7380,7 @@ static char const *_DML_M_pci_config__register_view__description(pci_data_captur
     #line 2439 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     return "";
 }
-#line 7370 "pci-data-capture-dml.c"
+#line 7384 "pci-data-capture-dml.c"
 
 /* pci_config.register_view.big_endian_bitorder */
 static bool _DML_M_pci_config__register_view__big_endian_bitorder(pci_data_capture_t *_dev)
@@ -7374,7 +7388,7 @@ static bool _DML_M_pci_config__register_view__big_endian_bitorder(pci_data_captu
 {
     return 0;
 }
-#line 7378 "pci-data-capture-dml.c"
+#line 7392 "pci-data-capture-dml.c"
 
 /* pci_config.io_memory.operation */
 static exception_type_t _DML_M_pci_config__io_memory__operation(pci_data_capture_t *_dev, generic_transaction_t *mem_op, map_info_t map_info)
@@ -7387,7 +7401,7 @@ static exception_type_t _DML_M_pci_config__io_memory__operation(pci_data_capture
     return (int32 )0x407LL;
     #line 1537 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 }
-#line 7391 "pci-data-capture-dml.c"
+#line 7405 "pci-data-capture-dml.c"
 
 /* pci_config.instrumentation_order.move_before */
 static bool _DML_M_pci_config__instrumentation_order__move_before(pci_data_capture_t *_dev, conf_object_t *connection, conf_object_t *before)
@@ -7395,7 +7409,7 @@ static bool _DML_M_pci_config__instrumentation_order__move_before(pci_data_captu
 {
     return _move_before(connection, before, &_dev->pci_config._connections);
 }
-#line 7399 "pci-data-capture-dml.c"
+#line 7413 "pci-data-capture-dml.c"
 
 /* pci_config.instrumentation_order.get_connections */
 static attr_value_t _DML_M_pci_config__instrumentation_order__get_connections(pci_data_capture_t *_dev)
@@ -7403,7 +7417,7 @@ static attr_value_t _DML_M_pci_config__instrumentation_order__get_connections(pc
 {
     return _get_connections(&_dev->pci_config._connections);
 }
-#line 7407 "pci-data-capture-dml.c"
+#line 7421 "pci-data-capture-dml.c"
 
 /* pci_config.bank_instrumentation_subscribe.remove_connection_callbacks */
 static void  _DML_M_pci_config__bank_instrumentation_subscribe__remove_connection_callbacks(pci_data_capture_t *_dev, conf_object_t *connection)
@@ -7414,7 +7428,7 @@ static void  _DML_M_pci_config__bank_instrumentation_subscribe__remove_connectio
     return;
     #line 2584 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 }
-#line 7418 "pci-data-capture-dml.c"
+#line 7432 "pci-data-capture-dml.c"
 
 /* pci_config.bank_instrumentation_subscribe.remove_callback */
 static void  _DML_M_pci_config__bank_instrumentation_subscribe__remove_callback(pci_data_capture_t *_dev, bank_callback_handle_t callback)
@@ -7425,7 +7439,7 @@ static void  _DML_M_pci_config__bank_instrumentation_subscribe__remove_callback(
     return;
     #line 2579 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 }
-#line 7429 "pci-data-capture-dml.c"
+#line 7443 "pci-data-capture-dml.c"
 
 /* pci_config.bank_instrumentation_subscribe.register_before_write */
 static bank_callback_handle_t _DML_M_pci_config__bank_instrumentation_subscribe__register_before_write(pci_data_capture_t *_dev, conf_object_t *connection, uint64 offset, uint64 size, before_write_callback_t before_write, void  *user_data)
@@ -7434,7 +7448,7 @@ static bank_callback_handle_t _DML_M_pci_config__bank_instrumentation_subscribe_
     return _register_before_write(_DML_TM_bank___bank_obj(_dev, UPCAST(((pci_config_type_0) {(&_tr_pci_config__pci_config_type_0), ((_identity_t) {.id = 84, .encoded_index = 0})}), pci_config_type_0, pci_config_generic._pci_config_generic.miss_pattern_bank.bank)), connection, offset, size, before_write, user_data, &_dev->pci_config._connections, &_dev->pci_config._before_write_callbacks);
     #line 2560 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 }
-#line 7438 "pci-data-capture-dml.c"
+#line 7452 "pci-data-capture-dml.c"
 
 /* pci_config.bank_instrumentation_subscribe.register_before_read */
 static bank_callback_handle_t _DML_M_pci_config__bank_instrumentation_subscribe__register_before_read(pci_data_capture_t *_dev, conf_object_t *connection, uint64 offset, uint64 size, before_read_callback_t before_read, void  *user_data)
@@ -7443,7 +7457,7 @@ static bank_callback_handle_t _DML_M_pci_config__bank_instrumentation_subscribe_
     return _register_before_read(_DML_TM_bank___bank_obj(_dev, UPCAST(((pci_config_type_0) {(&_tr_pci_config__pci_config_type_0), ((_identity_t) {.id = 84, .encoded_index = 0})}), pci_config_type_0, pci_config_generic._pci_config_generic.miss_pattern_bank.bank)), connection, offset, size, before_read, user_data, &_dev->pci_config._connections, &_dev->pci_config._before_read_callbacks);
     #line 2537 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 }
-#line 7447 "pci-data-capture-dml.c"
+#line 7461 "pci-data-capture-dml.c"
 
 /* pci_config.bank_instrumentation_subscribe.register_after_write */
 static bank_callback_handle_t _DML_M_pci_config__bank_instrumentation_subscribe__register_after_write(pci_data_capture_t *_dev, conf_object_t *connection, uint64 offset, uint64 size, after_write_callback_t after_write, void  *user_data)
@@ -7452,7 +7466,7 @@ static bank_callback_handle_t _DML_M_pci_config__bank_instrumentation_subscribe_
     return _register_after_write(_DML_TM_bank___bank_obj(_dev, UPCAST(((pci_config_type_0) {(&_tr_pci_config__pci_config_type_0), ((_identity_t) {.id = 84, .encoded_index = 0})}), pci_config_type_0, pci_config_generic._pci_config_generic.miss_pattern_bank.bank)), connection, offset, size, after_write, user_data, &_dev->pci_config._connections, &_dev->pci_config._after_write_callbacks);
     #line 2571 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 }
-#line 7456 "pci-data-capture-dml.c"
+#line 7470 "pci-data-capture-dml.c"
 
 /* pci_config.bank_instrumentation_subscribe.register_after_read */
 static bank_callback_handle_t _DML_M_pci_config__bank_instrumentation_subscribe__register_after_read(pci_data_capture_t *_dev, conf_object_t *connection, uint64 offset, uint64 size, after_read_callback_t after_read, void  *user_data)
@@ -7461,7 +7475,7 @@ static bank_callback_handle_t _DML_M_pci_config__bank_instrumentation_subscribe_
     return _register_after_read(_DML_TM_bank___bank_obj(_dev, UPCAST(((pci_config_type_0) {(&_tr_pci_config__pci_config_type_0), ((_identity_t) {.id = 84, .encoded_index = 0})}), pci_config_type_0, pci_config_generic._pci_config_generic.miss_pattern_bank.bank)), connection, offset, size, after_read, user_data, &_dev->pci_config._connections, &_dev->pci_config._after_read_callbacks);
     #line 2548 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 }
-#line 7465 "pci-data-capture-dml.c"
+#line 7479 "pci-data-capture-dml.c"
 
 /* pci_config.bank_instrumentation_subscribe.enable_connection_callbacks */
 static void  _DML_M_pci_config__bank_instrumentation_subscribe__enable_connection_callbacks(pci_data_capture_t *_dev, conf_object_t *connection)
@@ -7471,7 +7485,7 @@ static void  _DML_M_pci_config__bank_instrumentation_subscribe__enable_connectio
     return;
     #line 2587 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 }
-#line 7475 "pci-data-capture-dml.c"
+#line 7489 "pci-data-capture-dml.c"
 
 /* pci_config.bank_instrumentation_subscribe.disable_connection_callbacks */
 static void  _DML_M_pci_config__bank_instrumentation_subscribe__disable_connection_callbacks(pci_data_capture_t *_dev, conf_object_t *connection)
@@ -7481,13 +7495,13 @@ static void  _DML_M_pci_config__bank_instrumentation_subscribe__disable_connecti
     return;
     #line 2590 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 }
-#line 7485 "pci-data-capture-dml.c"
+#line 7499 "pci-data-capture-dml.c"
 
 /* io_memory.operation */
 static exception_type_t _DML_M_io_memory__operation(pci_data_capture_t *_dev, generic_transaction_t *mem_op, map_info_t map_info)
 #line 1126 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
 {
-    uint64 v1049_offset UNUSED  = map_info.start - map_info.base;
+    uint64 v1053_offset UNUSED  = map_info.start - map_info.base;
     {
         #line 1128 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
         _each_in_t __each_in_expr = (_each_in_t){_each__function_mapped_bank__in__dev, 2, 0, 1};
@@ -7504,41 +7518,41 @@ static exception_type_t _DML_M_io_memory__operation(pci_data_capture_t *_dev, ge
             #line 1128 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
             {
                 #line 1128 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
-                function_mapped_bank v1050_b UNUSED  = {_list.vtable, {_list.id, _inner_idx}};
-                if ((int64 )VTABLE_PARAM(v1050_b, struct _function_mapped_bank, function) == (int64 )map_info.function)
+                function_mapped_bank v1054_b UNUSED  = {_list.vtable, {_list.id, _inner_idx}};
+                if ((int64 )VTABLE_PARAM(v1054_b, struct _function_mapped_bank, function) == (int64 )map_info.function)
                 #line 1129 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
                 {
-                    if (!VTABLE_PARAM(UPCAST(v1050_b, function_mapped_bank, bank), struct _bank, use_io_memory))
+                    if (!VTABLE_PARAM(UPCAST(v1054_b, function_mapped_bank, bank), struct _bank, use_io_memory))
                     #line 1130 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
                     {
-                        map_target_t *v1053_mt UNUSED  = SIM_new_map_target(_DML_TM_bank___bank_obj(_dev, UPCAST(v1050_b, function_mapped_bank, bank)), NULL, NULL);
+                        map_target_t *v1057_mt UNUSED  = SIM_new_map_target(_DML_TM_bank___bank_obj(_dev, UPCAST(v1054_b, function_mapped_bank, bank)), NULL, NULL);
                         #line 1133 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
-                        if (!(!(v1053_mt == NULL)))
+                        if (!(!(v1057_mt == NULL)))
                         #line 1133 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
                         {
-                            exception_type_t v1054__exc UNUSED  = SIM_clear_exception();
-                            SIM_LOG_ERROR(&_dev->obj, 0LL, "failed to create map target for %s: %s", SIM_object_name(_DML_TM_bank___bank_obj(_dev, UPCAST(v1050_b, function_mapped_bank, bank))), SIM_last_error());
+                            exception_type_t v1058__exc UNUSED  = SIM_clear_exception();
+                            SIM_LOG_ERROR(&_dev->obj, 0LL, "failed to create map target for %s: %s", SIM_object_name(_DML_TM_bank___bank_obj(_dev, UPCAST(v1054_b, function_mapped_bank, bank))), SIM_last_error());
                             #line 1137 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
                             return (int32 )0x407LL;
                         }
                         #line 1142 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
-                        uint64 v1053_before UNUSED  = SIM_get_mem_op_physical_address(mem_op);
+                        uint64 v1057_before UNUSED  = SIM_get_mem_op_physical_address(mem_op);
                         #line 1144 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
-                        SIM_set_mem_op_physical_address(mem_op, v1053_before + v1049_offset);
-                        exception_type_t v1053_ret UNUSED  = VT_map_target_access(v1053_mt, mem_op);
+                        SIM_set_mem_op_physical_address(mem_op, v1057_before + v1053_offset);
+                        exception_type_t v1057_ret UNUSED  = VT_map_target_access(v1057_mt, mem_op);
                         #line 1147 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
-                        SIM_set_mem_op_physical_address(mem_op, v1053_before);
-                        SIM_free_map_target(v1053_mt);
-                        return v1053_ret;
+                        SIM_set_mem_op_physical_address(mem_op, v1057_before);
+                        SIM_free_map_target(v1057_mt);
+                        return v1057_ret;
                     }
-                    if (CALL_TRAIT_METHOD(bank, io_memory_access, _dev, UPCAST(v1050_b, function_mapped_bank, bank), mem_op, SIM_get_mem_op_physical_address(mem_op) + v1049_offset, NULL))
+                    if (CALL_TRAIT_METHOD(bank, io_memory_access, _dev, UPCAST(v1054_b, function_mapped_bank, bank), mem_op, SIM_get_mem_op_physical_address(mem_op) + v1053_offset, NULL))
                     #line 1155 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
                     return (int32 )0x401LL;
                     else
                     return (int32 )0x407LL;
                     #line 1159 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
                 }
-                #line 7542 "pci-data-capture-dml.c"
+                #line 7556 "pci-data-capture-dml.c"
             }
             #line 1128 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
         }
@@ -7549,7 +7563,7 @@ static exception_type_t _DML_M_io_memory__operation(pci_data_capture_t *_dev, ge
     #line 1168 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
     return (int32 )0x407LL;
 }
-#line 7553 "pci-data-capture-dml.c"
+#line 7567 "pci-data-capture-dml.c"
 
 /* SRESET.signal.signal_raise */
 static void  _DML_M_SRESET__signal__signal_raise(pci_data_capture_t *_dev)
@@ -7559,7 +7573,7 @@ static void  _DML_M_SRESET__signal__signal_raise(pci_data_capture_t *_dev)
     return;
     #line 324 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
 }
-#line 7563 "pci-data-capture-dml.c"
+#line 7577 "pci-data-capture-dml.c"
 
 /* SRESET.signal.signal_lower */
 static void  _DML_M_SRESET__signal__signal_lower(pci_data_capture_t *_dev)
@@ -7568,7 +7582,7 @@ static void  _DML_M_SRESET__signal__signal_lower(pci_data_capture_t *_dev)
     return;
     #line 326 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
 }
-#line 7572 "pci-data-capture-dml.c"
+#line 7586 "pci-data-capture-dml.c"
 
 /* HRESET.signal.signal_raise */
 static void  _DML_M_HRESET__signal__signal_raise(pci_data_capture_t *_dev)
@@ -7578,7 +7592,7 @@ static void  _DML_M_HRESET__signal__signal_raise(pci_data_capture_t *_dev)
     return;
     #line 246 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
 }
-#line 7582 "pci-data-capture-dml.c"
+#line 7596 "pci-data-capture-dml.c"
 
 /* HRESET.signal.signal_lower */
 static void  _DML_M_HRESET__signal__signal_lower(pci_data_capture_t *_dev)
@@ -7587,7 +7601,7 @@ static void  _DML_M_HRESET__signal__signal_lower(pci_data_capture_t *_dev)
     return;
     #line 248 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/utility.dml"
 }
-#line 7591 "pci-data-capture-dml.c"
+#line 7605 "pci-data-capture-dml.c"
 
 /* _register_all_attributes */
 static void  _DML_M__register_all_attributes()
@@ -7598,94 +7612,94 @@ static void  _DML_M__register_all_attributes()
     return;
     #line 1049 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 }
-#line 7602 "pci-data-capture-dml.c"
+#line 7616 "pci-data-capture-dml.c"
 
 /* _set_attribute_attr_portobj_trampoline */
 static set_error_t _DML_M__set_attribute_attr_portobj_trampoline(void  *_info, conf_object_t *_portobj, attr_value_t *val, attr_value_t *_idx)
 #line 943 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 {
-    _port_object_t *v1062_portobj UNUSED  = (_port_object_t *)_portobj;
-    _dml_attr_getset_info_t *v1062_info UNUSED  = (_dml_attr_getset_info_t *)_info;
+    _port_object_t *v1066_portobj UNUSED  = (_port_object_t *)_portobj;
+    _dml_attr_getset_info_t *v1066_info UNUSED  = (_dml_attr_getset_info_t *)_info;
     #line 947 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    uint32 v1062_flat_index_offset UNUSED  = (uint32 )0ULL;
-    uint32 v1062_offset_coefficient UNUSED  = v1062_info->num;
+    uint32 v1066_flat_index_offset UNUSED  = (uint32 )0ULL;
+    uint32 v1066_offset_coefficient UNUSED  = v1066_info->num;
     {
         #line 949 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        uint32 v1063_i UNUSED  = (uint32 )0ULL;
+        uint32 v1067_i UNUSED  = (uint32 )0ULL;
         #line 949 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        for (; (int64 )v1063_i < (int64 )v1062_portobj->ndims; (int64 )++(v1063_i))
+        for (; (int64 )v1067_i < (int64 )v1066_portobj->ndims; (int64 )++(v1067_i))
         #line 949 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
         {
-            uint32 *v1065_tmp UNUSED  = &v1062_offset_coefficient;
+            uint32 *v1069_tmp UNUSED  = &v1066_offset_coefficient;
             #line 950 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-            *v1065_tmp = (uint32 )(DML_div((int64 )*v1065_tmp, (int64 )v1062_info->id_info->dimsizes[(int64 )v1063_i], "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml", 950));
-            uint32 *v1066_tmp UNUSED  = &v1062_flat_index_offset;
+            *v1069_tmp = (uint32 )(DML_div((int64 )*v1069_tmp, (int64 )v1066_info->id_info->dimsizes[(int64 )v1067_i], "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml", 950));
+            uint32 *v1070_tmp UNUSED  = &v1066_flat_index_offset;
             #line 951 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-            *v1066_tmp = (uint32 )((uint64 )*v1066_tmp + (uint64 )v1062_portobj->indices[(int64 )v1063_i] * (uint64 )v1062_offset_coefficient);
+            *v1070_tmp = (uint32 )((uint64 )*v1070_tmp + (uint64 )v1066_portobj->indices[(int64 )v1067_i] * (uint64 )v1066_offset_coefficient);
         }
         #line 949 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     }
     #line 954 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    return (&_trampoline_DML_M__set_attribute_attr)(v1062_portobj->dev, _info, (uint32 )v1062_portobj->ndims, v1062_flat_index_offset, val);
+    return (&_trampoline_DML_M__set_attribute_attr)(v1066_portobj->dev, _info, (uint32 )v1066_portobj->ndims, v1066_flat_index_offset, val);
     #line 956 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 }
-#line 7633 "pci-data-capture-dml.c"
+#line 7647 "pci-data-capture-dml.c"
 
 /* _set_attribute_attr */
 static set_error_t _DML_M__set_attribute_attr(pci_data_capture_t *_dev, _dml_attr_getset_info_t const *_conf_info, uint32 start_dim, uint32 flat_index_offset, attr_value_t *val)
 #line 960 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 {
-    _dml_attr_getset_info_t v1067_conf_info UNUSED  = *_conf_info;
-    _id_info_t v1067_id_info UNUSED  = *v1067_conf_info.id_info;
-    DML_ASSERT("/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml", 963, (int64 )start_dim <= (int64 )v1067_id_info.dimensions);
-    if ((int64 )((uint64 )v1067_id_info.dimensions - (uint64 )start_dim) == 0LL)
+    _dml_attr_getset_info_t v1071_conf_info UNUSED  = *_conf_info;
+    _id_info_t v1071_id_info UNUSED  = *v1071_conf_info.id_info;
+    DML_ASSERT("/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml", 963, (int64 )start_dim <= (int64 )v1071_id_info.dimensions);
+    if ((int64 )((uint64 )v1071_id_info.dimensions - (uint64 )start_dim) == 0LL)
     #line 964 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     {
-        _traitref_t v1068_traitref UNUSED  = {.trait=v1067_conf_info.vtable, .id={.id=v1067_id_info.id, .encoded_index=flat_index_offset}};
+        _traitref_t v1072_traitref UNUSED  = {.trait=v1071_conf_info.vtable, .id={.id=v1071_id_info.id, .encoded_index=flat_index_offset}};
         #line 967 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        return CALL_TRAIT_METHOD(_conf_attribute, set_attribute, _dev, *((_conf_attribute *)&v1068_traitref), *val);
+        return CALL_TRAIT_METHOD(_conf_attribute, set_attribute, _dev, *((_conf_attribute *)&v1072_traitref), *val);
     }
     #line 970 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    attr_value_t *v1067_items UNUSED  = MM_ZALLOC((int64 )v1067_conf_info.num, attr_value_t );
-    attr_value_t *v1067_items_buf UNUSED  = MM_ZALLOC((int64 )v1067_conf_info.num, attr_value_t );
+    attr_value_t *v1071_items UNUSED  = MM_ZALLOC((int64 )v1071_conf_info.num, attr_value_t );
+    attr_value_t *v1071_items_buf UNUSED  = MM_ZALLOC((int64 )v1071_conf_info.num, attr_value_t );
     {
         #line 972 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        *v1067_items = *val;
+        *v1071_items = *val;
         #line 972 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     }
-    size_t v1067_no_items UNUSED  = 1LL;
-    bool v1067_allow_cutoff UNUSED  = v1067_conf_info.allow_cutoff;
+    size_t v1071_no_items UNUSED  = 1LL;
+    bool v1071_allow_cutoff UNUSED  = v1071_conf_info.allow_cutoff;
     #line 976 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     {
         #line 976 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        int v1071_i UNUSED  = (int )start_dim;
+        int v1075_i UNUSED  = (int )start_dim;
         #line 976 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        for (; (int64 )v1071_i < (int64 )((int )v1067_id_info.dimensions); (int64 )++(v1071_i))
+        for (; (int64 )v1075_i < (int64 )((int )v1071_id_info.dimensions); (int64 )++(v1075_i))
         #line 976 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
         {
-            uint32 v1072_frag_size UNUSED  = v1067_id_info.dimsizes[(int64 )v1071_i];
-            size_t v1072_new_no_items UNUSED  = (uint64 )v1067_no_items * (uint64 )v1072_frag_size;
-            if (v1067_allow_cutoff)
+            uint32 v1076_frag_size UNUSED  = v1071_id_info.dimsizes[(int64 )v1075_i];
+            size_t v1076_new_no_items UNUSED  = (uint64 )v1071_no_items * (uint64 )v1076_frag_size;
+            if (v1071_allow_cutoff)
             {
                 #line 980 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-                int v1074_j UNUSED  = (int32 )0LL;
+                int v1078_j UNUSED  = (int32 )0LL;
                 #line 980 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-                for (; DML_lt_iu((int64 )v1074_j, (uint64 )v1067_no_items); (int64 )++(v1074_j))
+                for (; DML_lt_iu((int64 )v1078_j, (uint64 )v1071_no_items); (int64 )++(v1078_j))
                 #line 980 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
                 {
-                    uint32 v1075_subfrag_size UNUSED  = (uint32 )(SIM_attr_is_list(v1067_items[(int64 )v1074_j]) ? (int64 )SIM_attr_list_size(v1067_items[(int64 )v1074_j]) : 0LL);
+                    uint32 v1079_subfrag_size UNUSED  = (uint32 )(SIM_attr_is_list(v1071_items[(int64 )v1078_j]) ? (int64 )SIM_attr_list_size(v1071_items[(int64 )v1078_j]) : 0LL);
                     #line 984 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-                    attr_value_t *v1075_subfrags UNUSED  = 0LL < (int64 )v1075_subfrag_size ? SIM_attr_list(v1067_items[(int64 )v1074_j]) : NULL;
+                    attr_value_t *v1079_subfrags UNUSED  = 0LL < (int64 )v1079_subfrag_size ? SIM_attr_list(v1071_items[(int64 )v1078_j]) : NULL;
                     #line 987 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
                     {
                         #line 987 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-                        int v1076_k UNUSED  = (int32 )0LL;
+                        int v1080_k UNUSED  = (int32 )0LL;
                         #line 987 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-                        for (; (int64 )v1076_k < (int64 )v1075_subfrag_size; (int64 )++(v1076_k))
+                        for (; (int64 )v1080_k < (int64 )v1079_subfrag_size; (int64 )++(v1080_k))
                         #line 989 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
                         {
                             #line 989 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-                            v1067_items_buf[(int64 )((uint64 )v1074_j * (uint64 )v1072_frag_size + (uint64 )v1076_k)] = v1075_subfrags[(int64 )v1076_k];
+                            v1071_items_buf[(int64 )((uint64 )v1078_j * (uint64 )v1076_frag_size + (uint64 )v1080_k)] = v1079_subfrags[(int64 )v1080_k];
                             #line 989 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
                         }
                         #line 987 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
@@ -7693,12 +7707,12 @@ static set_error_t _DML_M__set_attribute_attr(pci_data_capture_t *_dev, _dml_att
                     #line 991 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
                     {
                         #line 991 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-                        int v1079_k UNUSED  = (int )v1075_subfrag_size;
+                        int v1083_k UNUSED  = (int )v1079_subfrag_size;
                         #line 991 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-                        for (; (int64 )v1079_k < (int64 )v1072_frag_size; (int64 )++(v1079_k))
+                        for (; (int64 )v1083_k < (int64 )v1076_frag_size; (int64 )++(v1083_k))
                         {
                             #line 992 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-                            v1067_items_buf[(int64 )((uint64 )v1074_j * (uint64 )v1072_frag_size + (uint64 )v1079_k)] = SIM_make_attr_nil();
+                            v1071_items_buf[(int64 )((uint64 )v1078_j * (uint64 )v1076_frag_size + (uint64 )v1083_k)] = SIM_make_attr_nil();
                             #line 992 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
                         }
                         #line 991 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
@@ -7711,20 +7725,20 @@ static set_error_t _DML_M__set_attribute_attr(pci_data_capture_t *_dev, _dml_att
             else
             {
                 #line 996 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-                int v1083_j UNUSED  = (int32 )0LL;
+                int v1087_j UNUSED  = (int32 )0LL;
                 #line 996 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-                for (; DML_lt_iu((int64 )v1083_j, (uint64 )v1067_no_items); (int64 )++(v1083_j))
+                for (; DML_lt_iu((int64 )v1087_j, (uint64 )v1071_no_items); (int64 )++(v1087_j))
                 #line 996 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
                 {
-                    attr_value_t *v1084_subfrags UNUSED  = SIM_attr_list(v1067_items[(int64 )v1083_j]);
+                    attr_value_t *v1088_subfrags UNUSED  = SIM_attr_list(v1071_items[(int64 )v1087_j]);
                     {
                         #line 998 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-                        int v1085_k UNUSED  = (int32 )0LL;
+                        int v1089_k UNUSED  = (int32 )0LL;
                         #line 998 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-                        for (; (int64 )v1085_k < (int64 )v1072_frag_size; (int64 )++(v1085_k))
+                        for (; (int64 )v1089_k < (int64 )v1076_frag_size; (int64 )++(v1089_k))
                         {
                             #line 999 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-                            v1067_items_buf[(int64 )((uint64 )v1083_j * (uint64 )v1072_frag_size + (uint64 )v1085_k)] = v1084_subfrags[(int64 )v1085_k];
+                            v1071_items_buf[(int64 )((uint64 )v1087_j * (uint64 )v1076_frag_size + (uint64 )v1089_k)] = v1088_subfrags[(int64 )v1089_k];
                             #line 999 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
                         }
                         #line 998 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
@@ -7734,133 +7748,133 @@ static set_error_t _DML_M__set_attribute_attr(pci_data_capture_t *_dev, _dml_att
                 #line 996 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
             }
             #line 1003 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-            attr_value_t *v1088_tmp0 UNUSED  = v1067_items_buf;
+            attr_value_t *v1092_tmp0 UNUSED  = v1071_items_buf;
             #line 1003 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-            attr_value_t *v1088_tmp1 UNUSED  = v1067_items;
+            attr_value_t *v1092_tmp1 UNUSED  = v1071_items;
             #line 1003 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
             {
                 #line 1003 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-                v1067_items = v1088_tmp0;
+                v1071_items = v1092_tmp0;
                 #line 1003 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
             }
             #line 1003 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
             {
                 #line 1003 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-                v1067_items_buf = v1088_tmp1;
+                v1071_items_buf = v1092_tmp1;
                 #line 1003 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
             }
             {
                 #line 1004 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-                v1067_no_items = v1072_new_no_items;
+                v1071_no_items = v1076_new_no_items;
                 #line 1004 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
             }
         }
         #line 976 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     }
     #line 1006 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    MM_FREE(v1067_items_buf);
+    MM_FREE(v1071_items_buf);
     {
         #line 1007 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        int v1090_i UNUSED  = (int32 )0LL;
+        int v1094_i UNUSED  = (int32 )0LL;
         #line 1007 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        for (; DML_lt_iu((int64 )v1090_i, (uint64 )v1067_no_items); (int64 )++(v1090_i))
+        for (; DML_lt_iu((int64 )v1094_i, (uint64 )v1071_no_items); (int64 )++(v1094_i))
         #line 1007 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
         {
-            _traitref_t v1091_traitref UNUSED  = {.trait=v1067_conf_info.vtable, .id={.id=v1067_id_info.id, .encoded_index=(uint32 )((uint64 )v1090_i + (uint64 )flat_index_offset)}};
+            _traitref_t v1095_traitref UNUSED  = {.trait=v1071_conf_info.vtable, .id={.id=v1071_id_info.id, .encoded_index=(uint32 )((uint64 )v1094_i + (uint64 )flat_index_offset)}};
             #line 1010 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-            set_error_t v1091_status UNUSED  = CALL_TRAIT_METHOD(_conf_attribute, set_attribute, _dev, *((_conf_attribute *)&v1091_traitref), v1067_items[(int64 )v1090_i]);
+            set_error_t v1095_status UNUSED  = CALL_TRAIT_METHOD(_conf_attribute, set_attribute, _dev, *((_conf_attribute *)&v1095_traitref), v1071_items[(int64 )v1094_i]);
             #line 1012 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-            if (!((int64 )v1091_status == 0LL))
+            if (!((int64 )v1095_status == 0LL))
             #line 1012 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
             {
-                MM_FREE(v1067_items);
-                return v1091_status;
+                MM_FREE(v1071_items);
+                return v1095_status;
             }
         }
         #line 1007 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     }
     #line 1017 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    MM_FREE(v1067_items);
+    MM_FREE(v1071_items);
     return (int32 )0LL;
 }
-#line 7787 "pci-data-capture-dml.c"
+#line 7801 "pci-data-capture-dml.c"
 
 /* _get_attribute_attr_portobj_trampoline */
 static attr_value_t _DML_M__get_attribute_attr_portobj_trampoline(void  *_info, conf_object_t *_portobj, attr_value_t *_idx)
 #line 876 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 {
-    _port_object_t *v1093_portobj UNUSED  = (_port_object_t *)_portobj;
-    _dml_attr_getset_info_t *v1093_info UNUSED  = (_dml_attr_getset_info_t *)_info;
+    _port_object_t *v1097_portobj UNUSED  = (_port_object_t *)_portobj;
+    _dml_attr_getset_info_t *v1097_info UNUSED  = (_dml_attr_getset_info_t *)_info;
     #line 880 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    uint32 v1093_flat_index_offset UNUSED  = (uint32 )0ULL;
-    uint32 v1093_offset_coefficient UNUSED  = v1093_info->num;
+    uint32 v1097_flat_index_offset UNUSED  = (uint32 )0ULL;
+    uint32 v1097_offset_coefficient UNUSED  = v1097_info->num;
     {
         #line 882 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        uint32 v1094_i UNUSED  = (uint32 )0ULL;
+        uint32 v1098_i UNUSED  = (uint32 )0ULL;
         #line 882 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        for (; (int64 )v1094_i < (int64 )v1093_portobj->ndims; (int64 )++(v1094_i))
+        for (; (int64 )v1098_i < (int64 )v1097_portobj->ndims; (int64 )++(v1098_i))
         #line 882 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
         {
-            uint32 *v1096_tmp UNUSED  = &v1093_offset_coefficient;
+            uint32 *v1100_tmp UNUSED  = &v1097_offset_coefficient;
             #line 883 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-            *v1096_tmp = (uint32 )(DML_div((int64 )*v1096_tmp, (int64 )v1093_info->id_info->dimsizes[(int64 )v1094_i], "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml", 883));
-            uint32 *v1097_tmp UNUSED  = &v1093_flat_index_offset;
+            *v1100_tmp = (uint32 )(DML_div((int64 )*v1100_tmp, (int64 )v1097_info->id_info->dimsizes[(int64 )v1098_i], "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml", 883));
+            uint32 *v1101_tmp UNUSED  = &v1097_flat_index_offset;
             #line 884 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-            *v1097_tmp = (uint32 )((uint64 )*v1097_tmp + (uint64 )v1093_portobj->indices[(int64 )v1094_i] * (uint64 )v1093_offset_coefficient);
+            *v1101_tmp = (uint32 )((uint64 )*v1101_tmp + (uint64 )v1097_portobj->indices[(int64 )v1098_i] * (uint64 )v1097_offset_coefficient);
         }
         #line 882 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     }
     #line 887 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    return (&_trampoline_DML_M__get_attribute_attr)(v1093_portobj->dev, _info, (uint32 )v1093_portobj->ndims, v1093_flat_index_offset);
+    return (&_trampoline_DML_M__get_attribute_attr)(v1097_portobj->dev, _info, (uint32 )v1097_portobj->ndims, v1097_flat_index_offset);
     #line 889 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 }
-#line 7818 "pci-data-capture-dml.c"
+#line 7832 "pci-data-capture-dml.c"
 
 /* _get_attribute_attr */
 static attr_value_t _DML_M__get_attribute_attr(pci_data_capture_t *_dev, _dml_attr_getset_info_t const *_conf_info, uint32 start_dim, uint32 flat_index_offset)
 #line 893 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 {
-    _dml_attr_getset_info_t v1098_conf_info UNUSED  = *_conf_info;
-    _id_info_t v1098_id_info UNUSED  = *v1098_conf_info.id_info;
-    DML_ASSERT("/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml", 896, (int64 )start_dim <= (int64 )v1098_id_info.dimensions);
+    _dml_attr_getset_info_t v1102_conf_info UNUSED  = *_conf_info;
+    _id_info_t v1102_id_info UNUSED  = *v1102_conf_info.id_info;
+    DML_ASSERT("/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml", 896, (int64 )start_dim <= (int64 )v1102_id_info.dimensions);
     #line 898 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    if ((int64 )((uint64 )v1098_id_info.dimensions - (uint64 )start_dim) == 0LL)
+    if ((int64 )((uint64 )v1102_id_info.dimensions - (uint64 )start_dim) == 0LL)
     #line 898 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     {
-        _traitref_t v1099_traitref UNUSED  = {.trait=v1098_conf_info.vtable, .id={.id=v1098_id_info.id, .encoded_index=flat_index_offset}};
+        _traitref_t v1103_traitref UNUSED  = {.trait=v1102_conf_info.vtable, .id={.id=v1102_id_info.id, .encoded_index=flat_index_offset}};
         #line 901 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        return CALL_TRAIT_METHOD0(_conf_attribute, get_attribute, _dev, *((_conf_attribute *)&v1099_traitref));
+        return CALL_TRAIT_METHOD0(_conf_attribute, get_attribute, _dev, *((_conf_attribute *)&v1103_traitref));
     }
     #line 904 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    size_t v1098_no_items UNUSED  = v1098_conf_info.num;
+    size_t v1102_no_items UNUSED  = v1102_conf_info.num;
     {
         #line 905 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        uint32 v1101_i UNUSED  = (uint32 )0ULL;
+        uint32 v1105_i UNUSED  = (uint32 )0ULL;
         #line 905 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        for (; (int64 )v1101_i < (int64 )start_dim; (int64 )++(v1101_i))
+        for (; (int64 )v1105_i < (int64 )start_dim; (int64 )++(v1105_i))
         #line 905 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
         {
-            size_t *v1103_tmp UNUSED  = &v1098_no_items;
+            size_t *v1107_tmp UNUSED  = &v1102_no_items;
             #line 906 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-            *v1103_tmp = DML_divu((uint64 )*v1103_tmp, (uint64 )v1098_id_info.dimsizes[(int64 )v1101_i], "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml", 906);
+            *v1107_tmp = DML_divu((uint64 )*v1107_tmp, (uint64 )v1102_id_info.dimsizes[(int64 )v1105_i], "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml", 906);
         }
         #line 905 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     }
     #line 908 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    attr_value_t *v1098_items UNUSED  = MM_ZALLOC((uint64 )v1098_no_items, attr_value_t );
-    attr_value_t *v1098_items_buf UNUSED  = MM_ZALLOC((uint64 )v1098_no_items, attr_value_t );
+    attr_value_t *v1102_items UNUSED  = MM_ZALLOC((uint64 )v1102_no_items, attr_value_t );
+    attr_value_t *v1102_items_buf UNUSED  = MM_ZALLOC((uint64 )v1102_no_items, attr_value_t );
     {
         #line 910 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        int v1104_i UNUSED  = (int32 )0LL;
+        int v1108_i UNUSED  = (int32 )0LL;
         #line 910 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        for (; DML_lt_iu((int64 )v1104_i, (uint64 )v1098_no_items); (int64 )++(v1104_i))
+        for (; DML_lt_iu((int64 )v1108_i, (uint64 )v1102_no_items); (int64 )++(v1108_i))
         #line 910 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
         {
-            _traitref_t v1105_traitref UNUSED  = {.trait=v1098_conf_info.vtable, .id={.id=v1098_id_info.id, .encoded_index=(uint32 )((uint64 )v1104_i + (uint64 )flat_index_offset)}};
+            _traitref_t v1109_traitref UNUSED  = {.trait=v1102_conf_info.vtable, .id={.id=v1102_id_info.id, .encoded_index=(uint32 )((uint64 )v1108_i + (uint64 )flat_index_offset)}};
             #line 913 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
             {
                 #line 913 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-                v1098_items[(int64 )v1104_i] = CALL_TRAIT_METHOD0(_conf_attribute, get_attribute, _dev, *((_conf_attribute *)&v1105_traitref));
+                v1102_items[(int64 )v1108_i] = CALL_TRAIT_METHOD0(_conf_attribute, get_attribute, _dev, *((_conf_attribute *)&v1109_traitref));
                 #line 913 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
             }
         }
@@ -7869,33 +7883,33 @@ static attr_value_t _DML_M__get_attribute_attr(pci_data_capture_t *_dev, _dml_at
     #line 915 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     {
         #line 915 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        int v1107_i UNUSED  = (int )((uint64 )((int )v1098_id_info.dimensions) - 1ULL);
+        int v1111_i UNUSED  = (int )((uint64 )((int )v1102_id_info.dimensions) - 1ULL);
         #line 915 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-        for (; (int64 )start_dim <= (int64 )v1107_i; (int64 )--(v1107_i))
+        for (; (int64 )start_dim <= (int64 )v1111_i; (int64 )--(v1111_i))
         {
-            uint32 v1108_new_frag_size UNUSED  = v1098_id_info.dimsizes[(int64 )v1107_i];
-            size_t v1108_new_no_items UNUSED  = DML_divu((uint64 )v1098_no_items, (uint64 )v1108_new_frag_size, "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml", 918);
+            uint32 v1112_new_frag_size UNUSED  = v1102_id_info.dimsizes[(int64 )v1111_i];
+            size_t v1112_new_no_items UNUSED  = DML_divu((uint64 )v1102_no_items, (uint64 )v1112_new_frag_size, "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml", 918);
             {
                 #line 919 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-                int v1109_j UNUSED  = (int32 )0LL;
+                int v1113_j UNUSED  = (int32 )0LL;
                 #line 919 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-                for (; DML_lt_iu((int64 )v1109_j, (uint64 )v1108_new_no_items); (int64 )++(v1109_j))
+                for (; DML_lt_iu((int64 )v1113_j, (uint64 )v1112_new_no_items); (int64 )++(v1113_j))
                 #line 919 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
                 {
                     {
                         #line 920 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-                        v1098_items_buf[(int64 )v1109_j] = SIM_alloc_attr_list(v1108_new_frag_size);
+                        v1102_items_buf[(int64 )v1113_j] = SIM_alloc_attr_list(v1112_new_frag_size);
                         #line 920 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
                     }
-                    attr_value_t *v1110_new_frag UNUSED  = SIM_attr_list(v1098_items_buf[(int64 )v1109_j]);
+                    attr_value_t *v1114_new_frag UNUSED  = SIM_attr_list(v1102_items_buf[(int64 )v1113_j]);
                     {
                         #line 922 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-                        int v1112_k UNUSED  = (int32 )0LL;
+                        int v1116_k UNUSED  = (int32 )0LL;
                         #line 922 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-                        for (; (int64 )v1112_k < (int64 )v1108_new_frag_size; (int64 )++(v1112_k))
+                        for (; (int64 )v1116_k < (int64 )v1112_new_frag_size; (int64 )++(v1116_k))
                         {
                             #line 923 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-                            v1110_new_frag[(int64 )v1112_k] = v1098_items[(int64 )((uint64 )v1109_j * (uint64 )v1108_new_frag_size + (uint64 )v1112_k)];
+                            v1114_new_frag[(int64 )v1116_k] = v1102_items[(int64 )((uint64 )v1113_j * (uint64 )v1112_new_frag_size + (uint64 )v1116_k)];
                             #line 923 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
                         }
                         #line 922 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
@@ -7905,36 +7919,36 @@ static attr_value_t _DML_M__get_attribute_attr(pci_data_capture_t *_dev, _dml_at
                 #line 919 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
             }
             #line 926 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-            attr_value_t *v1115_tmp0 UNUSED  = v1098_items_buf;
+            attr_value_t *v1119_tmp0 UNUSED  = v1102_items_buf;
             #line 926 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-            attr_value_t *v1115_tmp1 UNUSED  = v1098_items;
+            attr_value_t *v1119_tmp1 UNUSED  = v1102_items;
             #line 926 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
             {
                 #line 926 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-                v1098_items = v1115_tmp0;
+                v1102_items = v1119_tmp0;
                 #line 926 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
             }
             #line 926 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
             {
                 #line 926 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-                v1098_items_buf = v1115_tmp1;
+                v1102_items_buf = v1119_tmp1;
                 #line 926 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
             }
             {
                 #line 927 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-                v1098_no_items = v1108_new_no_items;
+                v1102_no_items = v1112_new_no_items;
                 #line 927 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
             }
         }
         #line 915 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
     }
     #line 929 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
-    attr_value_t v1098_to_ret UNUSED  = *v1098_items;
-    MM_FREE(v1098_items);
-    MM_FREE(v1098_items_buf);
-    return v1098_to_ret;
+    attr_value_t v1102_to_ret UNUSED  = *v1102_items;
+    MM_FREE(v1102_items);
+    MM_FREE(v1102_items_buf);
+    return v1102_to_ret;
 }
-#line 7938 "pci-data-capture-dml.c"
+#line 7952 "pci-data-capture-dml.c"
 
 /* _set_attribute_attr_trampoline */
 static set_error_t _DML_M__set_attribute_attr_trampoline(void  *info, conf_object_t *obj, attr_value_t *val, attr_value_t *_idx)
@@ -7942,7 +7956,7 @@ static set_error_t _DML_M__set_attribute_attr_trampoline(void  *info, conf_objec
 {
     return (&_trampoline_DML_M__set_attribute_attr)(obj, info, (uint32 )0ULL, (uint32 )0ULL, val);
 }
-#line 7946 "pci-data-capture-dml.c"
+#line 7960 "pci-data-capture-dml.c"
 
 /* _get_attribute_attr_trampoline */
 static attr_value_t _DML_M__get_attribute_attr_trampoline(void  *info, conf_object_t *obj, attr_value_t *_idx)
@@ -7950,7 +7964,7 @@ static attr_value_t _DML_M__get_attribute_attr_trampoline(void  *info, conf_obje
 {
     return (&_trampoline_DML_M__get_attribute_attr)(obj, info, (uint32 )0ULL, (uint32 )0ULL);
 }
-#line 7954 "pci-data-capture-dml.c"
+#line 7968 "pci-data-capture-dml.c"
 
 /* _get_attribute_info */
 static _dml_attr_conf_info_t _DML_M__get_attribute_info(_conf_attribute attr)
@@ -7959,7 +7973,7 @@ static _dml_attr_conf_info_t _DML_M__get_attribute_info(_conf_attribute attr)
     return (_dml_attr_conf_info_t ) {.name=VTABLE_PARAM(attr, struct __conf_attribute, _attr_name), .type=VTABLE_PARAM(attr, struct __conf_attribute, _attr_type), .doc=VTABLE_PARAM(attr, struct __conf_attribute, _documentation), .parent_obj_class=!(VTABLE_PARAM(attr, struct __conf_attribute, _parent_obj_class) == NULL) ? *VTABLE_PARAM(attr, struct __conf_attribute, _parent_obj_class) : NULL, .proxy_info=VTABLE_PARAM(attr, struct __conf_attribute, _parent_obj_proxy_info), .flags=VTABLE_PARAM(attr, struct __conf_attribute, _flags), .object_relative_dims=VTABLE_PARAM(attr, struct __conf_attribute, _object_relative_dims), .readable=VTABLE_PARAM(attr, struct __conf_attribute, readable), .writable=VTABLE_PARAM(attr, struct __conf_attribute, writable), .should_be_registered=VTABLE_PARAM(attr, struct __conf_attribute, _should_be_registered), .allow_cutoff=VTABLE_PARAM(attr, struct __conf_attribute, _attr_allow_cutoff)};
     #line 852 "/home/usuario/Simics/simics-6.0.185/linux64/bin/dml/1.4/dml-builtins.dml"
 }
-#line 7963 "pci-data-capture-dml.c"
+#line 7977 "pci-data-capture-dml.c"
 
 conf_class_t *
 _initialize_pci_data_capture_dml(void)

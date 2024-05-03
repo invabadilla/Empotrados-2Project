@@ -250,7 +250,7 @@
 
 #include <simics/devs/memory-space.h>
 #undef DMLDIR_MEMORY_SPACE_H
-#define DMLDIR_X_DEVICE_H "/home/usuario/Downloads/academia-collaboration/simics-project/modules/x-device/x-device.h"
+#define DMLDIR_X_DEVICE_H "/home/usuario/Documents/Empotrados-2Project/simics-project/modules/x-device/x-device.h"
 
 #include <stdio.h>
 #include <stdlib.h>

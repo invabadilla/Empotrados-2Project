@@ -1,4 +1,16 @@
 version 6275
+dir /home/usuario/Documents/Empotrados-2Project/simics-project
+dir /home/usuario/Documents/Empotrados-2Project/simics-project/linux64/lib
+file 599632 1714079197 dma-device.so
+cap VER:5000;BLD:0;BLD_NS:__simics_project__;BUILDDATE:1712882337;MOD:dma-device;ABI:6275;API:6;PY_VERSION:0;PY_MINOR_VERSION:0;HOSTTYPE:linux64;CLS:dma_device;MODULE_LOAD;THREADSAFE;
+file 18656 1714079197 pci-capture-comp.so
+cap VER:5000;BLD:0;BLD_NS:__simics_project__;BUILDDATE:1712882340;MOD:pci-capture-comp;ABI:6275;API:6;PY_VERSION:0;PY_MINOR_VERSION:0;HOSTTYPE:linux64;CLS:pci_capture_comp;COMP:pci_capture_comp;MODULE_LOAD;THREADSAFE;
+file 1242184 1714765346 pci-data-capture.so
+cap VER:5000;BLD:0;BLD_NS:__simics_project__;BUILDDATE:1712882340;MOD:pci-data-capture;ABI:6275;API:6;PY_VERSION:0;PY_MINOR_VERSION:0;HOSTTYPE:linux64;CLS:pci_data_capture;MODULE_LOAD;THREADSAFE;
+file 63376 1714079708 tomasulo.so
+cap VER:5000;BLD:0;BLD_NS:__simics_project__;BUILDDATE:1712882344;MOD:tomasulo;ABI:6275;API:6;PY_VERSION:0;PY_MINOR_VERSION:0;HOSTTYPE:linux64;CLS:tomasulo;CLS:tomasulo_connection_t;MODULE_LOAD;SIMICS_START;THREADSAFE;
+file 600344 1714765355 x-device.so
+cap VER:5000;BLD:0;BLD_NS:__simics_project__;BUILDDATE:1712882345;MOD:x-device;ABI:6275;API:6;PY_VERSION:0;PY_MINOR_VERSION:0;HOSTTYPE:linux64;CLS:x_device;MODULE_LOAD;THREADSAFE;
 dir /home/usuario/Downloads/academia-collaboration/simics-project
 dir /home/usuario/Downloads/academia-collaboration/simics-project/linux64/lib
 file 599632 1714079197 dma-device.so

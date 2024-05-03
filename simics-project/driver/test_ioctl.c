@@ -29,7 +29,7 @@ int main()
     ioctl(fd, RD_VALUE, (int32_t*) &buffer);
     printf("Read test_register: 0x%x\n", buffer);
 
-    int32_t value = 0xCAFECAFE;
+    int32_t value = 0x19;
     ioctl(fd, WR_VALUE, (int32_t *) &value);
     printf("Write test_register succesfully done\n");
 
