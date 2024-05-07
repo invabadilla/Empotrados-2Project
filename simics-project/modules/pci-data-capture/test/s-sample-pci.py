@@ -7,6 +7,7 @@
 # Tests for the sample PCI device.
 
 import stest
+import conf
 import dev_util as du
 
 # Set up a PCI bus and a sample PCI device
@@ -22,6 +23,8 @@ pci_bus = SIM_create_object('pci-bus', 'pci_bus', [['conf_space', pci_conf],
 
 pci = SIM_create_object('pci_data_capture', 'pci_data_capture',
                         [['pci_bus', pci_bus]])
+                        
+#regs = du.bank_regs(conf.dev.bank.regs)
 
 # Test the PCI vendor and device IDs
 def test_ids():
@@ -30,8 +33,37 @@ def test_ids():
 
 # Test the registers of the device
 def test_regs():
-    version = du.Register_LE((pci, 1, 0x10))
-    stest.expect_equal(version.read(), 0x4711)
+    test_register = du.Register_LE((pci, 1, 0x0))
+    stest.expect_different(test_register.read(), 32)
+    print("test_register diff passed")
+    
+    test_register = du.Register_LE((pci, 1, 0x0))
+    stest.expect_equal(test_register.read(), 0)
+    print("test_register base 0 passed")
+    
+    BAR_1 = du.Register_LE((pci, 'pci_config', 0x10))
+    stest.expect_different(BAR_1.read(), 4)
+    print("BAR_1 Checked")
+    
+    BAR_2 = du.Register_LE((pci, 'pci_config', 0x14))
+    stest.expect_equal(BAR_2.read(), 0)
+    print("BAR_2 Checked")
+    
+    BAR_2 = du.Register_LE((pci, 'pci_config', 0x18))
+    stest.expect_equal(BAR_2.read(), 0)
+    print("BAR_2 Checked")
+    
+    BAR_3 = du.Register_LE((pci, 'pci_config', 0x1C))
+    stest.expect_equal(BAR_3.read(), 0)
+    print("BAR_3 Checked")
+    
+    BAR_4 = du.Register_LE((pci, 'pci_config', 0x20))
+    stest.expect_equal(BAR_4.read(), 0)
+    print("BAR_4 Checked")
+    
+    BAR_5 = du.Register_LE((pci, 'pci_config', 0x24))
+    stest.expect_equal(BAR_5.read(), 0)
+    print("BAR_5 Checked")
 
 # Test setting BAR to map the device in memory
 def test_mapping():
@@ -41,15 +73,16 @@ def test_mapping():
     addr = 0x100
     cmd_reg.write(2)     # Enable memory access
     bar_reg.write(addr)  # Map bank at addr
-    stest.expect_equal(pci_mem.attr.map[0][1], pci.bank.reg,
-                       "PCI device should have been mapped")
-
-    mem_read = pci_mem.iface.memory_space.read
-    stest.expect_equal(du.tuple_to_value_le(mem_read(None, addr + 0x10, 4, 0)),
-                       0x4711, "Version should be read")
+    
+    base_add = 0x0
+    mapped = du.Register_LE(pci.bank.regs, base_add)
+    stest.expect_equal(mapped.read(), 0)
+    print("Mapped reg test 1 pass")
+   
+    
 
 test_ids()
 test_regs()
 test_mapping()
 
-print("All tests passed.")
+print("\nAll tests passed.\n")

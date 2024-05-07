@@ -1,0 +1,5 @@
+bp-manager	/home/sergio/Documents/SIMICS/simics-6.0.169/linux64/lib/bp-manager.so
+tcf-agent	/home/sergio/Documents/SIMICS/simics-6.0.169/linux64/lib/tcf-agent.so
+system-panel-interface	/home/sergio/Documents/SIMICS/simics-6.0.169/linux64/lib/system-panel-interface.so
+old-breakpoint-manager	/home/sergio/Documents/SIMICS/simics-6.0.169/linux64/lib/old-breakpoint-manager.so
+x-device	/home/sergio/Documents/Empotrados/Empotrados-2Project/simics-project/linux64/lib/x-device.so

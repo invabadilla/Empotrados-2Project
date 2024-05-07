@@ -1,0 +1,18 @@
+Entering directory `/home/sergio/Documents/Empotrados/Empotrados-2Project/simics-project/modules/pci-data-capture/test'
+=BEGIN s-sample-pci
+Intel Simics 6 (build 6233 linux64) © 2024 Intel Corporation
+
+test_register diff passed
+test_register base 0 passed
+BAR_1 Checked
+BAR_2 Checked
+BAR_2 Checked
+BAR_3 Checked
+BAR_4 Checked
+BAR_5 Checked
+Mapped reg test 1 pass
+
+All tests passed.
+
+=END s-sample-pci 0.3 s
+Leaving directory `/home/sergio/Documents/Empotrados/Empotrados-2Project/simics-project/modules/pci-data-capture/test'
